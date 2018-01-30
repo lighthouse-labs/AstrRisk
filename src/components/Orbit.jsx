@@ -3,14 +3,17 @@ import Earth from './Earth.jsx'
 
 
 class Orbit extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
     this.handleClick = this.handleClick.bind(this);
+
+
 
   }
 
   handleClick() {
-    console.log('this is:', this);
+    console.log(this.props.neodata);
   }
 
   render() {
