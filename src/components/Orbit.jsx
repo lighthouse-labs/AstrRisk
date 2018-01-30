@@ -3,6 +3,15 @@ import Earth from './Earth.jsx'
 
 
 class Orbit extends Component {
+  constructor(){
+    super();
+    this.handleClick = this.handleClick.bind(this);
+
+  }
+
+  handleClick() {
+    console.log('this is:', this);
+  }
 
   render() {
     return (
@@ -10,11 +19,10 @@ class Orbit extends Component {
         <div className="orbit">
           <img src='../../public/assets/images/mars.svg' className="mars"/>
           <div className="moon-orbit">
-            <img src='../../public/assets/images/moon.svg' className="moon"/>
+            <img src='../../public/assets/images/moon.svg' className="moon" onClick={this.handleClick} />
             <Earth/>
           </div>
-        </div>)
-
+        </div>
       </div>
     )
   }

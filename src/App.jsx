@@ -7,19 +7,19 @@ class App extends Component {
     // this.state = {isToggleOn: true};
 
     // This binding is necessary to make `this` work in the callback
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('this is:', this);
-  }
+const neo = data.map(neo => {
 
+})
+<Neo></Neo>
 
   render() {
     return (
       <div>
         <h1>ASTRRISK</h1>
         <EarthSystem />
+        {neo}
       </div>
     );
   }
