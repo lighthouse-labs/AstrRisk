@@ -39,8 +39,9 @@ $distance-orbit: 1400px;
     position: absolute;
     transform: rotateX(-57deg);
     width: 20%;
+    height:35%;
     left: 260px;
-    top: 270px;
+    top: 230px;
     animation: earth-wobble 1s infinite linear;
     animation-direction: alternate;
 }
@@ -57,7 +58,7 @@ $distance-orbit: 1400px;
 
 .moon {
     width: 30px;
-    height: 60px;
+    height: 50px;
     position: absolute;
     top: inherit;
     left: inherit;
@@ -66,7 +67,7 @@ $distance-orbit: 1400px;
 
 .mars {
     width: 50px;
-    height: 50px;
+    height: 90px;
     position: absolute;
     top: 680px;
     left: 670px;
@@ -88,10 +89,10 @@ $distance-orbit: 1400px;
 // calling this animation rotate must be different for each object
 @keyframes rotate {
     0% {
-        transform: rotateZ(0deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(0deg) rotateX(-57deg);
+        transform: rotateZ(0deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(0deg) rotateX(0deg);
     }
     100% {
-        transform: rotateZ(360deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(-360deg) rotateX(-57deg);
+        transform: rotateZ(360deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(-360deg) rotateX(0deg);
     }
 }
 
@@ -106,10 +107,10 @@ $distance-orbit: 1400px;
 
 @keyframes earth-wobble {
     0% {
-        transform: translateY(-15px) rotateX(-57deg);
+        transform: translateY(-15px) rotateX(0deg);
     }
     100% {
-        transform: translateY(15px) rotateX(-57deg);
+        transform: translateY(15px) rotateX(0deg);
     }
 }
 
@@ -139,4 +140,8 @@ $distance-orbit: 1400px;
         left: 320px;
         top: 300px;
     }
+}
+
+svg:hover path {
+    fill: red;
 }
