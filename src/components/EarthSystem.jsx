@@ -9,12 +9,11 @@ class EarthSystem extends Component{
   render() {
     return (
       <div className="earth-system">
-        <Orbit neodata={this.props}/>
+        <Orbit/>
         <Earth/>
       </div>
     )
   }
-
 }
 
 export default EarthSystem;
