@@ -7,12 +7,12 @@ class Earth extends Component{
     return (	
     	<div className={"earth"}>
 	    <div className={"cube"}>
-	        <div className={"face1"}>E</div>
-	        <div className={"face2"}>A</div>
-	        <div className={"face3"}>R</div>
-	        <div className={"face4"}>T</div>
-	        <div className={"face5"}>H</div>
-	        <div className={"face6"}>6</div>
+	        <div className={"face1"}></div>
+	        <div className={"face2"}></div>
+	        <div className={"face3"}></div>
+	        <div className={"face4"}></div>
+	        <div className={"face5"}></div>
+	        <div className={"face6"}></div>
 	    </div>
 	    </div>
     )
