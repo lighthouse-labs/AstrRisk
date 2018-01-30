@@ -4,7 +4,6 @@ h1 {
 }
 
 section {
-  margin: 0 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,52 +22,48 @@ body {
 $distance-orbit: 1400px;
 
 .earth-system {
+    height: $distance-orbit;
+    width: $distance-orbit;
     transform: rotateX(57deg);
     transform-style: preserve-3d;
+    background-color: red;
 }
 
 .orbit {
     border-radius: 50%;
     width: $distance-orbit;
     height: $distance-orbit;
-    position: relative;
+    position: absolute;
     border: solid 2px #ccc;
 }
 
-.earth {
-    position: absolute;
-    transform: rotateX(-57deg);
-    width: 20%;
-    height:35%;
-    left: 260px;
-    top: 230px;
-}
+
 
 .moon-orbit {
     border-radius: 50%;
-    width: 700px;
-    height: 700px;
-    position: relative;
-    left: 330px;
-    top: 310px;
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    // left: 330px;
+    // top: 310px;
     border: solid 2px #ccc;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .moon {
     width: 30px;
     height: 50px;
     position: absolute;
-    top: inherit;
-    left: inherit;
-    animation: rotate-moon 8s infinite linear;
+    animation: rotate-moon 567s infinite linear;
 }
 
 .mars {
     width: 50px;
     height: 90px;
     position: absolute;
-    top: 680px;
-    left: 670px;
+    // top: 680px;
+    // left: 670px;
     animation: rotate 12s infinite linear;
 }
 
@@ -76,15 +71,12 @@ $distance-orbit: 1400px;
     animation-play-state: paused;
 }
 
-.earth:hover {
-    animation-play-state: paused;
-}
+
 
 .moon:hover {
     animation-play-state: paused;
 }
 
-// calling this animation rotate must be different for each object
 @keyframes rotate {
     0% {
         transform: rotateZ(0deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(0deg) rotateX(0deg);
@@ -96,9 +88,9 @@ $distance-orbit: 1400px;
 
 @keyframes rotate-moon {
     0% {
-        transform: rotateZ(0deg) translateX(343px) rotateZ(0deg) rotateX(0deg);
+        transform: rotateZ(0deg) translateX(120px) rotateZ(0deg) rotateX(0deg);
     }
     100% {
-        transform: rotateZ(360deg) translateX(343px) rotateZ(-360deg) rotateX(0deg);
+        transform: rotateZ(360deg) translateX(120px) rotateZ(-360deg) rotateX(0deg);
     }
 }

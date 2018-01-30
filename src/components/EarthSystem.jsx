@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import Orbit from './Orbit.jsx'
+import Orbit from './Orbit.jsx';
+import Earth from './Earth.jsx';
+
 
 
 class EarthSystem extends Component{
@@ -8,6 +10,7 @@ class EarthSystem extends Component{
     return (
       <div className="earth-system">
         <Orbit/>
+        <Earth/>
       </div>
     )
   }

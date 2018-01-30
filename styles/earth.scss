@@ -1,4 +1,12 @@
-.spinner div {
+.earth {
+    margin: 50%;
+}
+
+.earth:hover {
+    animation-play-state: paused;
+}
+
+.cube div {
     position: absolute;
     width: 120px;
     height: 120px;
@@ -9,29 +17,29 @@
     font-size: 100px;
 }
 
-.spinner .face1 { 
+.face1 { 
     transform: translateZ(60px);
 }
-.spinner .face2 { 
+.face2 { 
     transform: rotateY(90deg) translateZ(60px); 
 }
-.spinner .face3 { 
+.face3 { 
     transform: rotateY(90deg) rotateX(90deg) translateZ(60px); 
 }
-.spinner .face5 { 
+.face5 { 
     transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); 
 }
-.spinner .face6 { 
+.face6 { 
     transform: rotateX(-90deg) translateZ(60px); 
 }
 
-.spinner {
-    animation: spincube 12s linear infinite;
+.cube {
+    animation: spincube 42s linear infinite;
     transform-style: preserve-3d;
     transform-origin: 60px 60px 0;
 }
 
 @keyframes spincube {
-    0%      { transform: rotateY(1deg) rotateZ(-365deg); transform: rotateY(1deg) rotateZ(-365deg); }
-    100%      { transform: rotateY(1deg) rotateZ(353deg); transform: rotateY(1deg) rotateZ(353deg); }
+    0%      { transform: rotateY(1deg) rotateZ(365deg); transform: rotateY(1deg) rotateZ(365deg); }
+    100%      { transform: rotateY(1deg) rotateZ(-354deg); transform: rotateY(1deg) rotateZ(-354deg); }
 }
