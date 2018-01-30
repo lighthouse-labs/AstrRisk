@@ -1,39 +1,12 @@
 import React, {Component} from 'react';
 import EarthSystem from './components/EarthSystem.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { testButton, getNeoData } from './actions/actions.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-
-
-    // this.state = {isToggleOn: true};
-
-    // This binding is necessary to make `this` work in the callback
-    this.state = {
-      neoData: []
-    }
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  // Fetches data from  api server
-  componentDidMount() {
-    // fetch("http://localhost:3001/api/1990-02-14")
-    //   .then(res => res.json())
-    //   .then(
-    //   (result) => {
-    //     console.log(result);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    //   )
-  }
-
-  handleClick() {
-    console.log('this is:', this);
-  }
-=======
 
     this.state = {
       neodata: [
@@ -167,7 +140,6 @@ class App extends Component {
       ]
 
     }
->>>>>>> b017943cc972cf78728fa49f80fa89afe4cfbad3
 
   }
 
@@ -175,7 +147,25 @@ class App extends Component {
     return (<div>
       <h1>ASTRRISK</h1>
       <EarthSystem neodata={this.state}/>
+      {/* <h2>{this.props.testState}</h2>
+      <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button>
+      <button onClick={() => this.props.testButton('HELLO')}>TEST BUTTON</button> */}
     </div>);
   }
 }
-export default App;
+
+function mapStateToProps(state) {
+  return {
+    neoData: state.neoData,
+    testState: state.testReducer
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    testButton, //Usage: test('string to display');
+    getNeoData  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

@@ -45,13 +45,11 @@
     "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "cors": "^2.8.4",
-=======
-    "express": "^4.16.2",
->>>>>>> b017943cc972cf78728fa49f80fa89afe4cfbad3
     "react": "16.2.0",
-    "react-dom": "16.2.0"
+    "react-dom": "16.2.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "main": "server.js"
 }
