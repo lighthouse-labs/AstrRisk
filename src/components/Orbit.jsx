@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import Earth from './Earth.jsx'
 import Neo from './Neo.jsx'
 
@@ -15,12 +15,12 @@ class Orbit extends Component {
 
   render() {
 
-    return (<div>
+    return (
+      <Fragment>
       <div className="orbit">
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
         <div className="moon-orbit">
           <img src='../../public/assets/images/moon.svg' className="moon"/>
-
 
           <Earth/>
       </div>
@@ -30,7 +30,7 @@ class Orbit extends Component {
           })}
         </div>
       </div>
-    </div>)
+    </Fragment>)
   }
 
 }
