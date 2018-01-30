@@ -1,5 +1,7 @@
 .earth {
-    margin: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
 }
 
 .earth:hover {
@@ -34,6 +36,9 @@
 }
 
 .cube {
+    position: absolute;
+    left: -60px;
+    top: -60px;
     animation: spincube 42s linear infinite;
     transform-style: preserve-3d;
     transform-origin: 60px 60px 0;

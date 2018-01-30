@@ -2,19 +2,17 @@
     border-radius: 50%;
     width: 700px;
     height: 700px;
-    position: relative;
-    left: 330px;
-    top: 310px;
     border: solid 2px #ccc;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .neo {
     width: 30px;
     height: 50px;
-    position: absolute;
-    top: inherit;
-    left: inherit;
     animation: rotate-neo 15s infinite linear;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .neo:hover {
