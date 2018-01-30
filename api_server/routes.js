@@ -7,8 +7,9 @@ module.exports = () => {
   // Servers JSON for requested date
   router.get("/api/:date", (req, res) => {
     const date = req.params.date;
-    fs.readFile(`../${date}.json`, (err, data) => {
+    fs.readFile(`./json/${date}/${date}.json`, (err, data) => {
       if (err) throw err;
+      console.log("DATA ACCESSED")
       res.json(JSON.parse(data));
     })
   });

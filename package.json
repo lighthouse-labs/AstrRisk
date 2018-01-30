@@ -45,6 +45,7 @@
     "webpack-dev-server": "2.3.0"
   },
   "dependencies": {
+    "cors": "^2.8.4",
     "react": "16.2.0",
     "react-dom": "16.2.0"
   }
