@@ -24,16 +24,19 @@
     transform: translateZ(60px);
 }
 .face2 { 
-    transform: rotateY(90deg) translateZ(60px); 
+    transform: rotateY(90deg) translateZ(60px);
 }
 .face3 { 
-    transform: rotateY(90deg) rotateX(90deg) translateZ(60px); 
+    transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
 }
 .face5 { 
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px); 
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+}
+.face4 { 
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
 }
 .face6 { 
-    transform: rotateX(-90deg) translateZ(60px); 
+    transform: rotateX(-90deg) translateZ(60px);
 }
 
 .cube {
