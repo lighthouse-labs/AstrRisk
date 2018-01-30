@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import EarthSystem from './components/EarthSystem.jsx';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { testAction, loadData } from './actions/actions.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-
-    // this.state = {isToggleOn: true};
-
-    // This binding is necessary to make `this` work in the callback
     this.state = {
       neoData: []
     }
@@ -17,30 +16,38 @@ class App extends Component {
 
   // Fetches data from  api server
   componentDidMount() {
-    // fetch("http://localhost:3001/api/1990-02-14")
-    //   .then(res => res.json())
-    //   .then(
-    //   (result) => {
-    //     console.log(result);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    //   )
+    console.log('test action is: ', this.props.myAction);
   }
 
   handleClick() {
-    console.log('this is:', this);
+    console.log('HELLO');
   }
 
 
   render() {
     return (
       <div>
-        <h1>ASTRRISK</h1>
-        <EarthSystem />
+        <h1>{this.props.myState}</h1>
+        <button onClick={() => this.props.myAction("Data payload")}>CHANGE STATE</button>
+        <button onClick={() => this.props.getData()}>Load Data from API</button>
+        <button onClick={() => console.log(this.props.data)}>CURRENT STATE</button>
       </div>
     );
   }
 }
-export default App;
+
+function mapStateToProps(state) {
+  return {
+    myState: state.testReducer,
+    newData: state.loadDataReducer
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    myAction: testAction,
+    getData: loadData
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

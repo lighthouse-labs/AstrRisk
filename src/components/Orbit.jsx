@@ -11,7 +11,7 @@ class Orbit extends Component {
           <img src='../../public/assets/images/mars.svg' className="mars"/>
           <div className="moon-orbit">
             <img src='../../public/assets/images/moon.svg' className="moon"/>
-            <Earth/>
+            <Earth onClick={this.props.handleClick}/>
           </div>
         </div>)
 

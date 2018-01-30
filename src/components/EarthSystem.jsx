@@ -7,7 +7,7 @@ class EarthSystem extends Component{
   render() {
     return (
       <div className="earth-system">
-        <Orbit/>
+        <Orbit onClick={this.props.handleClick}/>
       </div>
     )
   }
