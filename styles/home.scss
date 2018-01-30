@@ -42,8 +42,6 @@ $distance-orbit: 1400px;
     height:35%;
     left: 260px;
     top: 230px;
-    animation: earth-wobble 1s infinite linear;
-    animation-direction: alternate;
 }
 
 .moon-orbit {
@@ -103,45 +101,4 @@ $distance-orbit: 1400px;
     100% {
         transform: rotateZ(360deg) translateX(343px) rotateZ(-360deg) rotateX(0deg);
     }
-}
-
-@keyframes earth-wobble {
-    0% {
-        transform: translateY(-15px) rotateX(0deg);
-    }
-    100% {
-        transform: translateY(15px) rotateX(0deg);
-    }
-}
-
-
-.shadow {
-  height: 40px;
-  border-radius: 100%;
-  width: 70px;
-  position: absolute;
-  opacity: 0.6;
-  box-shadow: 0px 200px 10px black;
-  z-index: 0;
-  animation: earth-shadow 1s infinite linear;
-  animation-direction: alternate;
-}
-
-@keyframes earth-shadow {
-    0% {
-        width:45px;
-        height:45px;
-        left:320px;
-        top:300px;
-    }
-    100% {
-        width:50px;
-        height: 50px;
-        left: 320px;
-        top: 300px;
-    }
-}
-
-svg:hover path {
-    fill: red;
 }
