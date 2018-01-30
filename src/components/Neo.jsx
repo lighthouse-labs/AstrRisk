@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 class Neo extends Component{
   constructor(){
@@ -12,10 +12,9 @@ class Neo extends Component{
 
   render(){
     return(
-      <div className="neo">
+      <Fragment>
         <img src='../../public/assets/images/neo.svg' className="neo"/>
-        <p>{this.props.distance}kms</p>
-      </div>
+      </Fragment>
 
     )
   }

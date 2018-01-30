@@ -1,84 +1,63 @@
-h1 {
-  font-weight: normal;
-  font-size: 22px;
-}
+$mars-orbit: 1400;
+$moon-orbit: 280;
+$neo-orbit: 700;
 
-section {
-  margin: 0 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-html,
 body {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  font-family: Helvetica;
   background-color: #4C4C4C;
 }
 
-$distance-orbit: 1400px;
-
 .earth-system {
+    height: $mars-orbit + px;
+    width: $mars-orbit + px;
     transform: rotateX(57deg);
     transform-style: preserve-3d;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .orbit {
     border-radius: 50%;
-    width: $distance-orbit;
-    height: $distance-orbit;
-    position: relative;
+    width: $mars-orbit + px;
+    height: $mars-orbit + px;
     border: solid 2px #ccc;
-}
-
-.earth {
-    position: absolute;
-    transform: rotateX(-57deg);
-    width: 20%;
-    height:35%;
-    left: 260px;
-    top: 230px;
-    animation: earth-wobble 1s infinite linear;
-    animation-direction: alternate;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .moon-orbit {
     border-radius: 50%;
-    width: 700px;
-    height: 700px;
-    position: relative;
-    left: 330px;
-    top: 310px;
+    position: absolute;
+    left: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+    top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+    width: $moon-orbit + px;
+    height: $moon-orbit + px;
     border: solid 2px #ccc;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .moon {
+    position: absolute;
+    left: (($moon-orbit / 2) - 15) + px;
+    top: (($moon-orbit / 2) - 25) + px;
     width: 30px;
     height: 50px;
-    position: absolute;
-    top: inherit;
-    left: inherit;
-    animation: rotate-moon 8s infinite linear;
+    animation: rotate-moon 5.67s infinite linear;
 }
 
 .mars {
+    position: absolute;
     width: 50px;
     height: 90px;
-    position: absolute;
-    top: 680px;
-    left: 670px;
+    left: (($mars-orbit/2) - 25) + px;
+    top: (($mars-orbit/2) - 45) + px;
     animation: rotate 12s infinite linear;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 .mars:hover {
-    animation-play-state: paused;
-}
-
-.earth:hover {
     animation-play-state: paused;
 }
 
@@ -86,17 +65,34 @@ $distance-orbit: 1400px;
     animation-play-state: paused;
 }
 
-// calling this animation rotate must be different for each object
-@keyframes rotate {
-    0% {
-        transform: rotateZ(0deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(0deg) rotateX(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg) translateX(calc( #{$distance-orbit} / 2)) rotateZ(-360deg) rotateX(0deg);
-    }
+.neo-orbit {
+    position: absolute;
+    border-radius: 50%;
+    left: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+    top: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+    width: $neo-orbit + px;
+    height: $neo-orbit + px;
+    border: solid 2px #ccc;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@keyframes rotate-moon {
+.neo {
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    animation: rotate-neo 15s infinite linear;
+    margin-left: auto;
+    margin-right: auto;
+    left: (($neo-orbit / 2) - 15) + px;
+    top: (($neo-orbit / 2) - 25) + px;
+}
+
+.neo:hover {
+    animation-play-state: paused;
+}
+
+@keyframes rotate-neo {
     0% {
         transform: rotateZ(0deg) translateX(343px) rotateZ(0deg) rotateX(0deg);
     }
@@ -105,43 +101,20 @@ $distance-orbit: 1400px;
     }
 }
 
-@keyframes earth-wobble {
+@keyframes rotate {
     0% {
-        transform: translateY(-15px) rotateX(0deg);
+        transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
     }
     100% {
-        transform: translateY(15px) rotateX(0deg);
+        transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
     }
 }
 
-
-.shadow {
-  height: 40px;
-  border-radius: 100%;
-  width: 70px;
-  position: absolute;
-  opacity: 0.6;
-  box-shadow: 0px 200px 10px black;
-  z-index: 0;
-  animation: earth-shadow 1s infinite linear;
-  animation-direction: alternate;
-}
-
-@keyframes earth-shadow {
+@keyframes rotate-moon {
     0% {
-        width:45px;
-        height:45px;
-        left:320px;
-        top:300px;
+        transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg); z-index: 99;
     }
     100% {
-        width:50px;
-        height: 50px;
-        left: 320px;
-        top: 300px;
+        transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg); 
     }
-}
-
-svg:hover path {
-    fill: red;
 }

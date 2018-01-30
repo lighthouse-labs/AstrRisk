@@ -14,25 +14,25 @@ class Orbit extends Component {
   }
 
   render() {
-
     return (
       <Fragment>
+      
+      <div className="moon-orbit">
+        <img src='../../public/assets/images/moon.svg' className="moon"/>
+      </div>
+
       <div className="orbit">
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
-        <div className="moon-orbit">
-          <img src='../../public/assets/images/moon.svg' className="moon"/>
-
-          <Earth/>
       </div>
+      
       <div className="neo-orbit">
         {this.props.neodata.neodata.neodata.map(function(neo, i){
           return <Neo key={i} distance={neo.close_approach_data[0].miss_distance.kilometers}>{neo}</Neo>;
           })}
-        </div>
       </div>
+    
     </Fragment>)
   }
-
 }
 
 export default Orbit;
