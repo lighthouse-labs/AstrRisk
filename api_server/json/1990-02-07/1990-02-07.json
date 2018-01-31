@@ -1,0 +1,45 @@
+[
+  {
+    "neo_reference_id": "3599929",
+    "name": "(2012 DT32)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3599929",
+    "absolute_magnitude_h": 21.3,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.1460679643,
+        "estimated_diameter_max": 0.3266178974
+      },
+      "meters": {
+        "estimated_diameter_min": 146.0679642714,
+        "estimated_diameter_max": 326.6178974458
+      },
+      "miles": {
+        "estimated_diameter_min": 0.090762397,
+        "estimated_diameter_max": 0.2029508896
+      },
+      "feet": {
+        "estimated_diameter_min": 479.2256199,
+        "estimated_diameter_max": 1071.581062656
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-07",
+        "epoch_date_close_approach": 634377600000,
+        "relative_velocity": {
+          "kilometers_per_second": "19.1844079122",
+          "kilometers_per_hour": "69063.8684840021",
+          "miles_per_hour": "42913.6020588512"
+        },
+        "miss_distance": {
+          "astronomical": "0.1503455022",
+          "lunar": "58.4844017029",
+          "kilometers": "22491368",
+          "miles": "13975488"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]

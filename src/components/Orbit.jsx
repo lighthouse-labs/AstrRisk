@@ -28,7 +28,10 @@ class Orbit extends Component {
           this.props.neoData.map(function(neo, i) {
             return (
 
-              <Neo key={i} name={neo.name}></Neo>)
+              <Neo key={i} name={neo.name}
+              distance={neo.close_approach_data[0].miss_distance.kilometers}
+              speed={neo.close_approach_data[0].relative_velocity.kilometers_per_second * 1000
+              }></Neo>)
           })
         }
       </div>
