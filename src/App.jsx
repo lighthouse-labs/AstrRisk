@@ -2,18 +2,18 @@ import React, {Component, Fragment} from 'react';
 import EarthSystem from './components/EarthSystem.jsx';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { testButton, getNeoData } from './actions/actions.js';
+import { testButton, getNeoData, getFireballData } from './actions/actions.js';
 import * as d3 from 'd3';
 import moment from 'moment';
 
 class App extends Component {
   constructor(props) {
     super(props);
-
-
   }
 
-
+  componentDidMount() {
+    this.props.getFireballData();
+  }
 
   render() {
 
@@ -21,8 +21,6 @@ class App extends Component {
 
     return (
       <Fragment>
-        <h1>ASTRRISK</h1>
-
         <EarthSystem neodata={this.state}/>
         {/* <h2>{this.props.testState}</h2> */}
         {/* <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button> */}
@@ -62,14 +60,17 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     neoData: state.neoData,
-    testState: state.testReducer
+    testState: state.testReducer,
+    fireBallData: state.fireBallData,
+    currentYear: state.currentYear
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     testButton, //Usage: test('string to display');
-    getNeoData  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
+    getNeoData,  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
+    getFireballData
   }, dispatch)
 }
 
