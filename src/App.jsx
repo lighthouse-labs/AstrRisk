@@ -22,9 +22,6 @@ class App extends Component {
     return (<div>
       <h1>ASTRRISK</h1>
       <EarthSystem neodata={this.state}/>
-      {/* <h2>{this.props.testState}</h2> */}
-      {/* <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button> */}
-      {/* <button onClick={() => this.props.testButton('HELLO')}>TEST BUTTON</button> */}
       <input
         type='range'
         min='1'

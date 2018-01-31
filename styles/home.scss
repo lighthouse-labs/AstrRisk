@@ -21,7 +21,7 @@ body {
     border-radius: 50%;
     width: $mars-orbit + px;
     height: $mars-orbit + px;
-    border: solid 2px #ccc;
+    border: solid 2px #FF454E;
     margin-left: auto;
     margin-right: auto;
 }
@@ -53,7 +53,7 @@ body {
     height: 90px;
     left: (($mars-orbit/2) - 25) + px;
     top: (($mars-orbit/2) - 45) + px;
-    animation: rotate 12s infinite linear;
+    animation: rotate 22s infinite linear;
     margin-left: auto;
     margin-right: auto;
 
@@ -67,41 +67,17 @@ body {
     animation-play-state: paused;
 }
 
-.neo-orbit {
-    position: absolute;
-    border-radius: 50%;
-    left: (($mars-orbit/2) - ($neo-orbit/2)) + px;
-    top: (($mars-orbit/2) - ($neo-orbit/2)) + px;
-    width: $neo-orbit + px;
-    height: $neo-orbit + px;
-    border: solid 2px #ccc;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.neo {
-    position: absolute;
-    width: 30px;
-    height: 50px;
-    animation: rotate-neo 15s infinite linear;
-    margin-left: auto;
-    margin-right: auto;
-    left: (($neo-orbit / 2) - 15) + px;
-    top: (($neo-orbit / 2) - 25) + px;
-}
-
-.neo:hover {
-    animation-play-state: paused;
-}
-
-@keyframes rotate-neo {
-    0% {
-        transform: rotateZ(0deg) translateX(343px) rotateZ(0deg) rotateX(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg) translateX(343px) rotateZ(-360deg) rotateX(0deg);
-    }
-}
+// .neo-orbit {
+//     position: absolute;
+//     border-radius: 50%;
+//     left: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+//     top: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+//     width: $neo-orbit + px;
+//     height: $neo-orbit + px;
+//     border: solid 2px #ccc;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
 
 @keyframes rotate {
     0% {
