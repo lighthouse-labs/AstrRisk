@@ -18,7 +18,7 @@ const speed = this.props.speed;
 const tScale = d3.scaleLinear().domain([0,20000]).range([80,8]);
 const time = tScale(speed);
 const name = "A" + this.props.name.replace(/\s/g, '').replace(/[{()}]/g, '');
-const dScale = d3.scaleLinear().domain([6371,54600000]).range([80,1400]);
+const dScale = d3.scaleLinear().domain([6371,54600000]).range([280,1400]);
 const scaledDistance = Math.floor(dScale(distance));
 const keyframes = `@keyframes ${name} {
         0% {
@@ -26,18 +26,21 @@ const keyframes = `@keyframes ${name} {
         }
         100% {
             transform: rotateZ(360deg) translateX(${scaledDistance / 2}px) rotateZ(-360deg) rotateX(0deg);
-        }
+        }    
     }`;
 
-const style = {
-    position: "absolute",
-    width: "30px",
-    height: "50px",
-    left: `685px`,
-    top: `675px`,
-    animation: `${name} ${speed}s infinite linear`,
-}
-//((700) - ($moon-orbit/2)) + px;
+const newclass = `.${name} { position: absolute;
+    width: 30px;
+    height: 50px;
+    left: 685px;
+    top: 675px;
+    cursor: pointer;
+    animation: ${name} ${speed}s infinite linear;}`;
+
+const hoverpause = `.${name}:hover {
+  animation-play-state: paused;
+}`
+
 
 const orbitStyle = {
     borderRadius: "50%",
@@ -54,10 +57,12 @@ const orbitStyle = {
 const createNeo = () => {
    return (<Fragment><div style={orbitStyle}>
             
-          </div><img src='../../public/assets/images/neo.svg' style={style}/></Fragment>)
+          </div><img src='../../public/assets/images/neo.svg' className={name}/></Fragment>)
 } 
 const nearEarthObject = createNeo();
 document.styleSheets[0].insertRule(keyframes, document.styleSheets[0].cssRules.length)
+document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
+document.styleSheets[0].insertRule(hoverpause, document.styleSheets[0].cssRules.length)
 
     return(
       <Fragment>

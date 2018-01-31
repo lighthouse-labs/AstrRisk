@@ -70,6 +70,10 @@ html, body {
   animation-play-state: paused;
 }
 
+.neo:hover {
+  animation-play-state: paused;
+}
+
 @keyframes rotate {
   0% {
     transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
