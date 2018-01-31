@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
 
-    const scaleTime = d3.scaleTime().domain([new Date(1990, 0, 1), new Date(1990, 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
+    const scaleTime = d3.scaleTime().domain([new Date(1990, 0, 1), new Date(1990, 2, 5)]).range([1,63]); // domain is the date range, range should match the slider min/max
 
     return (<div>
       <h1>ASTRRISK</h1>
@@ -25,7 +25,13 @@ class App extends Component {
       {/* <h2>{this.props.testState}</h2> */}
       {/* <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button> */}
       {/* <button onClick={() => this.props.testButton('HELLO')}>TEST BUTTON</button> */}
-      {/* <input type='range' min='1' max='365' step='1' onChange={e => this.props.getNeoData(moment(scaleTime.invert(e.currentTarget.value)).format('YYYY-MM-DD'))}></input> */}
+      <input
+        type='range'
+        min='1'
+        max='63'
+        step='1'
+        onChange={e => this.props.getNeoData(moment(scaleTime.invert(e.currentTarget.value)).format('YYYY-MM-DD'))}>
+      </input>
     </div>);
   }
 }
