@@ -5,19 +5,36 @@ const fs = require('fs');
 module.exports = () => {
 
   // Servers JSON for requested date
-  router.get("/api/:date", (req, res) => {
+  router.get("/api/neo/:date", (req, res) => {
     const date = req.params.date;
     try {
       fs.readFile(`./json/${date}/${date}.json`, (err, data) => {
-        if (!err) { // console.log('ERROR', err)
-          console.log("DATA ACCESSED")
+        if (data !== undefined) {
+          console.log(`Data access request for ${date}`);
           res.json(JSON.parse(data));
+        } else {
+          res.status(404).send(`Error retrieving records for ${date}`);
         }
       })
     } catch (err) {
       console.log('ERROR', err);
     }
   });
+
+  router.get('/api/fireball', (req, res) => {
+    try {
+      fs.readFile('./json/nasa-fireball-new.json', (err, data) => {
+        if (data !== undefined) {
+          console.log('Fireball Data accessed')
+          res.json(JSON.parse(data));
+        } else {
+          res.status(404).send("Error retrieving fireball data");
+        }
+      })
+    } catch (err) {
+      console.log('Error retrieving fireball data', err);
+    }
+  })
 
   return router
 }
