@@ -35,7 +35,8 @@ const newclass = `.${name} { position: absolute;
     left: 685px;
     top: 675px;
     cursor: pointer;
-    animation: ${name} ${speed}s infinite linear;}`;
+    animation: ${name} ${speed}s infinite linear;
+    z-index: 300;}`;
 
 const hoverpause = `.${name}:hover {
   animation-play-state: paused;
@@ -49,9 +50,11 @@ const orbitStyle = {
     top: `${700-(scaledDistance/2)}px`,
     width: `${scaledDistance}px`,
     height: `${scaledDistance}px`,
-    border: "solid 2px #ccc",
+    border: "dashed 2px #ccc",
     marginLeft: "auto",
-    marginRight: "auto"
+    marginRight: "auto",
+    zIndex: "0",
+    opacity: "0.6",
 }
 
 const createNeo = () => {

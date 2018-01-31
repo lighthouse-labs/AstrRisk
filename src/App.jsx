@@ -9,12 +9,7 @@ import moment from 'moment';
 class App extends Component {
   constructor(props) {
     super(props);
-
-
   }
-
-
-
   render() {
 
     const scaleTime = d3.scaleTime().domain([new Date(2015, 0, 1), new Date(2015, 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
