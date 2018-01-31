@@ -133,7 +133,7 @@ export const testReducer = (state = initialState, action) => {
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
-      console.log('New NEO Data: ', action.payload)
+      // console.log('New NEO Data: ', action.payload)
       return action.payload
     default:
       return state

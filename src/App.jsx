@@ -9,25 +9,38 @@ import moment from 'moment';
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.goBackOneDay = this.goBackOneDay.bind(this);
+    this.getCurrentYear = this.getCurrentYear.bind(this);
+
   }
 
   componentDidMount() {
     this.props.getFireballData();
     this.props.getNeoData(this.props.currentYear);
+
+  }
+
+  // goes back one day in the current year timeline
+  goBackOneDay(){
+    if(this.props.currentYear !== `${this.getCurrentYear()}-01-01`) {
+      return this.props.getNeoData(moment(this.props.currentYear).subtract('1', 'days').format('YYYY-MM-DD'));
+    }
+  }
+
+  // returns only the Year of the current date
+  getCurrentYear(){
+    return Number(moment(this.props.currentYear).format("YYYY"));
   }
 
   render() {
-
-    const scaleTime = d3.scaleTime().domain([new Date(this.props.currentYear, 0, 1), new Date(this.props.currentYear, 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
+    const scaleTime = d3.scaleTime().domain([new Date(this.getCurrentYear(), 0, 1), new Date(this.getCurrentYear(), 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
 
     return (
       <Fragment>
         <EarthSystem neodata={this.state}/>
-        {/* <h2>{this.props.testState}</h2> */}
-        {/* <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button> */}
-        {/* <button onClick={() => this.props.testButton('HELLO')}>TEST BUTTON</button> */}
-
         <div className="range-slider">
+          <button onClick={e => this.goBackOneDay()}>Go Back</button>
           <p className="range-slider-date">{this.props.neoData[0].close_approach_data[0].close_approach_date}</p>
           <ul className="range-slider-months">
             <li>Jan</li>
