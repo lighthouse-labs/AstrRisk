@@ -13,11 +13,12 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getFireballData();
+    this.props.getNeoData(this.props.currentYear);
   }
 
   render() {
 
-    const scaleTime = d3.scaleTime().domain([new Date(2015, 0, 1), new Date(2015, 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
+    const scaleTime = d3.scaleTime().domain([new Date(this.props.currentYear, 0, 1), new Date(this.props.currentYear, 11, 31)]).range([1,365]); // domain is the date range, range should match the slider min/max
 
     return (
       <Fragment>

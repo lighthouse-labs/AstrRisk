@@ -140,7 +140,7 @@ export const neoDataReducer = (state = initialState, action) => {
   }
 }
 
-export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
+export const yearReducer = (state = '2015-01-01', action) => {
   switch (action.type) {
     case 'YEAR':
       // console.log('New Year set: ', action.payload)
