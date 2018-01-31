@@ -1,120 +1,124 @@
+@import url("https://fonts.googleapis.com/css?family=Coustard");
+
 $mars-orbit: 1400;
 $moon-orbit: 280;
 $neo-orbit: 700;
 
-body {
-  background-color: #4C4C4C;
+html, body {
+    background-color: #4C4C4C;
+    font-family: 'Coustard', sans-serif;
+
 }
 
 .earth-system {
-    height: $mars-orbit + px;
-    width: $mars-orbit + px;
-    transform: rotateX(57deg);
-    transform-style: preserve-3d;
-    margin-left: auto;
-    margin-right: auto;
+  height: $mars-orbit + px;
+  width: $mars-orbit + px;
+  transform: rotateX(57deg);
+  transform-style: preserve-3d;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .orbit {
-    border-radius: 50%;
-    width: $mars-orbit + px;
-    height: $mars-orbit + px;
-    border: solid 2px #ccc;
-    margin-left: auto;
-    margin-right: auto;
+  border-radius: 50%;
+  width: $mars-orbit + px;
+  height: $mars-orbit + px;
+  border: solid 2px #ccc;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .moon-orbit {
-    border-radius: 50%;
-    position: absolute;
-    left: (($mars-orbit/2) - ($moon-orbit/2)) + px;
-    top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
-    width: $moon-orbit + px;
-    height: $moon-orbit + px;
-    border: solid 2px #ccc;
-    margin-left: auto;
-    margin-right: auto;
+  border-radius: 50%;
+  position: absolute;
+  left: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+  top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+  width: $moon-orbit + px;
+  height: $moon-orbit + px;
+  border: solid 2px #ccc;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .moon {
-    position: absolute;
-    left: (($moon-orbit / 2) - 15) + px;
-    top: (($moon-orbit / 2) - 25) + px;
-    width: 30px;
-    height: 50px;
-    animation: rotate-moon 5.67s infinite linear;
+  position: absolute;
+  left: (($moon-orbit / 2) - 15) + px;
+  top: (($moon-orbit / 2) - 25) + px;
+  width: 30px;
+  height: 50px;
+  animation: rotate-moon 5.67s infinite linear;
 }
 
 .mars {
-    position: absolute;
-    width: 50px;
-    height: 90px;
-    left: (($mars-orbit/2) - 25) + px;
-    top: (($mars-orbit/2) - 45) + px;
-    animation: rotate 12s infinite linear;
-    margin-left: auto;
-    margin-right: auto;
-
+  position: absolute;
+  width: 50px;
+  height: 90px;
+  left: (($mars-orbit/2) - 25) + px;
+  top: (($mars-orbit/2) - 45) + px;
+  animation: rotate 12s infinite linear;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mars:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .moon:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
 
 .neo-orbit {
-    position: absolute;
-    border-radius: 50%;
-    left: (($mars-orbit/2) - ($neo-orbit/2)) + px;
-    top: (($mars-orbit/2) - ($neo-orbit/2)) + px;
-    width: $neo-orbit + px;
-    height: $neo-orbit + px;
-    border: solid 2px #ccc;
-    margin-left: auto;
-    margin-right: auto;
+  position: absolute;
+  border-radius: 50%;
+  left: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+  top: (($mars-orbit/2) - ($neo-orbit/2)) + px;
+  width: $neo-orbit + px;
+  height: $neo-orbit + px;
+  border: solid 2px #ccc;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .neo {
-    position: absolute;
-    width: 30px;
-    height: 50px;
-    animation: rotate-neo 15s infinite linear;
-    margin-left: auto;
-    margin-right: auto;
-    left: (($neo-orbit / 2) - 15) + px;
-    top: (($neo-orbit / 2) - 25) + px;
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  animation: rotate-neo 15s infinite linear;
+  margin-left: auto;
+  margin-right: auto;
+  left: (($neo-orbit / 2) - 15) + px;
+  top: (($neo-orbit / 2) - 25) + px;
 }
 
 .neo:hover {
-    animation-play-state: paused;
+  animation-play-state: paused;
 }
-
 @keyframes rotate-neo {
-    0% {
-        transform: rotateZ(0deg) translateX(343px) rotateZ(0deg) rotateX(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg) translateX(343px) rotateZ(-360deg) rotateX(0deg);
-    }
-}
+  0% {
+    transform: rotateZ(0deg) translateX(343px) rotateZ(0deg) rotateX(0deg);
+  }
 
+  100% {
+    transform: rotateZ(360deg) translateX(343px) rotateZ(-360deg) rotateX(0deg);
+  }
+}
 @keyframes rotate {
-    0% {
-        transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
-    }
-}
+  0% {
+    transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+  }
 
+  100% {
+    transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+  }
+}
 @keyframes rotate-moon {
-    0% {
-        transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg); z-index: 99;
-    }
-    100% {
-        transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg); 
-    }
+  0% {
+    transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+    z-index: 99;
+  }
+
+  100% {
+    transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+  }
 }
