@@ -33,11 +33,9 @@ const style = {
     position: "absolute",
     width: "30px",
     height: "50px",
+    left: `685px`,
+    top: `675px`,
     animation: `${name} ${speed}s infinite linear`,
-    marginLeft: "auto",
-    marginRight: "auto",
-    left: `${(700 - (scaledDistance/2))}px`,
-    top: `${(700 - (scaledDistance/2))}px`,
 }
 //((700) - ($moon-orbit/2)) + px;
 

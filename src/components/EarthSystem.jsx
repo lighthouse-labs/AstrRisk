@@ -10,10 +10,10 @@ class EarthSystem extends Component{
     return (
       <div className="earth-system">
         <Orbit/>
-        <Earth/>
       </div>
     )
   }
 }
+        //<Earth/>
 
 export default EarthSystem;
