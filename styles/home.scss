@@ -8,6 +8,7 @@ html, body {
     box-sizing: border-box;
     background-color: #4C4C4C;
     font-family: 'Coustard', sans-serif;
+    overflow: hidden
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -21,6 +22,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     margin-top: -240px;
+    margin-bottom: -360px;
 }
 
 
@@ -91,10 +93,11 @@ html, body {
 @keyframes rotate-moon {
   0% {
     transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
-    z-index: 99;
+    z-index: 1400;
   }
 
   100% {
     transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+    z-index: 1400;
   }
 }

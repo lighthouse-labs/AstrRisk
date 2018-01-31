@@ -15,7 +15,7 @@ class Neo extends Component{
   render(){
 const distance = this.props.distance;
 const speed = this.props.speed;
-const tScale = d3.scaleLinear().domain([0,20000]).range([80,8]);
+const tScale = d3.scaleLinear().domain([0,20000]).range([50,8]);
 const time = tScale(speed);
 const name = "A" + this.props.name.replace(/\s/g, '').replace(/[{()}]/g, '');
 const dScale = d3.scaleLinear().domain([6371,54600000]).range([280,1400]);
@@ -23,16 +23,18 @@ const scaledDistance = Math.floor(dScale(distance));
 const keyframes = `@keyframes ${name} {
         0% {
             transform: rotateZ(0deg) translateX(${scaledDistance / 2}px) rotateZ(0deg) rotateX(0deg);
+            z-index: ${1400 + scaledDistance};
         }
         100% {
             transform: rotateZ(360deg) translateX(${scaledDistance / 2}px) rotateZ(-360deg) rotateX(0deg);
+            z-index: ${1400-scaledDistance};
         }    
     }`;
 
 const newclass = `.${name} { position: absolute;
-    width: 30px;
-    height: 50px;
-    left: 685px;
+    width: 40px;
+    height: 65px;
+    left: 675px;
     top: 675px;
     cursor: pointer;
     animation: ${name} ${speed}s infinite linear;
@@ -53,7 +55,7 @@ const orbitStyle = {
     border: "dashed 2px #ccc",
     marginLeft: "auto",
     marginRight: "auto",
-    zIndex: "0",
+    zIndex: "-40",
     opacity: "0.6",
 }
 
