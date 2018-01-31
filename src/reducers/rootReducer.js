@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
-import { testReducer, neoDataReducer } from './reducers';
+import { testReducer, neoDataReducer, fireBallDataReducer, yearReducer } from './reducers';
 
 const rootReducer = combineReducers({
-  //Reducers go here
   testReducer,
-  neoData: neoDataReducer
+  neoData: neoDataReducer,
+  fireBallData: fireBallDataReducer,
+  currentYear: yearReducer
 })
 
 export default rootReducer;
