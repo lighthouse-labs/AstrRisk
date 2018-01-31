@@ -1,0 +1,217 @@
+[
+  {
+    "neo_reference_id": "2225586",
+    "name": "225586 (2000 WS67)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2225586",
+    "absolute_magnitude_h": 18.4,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.5553349116,
+        "estimated_diameter_max": 1.2417666126
+      },
+      "meters": {
+        "estimated_diameter_min": 555.334911581,
+        "estimated_diameter_max": 1241.766612574
+      },
+      "miles": {
+        "estimated_diameter_min": 0.3450690093,
+        "estimated_diameter_max": 0.7715977618
+      },
+      "feet": {
+        "estimated_diameter_min": 1821.9649913114,
+        "estimated_diameter_max": 4074.0375731972
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-06",
+        "epoch_date_close_approach": 634291200000,
+        "relative_velocity": {
+          "kilometers_per_second": "35.2921860248",
+          "kilometers_per_hour": "127051.8696892264",
+          "miles_per_hour": "78945.0909188418"
+        },
+        "miss_distance": {
+          "astronomical": "0.4906364644",
+          "lunar": "190.8575897217",
+          "kilometers": "73398168",
+          "miles": "45607508"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3378562",
+    "name": "(2007 MH)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3378562",
+    "absolute_magnitude_h": 20.9,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.1756123185,
+        "estimated_diameter_max": 0.3926810818
+      },
+      "meters": {
+        "estimated_diameter_min": 175.6123184804,
+        "estimated_diameter_max": 392.6810818086
+      },
+      "miles": {
+        "estimated_diameter_min": 0.1091204019,
+        "estimated_diameter_max": 0.2440006365
+      },
+      "feet": {
+        "estimated_diameter_min": 576.1559189633,
+        "estimated_diameter_max": 1288.3238004408
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-06",
+        "epoch_date_close_approach": 634291200000,
+        "relative_velocity": {
+          "kilometers_per_second": "9.7465052533",
+          "kilometers_per_hour": "35087.4189118374",
+          "miles_per_hour": "21801.9576010803"
+        },
+        "miss_distance": {
+          "astronomical": "0.4351859196",
+          "lunar": "169.287322998",
+          "kilometers": "65102884",
+          "miles": "40453056"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3555520",
+    "name": "(2011 BB)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3555520",
+    "absolute_magnitude_h": 20.4,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.2210828104,
+        "estimated_diameter_max": 0.4943561926
+      },
+      "meters": {
+        "estimated_diameter_min": 221.0828103591,
+        "estimated_diameter_max": 494.3561926196
+      },
+      "miles": {
+        "estimated_diameter_min": 0.137374447,
+        "estimated_diameter_max": 0.3071786018
+      },
+      "feet": {
+        "estimated_diameter_min": 725.3373275385,
+        "estimated_diameter_max": 1621.9035709942
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-06",
+        "epoch_date_close_approach": 634291200000,
+        "relative_velocity": {
+          "kilometers_per_second": "24.5991621207",
+          "kilometers_per_hour": "88556.9836345531",
+          "miles_per_hour": "55025.8657478144"
+        },
+        "miss_distance": {
+          "astronomical": "0.4823288698",
+          "lunar": "187.6259307861",
+          "kilometers": "72155368",
+          "miles": "44835268"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3662584",
+    "name": "(2014 DM22)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3662584",
+    "absolute_magnitude_h": 18.9,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.4411182,
+        "estimated_diameter_max": 0.9863702813
+      },
+      "meters": {
+        "estimated_diameter_min": 441.1181999969,
+        "estimated_diameter_max": 986.3702813054
+      },
+      "miles": {
+        "estimated_diameter_min": 0.2740980571,
+        "estimated_diameter_max": 0.6129018881
+      },
+      "feet": {
+        "estimated_diameter_min": 1447.2382352778,
+        "estimated_diameter_max": 3236.1230737181
+      }
+    },
+    "is_potentially_hazardous_asteroid": true,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-06",
+        "epoch_date_close_approach": 634291200000,
+        "relative_velocity": {
+          "kilometers_per_second": "25.030835125",
+          "kilometers_per_hour": "90111.0064499748",
+          "miles_per_hour": "55991.4750910968"
+        },
+        "miss_distance": {
+          "astronomical": "0.3806743249",
+          "lunar": "148.082321167",
+          "kilometers": "56948072",
+          "miles": "35385892"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3743746",
+    "name": "(2016 CL195)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3743746",
+    "absolute_magnitude_h": 23.8,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.046190746,
+        "estimated_diameter_max": 0.1032856481
+      },
+      "meters": {
+        "estimated_diameter_min": 46.1907460282,
+        "estimated_diameter_max": 103.2856480504
+      },
+      "miles": {
+        "estimated_diameter_min": 0.0287015901,
+        "estimated_diameter_max": 0.0641787064
+      },
+      "feet": {
+        "estimated_diameter_min": 151.544447199,
+        "estimated_diameter_max": 338.8636855496
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-06",
+        "epoch_date_close_approach": 634291200000,
+        "relative_velocity": {
+          "kilometers_per_second": "21.6138022322",
+          "kilometers_per_hour": "77809.6880358548",
+          "miles_per_hour": "48347.9142131677"
+        },
+        "miss_distance": {
+          "astronomical": "0.1617459115",
+          "lunar": "62.9191589355",
+          "kilometers": "24196844",
+          "miles": "15035221"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]

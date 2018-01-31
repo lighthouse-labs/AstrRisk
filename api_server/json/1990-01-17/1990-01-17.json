@@ -1,0 +1,131 @@
+[
+  {
+    "neo_reference_id": "3005862",
+    "name": "(1993 BD2)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3005862",
+    "absolute_magnitude_h": 18.4,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.5553349116,
+        "estimated_diameter_max": 1.2417666126
+      },
+      "meters": {
+        "estimated_diameter_min": 555.334911581,
+        "estimated_diameter_max": 1241.766612574
+      },
+      "miles": {
+        "estimated_diameter_min": 0.3450690093,
+        "estimated_diameter_max": 0.7715977618
+      },
+      "feet": {
+        "estimated_diameter_min": 1821.9649913114,
+        "estimated_diameter_max": 4074.0375731972
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-01-17",
+        "epoch_date_close_approach": 632563200000,
+        "relative_velocity": {
+          "kilometers_per_second": "12.914865541",
+          "kilometers_per_hour": "46493.5159475424",
+          "miles_per_hour": "28889.2627286271"
+        },
+        "miss_distance": {
+          "astronomical": "0.4814860263",
+          "lunar": "187.2980651855",
+          "kilometers": "72029288",
+          "miles": "44756924"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3441853",
+    "name": "(2008 YF3)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3441853",
+    "absolute_magnitude_h": 21.1,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.160160338,
+        "estimated_diameter_max": 0.358129403
+      },
+      "meters": {
+        "estimated_diameter_min": 160.1603379786,
+        "estimated_diameter_max": 358.1294030194
+      },
+      "miles": {
+        "estimated_diameter_min": 0.0995189894,
+        "estimated_diameter_max": 0.2225312253
+      },
+      "feet": {
+        "estimated_diameter_min": 525.4604432536,
+        "estimated_diameter_max": 1174.9652706022
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-01-17",
+        "epoch_date_close_approach": 632563200000,
+        "relative_velocity": {
+          "kilometers_per_second": "16.4378851609",
+          "kilometers_per_hour": "59176.3865793019",
+          "miles_per_hour": "36769.9053164557"
+        },
+        "miss_distance": {
+          "astronomical": "0.3635820346",
+          "lunar": "141.4334106445",
+          "kilometers": "54391100",
+          "miles": "33797064"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3741152",
+    "name": "(2016 CG18)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3741152",
+    "absolute_magnitude_h": 28.5,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.0053034072,
+        "estimated_diameter_max": 0.0118587791
+      },
+      "meters": {
+        "estimated_diameter_min": 5.3034072332,
+        "estimated_diameter_max": 11.8587790858
+      },
+      "miles": {
+        "estimated_diameter_min": 0.0032953835,
+        "estimated_diameter_max": 0.0073687014
+      },
+      "feet": {
+        "estimated_diameter_min": 17.3996305869,
+        "estimated_diameter_max": 38.9067567758
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-01-17",
+        "epoch_date_close_approach": 632563200000,
+        "relative_velocity": {
+          "kilometers_per_second": "14.7710440219",
+          "kilometers_per_hour": "53175.7584788015",
+          "miles_per_hour": "33041.3483725642"
+        },
+        "miss_distance": {
+          "astronomical": "0.370251837",
+          "lunar": "144.0279693604",
+          "kilometers": "55388888",
+          "miles": "34417060"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]

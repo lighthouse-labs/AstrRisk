@@ -1,0 +1,45 @@
+[
+  {
+    "neo_reference_id": "2455184",
+    "name": "455184 (2000 ED14)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2455184",
+    "absolute_magnitude_h": 20.8,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.1838886721,
+        "estimated_diameter_max": 0.411187571
+      },
+      "meters": {
+        "estimated_diameter_min": 183.8886720703,
+        "estimated_diameter_max": 411.1875710413
+      },
+      "miles": {
+        "estimated_diameter_min": 0.1142630881,
+        "estimated_diameter_max": 0.2555000322
+      },
+      "feet": {
+        "estimated_diameter_min": 603.309310875,
+        "estimated_diameter_max": 1349.040630575
+      }
+    },
+    "is_potentially_hazardous_asteroid": true,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-18",
+        "epoch_date_close_approach": 635328000000,
+        "relative_velocity": {
+          "kilometers_per_second": "13.4733411918",
+          "kilometers_per_hour": "48504.0282904948",
+          "miles_per_hour": "30138.5169119466"
+        },
+        "miss_distance": {
+          "astronomical": "0.3549793671",
+          "lunar": "138.0869750977",
+          "kilometers": "53104156",
+          "miles": "32997394"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]

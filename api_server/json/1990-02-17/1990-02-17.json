@@ -1,0 +1,131 @@
+[
+  {
+    "neo_reference_id": "3359269",
+    "name": "(2006 WS1)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3359269",
+    "absolute_magnitude_h": 19.7,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.3051792326,
+        "estimated_diameter_max": 0.6824015094
+      },
+      "meters": {
+        "estimated_diameter_min": 305.1792325939,
+        "estimated_diameter_max": 682.4015094011
+      },
+      "miles": {
+        "estimated_diameter_min": 0.1896295249,
+        "estimated_diameter_max": 0.4240245083
+      },
+      "feet": {
+        "estimated_diameter_min": 1001.2442334633,
+        "estimated_diameter_max": 2238.8501681036
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-17",
+        "epoch_date_close_approach": 635241600000,
+        "relative_velocity": {
+          "kilometers_per_second": "12.6805958566",
+          "kilometers_per_hour": "45650.1450835926",
+          "miles_per_hour": "28365.2248715245"
+        },
+        "miss_distance": {
+          "astronomical": "0.4860277305",
+          "lunar": "189.0647888184",
+          "kilometers": "72708712",
+          "miles": "45179100"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "3747992",
+    "name": "(2016 FY2)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3747992",
+    "absolute_magnitude_h": 25.4,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.022108281,
+        "estimated_diameter_max": 0.0494356193
+      },
+      "meters": {
+        "estimated_diameter_min": 22.1082810359,
+        "estimated_diameter_max": 49.435619262
+      },
+      "miles": {
+        "estimated_diameter_min": 0.0137374447,
+        "estimated_diameter_max": 0.0307178602
+      },
+      "feet": {
+        "estimated_diameter_min": 72.5337327539,
+        "estimated_diameter_max": 162.1903570994
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-17",
+        "epoch_date_close_approach": 635241600000,
+        "relative_velocity": {
+          "kilometers_per_second": "19.3185037442",
+          "kilometers_per_hour": "69546.6134792626",
+          "miles_per_hour": "43213.5610254896"
+        },
+        "miss_distance": {
+          "astronomical": "0.4856100113",
+          "lunar": "188.9022979736",
+          "kilometers": "72646224",
+          "miles": "45140272"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  },
+  {
+    "neo_reference_id": "2484199",
+    "name": "484199 (2006 WS1)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=2484199",
+    "absolute_magnitude_h": 19.8,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.2914439045,
+        "estimated_diameter_max": 0.6516883822
+      },
+      "meters": {
+        "estimated_diameter_min": 291.4439045349,
+        "estimated_diameter_max": 651.6883821679
+      },
+      "miles": {
+        "estimated_diameter_min": 0.1810947904,
+        "estimated_diameter_max": 0.4049402617
+      },
+      "feet": {
+        "estimated_diameter_min": 956.1808197541,
+        "estimated_diameter_max": 2138.0853117517
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-02-17",
+        "epoch_date_close_approach": 635241600000,
+        "relative_velocity": {
+          "kilometers_per_second": "12.6805891141",
+          "kilometers_per_hour": "45650.120810819",
+          "miles_per_hour": "28365.209789367"
+        },
+        "miss_distance": {
+          "astronomical": "0.4860271209",
+          "lunar": "189.0645446777",
+          "kilometers": "72708624",
+          "miles": "45179044"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]

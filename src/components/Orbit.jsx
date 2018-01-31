@@ -23,15 +23,18 @@ class Orbit extends Component {
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
       </div>
 
-      <div className="neo-orbit">
+      
         {
           this.props.neoData.map(function(neo, i) {
             return (
 
-              <Neo key={i} name={neo.name}></Neo>)
+              <Neo key={i} name={neo.name}
+              distance={neo.close_approach_data[0].miss_distance.kilometers}
+              speed={neo.close_approach_data[0].relative_velocity.kilometers_per_second
+              }></Neo>)
           })
         }
-      </div>
+      
 
     </Fragment>)
   }

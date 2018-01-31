@@ -1,0 +1,45 @@
+[
+  {
+    "neo_reference_id": "3769883",
+    "name": "(2017 DW35)",
+    "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3769883",
+    "absolute_magnitude_h": 22.2,
+    "estimated_diameter": {
+      "kilometers": {
+        "estimated_diameter_min": 0.096506147,
+        "estimated_diameter_max": 0.2157943048
+      },
+      "meters": {
+        "estimated_diameter_min": 96.5061469579,
+        "estimated_diameter_max": 215.7943048444
+      },
+      "miles": {
+        "estimated_diameter_min": 0.059966121,
+        "estimated_diameter_max": 0.134088323
+      },
+      "feet": {
+        "estimated_diameter_min": 316.6212271853,
+        "estimated_diameter_max": 707.9865871058
+      }
+    },
+    "is_potentially_hazardous_asteroid": false,
+    "close_approach_data": [
+      {
+        "close_approach_date": "1990-03-04",
+        "epoch_date_close_approach": 636537600000,
+        "relative_velocity": {
+          "kilometers_per_second": "18.0304952167",
+          "kilometers_per_hour": "64909.7827802309",
+          "miles_per_hour": "40332.4147503051"
+        },
+        "miss_distance": {
+          "astronomical": "0.2430271115",
+          "lunar": "94.5375442505",
+          "kilometers": "36356336",
+          "miles": "22590780"
+        },
+        "orbiting_body": "Earth"
+      }
+    ]
+  }
+]
