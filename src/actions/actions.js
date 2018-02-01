@@ -5,17 +5,17 @@ export const testButton = (data) => ({
   payload: data
 })
 
-export const getNeoData = (year) => {
+export const getNeoData = (date) => {
   return (dispatch, getState) => {
     console.log('Attempting to retrieve data...');
     //Usage: year = '1990-02-14' for sample
-    fetch(`http://localhost:3001/api/neo/${year}`)
+    fetch(`http://localhost:3001/api/neo/${date}`)
       .then(res => res.json())
       .then(
       (result) => {
         console.log('Received data from server');
         dispatch(loadNeoData(result));
-        dispatch(setYear(year));
+        dispatch(getDate(date));
       },
       (error) => {
         console.log('Error getting data from server: ', error);
@@ -41,9 +41,9 @@ export const getFireballData = () => {
   }
 }
 
-export const setYear = (year) => ({
-  type: types.YEAR,
-  payload: year
+export const getDate = (date) => ({
+  type: types.GETDATE,
+  payload: date
 })
 
 export const loadFireballData = (data) => ({

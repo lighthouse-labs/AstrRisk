@@ -19,7 +19,7 @@ class Earth extends Component {
           <div className={"face5"}></div>
           <div className={"face6"}></div>
         </div>
-        <div className="infoPopupContainer">
+        {/* <div className="infoPopupContainer">
           <div className="infoPopup-infoHolder">
             <div className="infoText">
               <div className="infoText-name">453563 (2010 BB)</div>
@@ -32,7 +32,7 @@ class Earth extends Component {
               <img src='../../public/assets/images/neo.svg' className="infoPopup-image" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

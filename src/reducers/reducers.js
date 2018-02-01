@@ -150,9 +150,9 @@ export const neoDataReducer = (state = initialState, action) => {
   }
 }
 
-export const yearReducer = (state = '2015-01-01', action) => {
+export const dateReducer = (state = '2015-01-01', action) => {
   switch (action.type) {
-    case 'SHOWNEODATA':
+    case 'GETDATE':
       console.log('New NEO Data: ', action.payload)
       return action.payload
     default:
@@ -162,12 +162,12 @@ export const yearReducer = (state = '2015-01-01', action) => {
 
 
 
-export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
-  switch (action.type) {
-    case 'YEAR':
-      // console.log('New Year set: ', action.payload)
-      return action.payload
-    default:
-      return state
-  }
-}
+// export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
+//   switch (action.type) {
+//     case 'YEAR':
+//       // console.log('New Year set: ', action.payload)
+//       return action.payload
+//     default:
+//       return state
+//   }
+// }

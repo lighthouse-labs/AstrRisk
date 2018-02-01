@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:900");
-
 $mars-orbit: 1400;
 $moon-orbit: 280;
 $neo-orbit: 700;
@@ -11,184 +10,160 @@ body {
   background-color: #4C4C4C;
 }
 
-html, body {
-    box-sizing: border-box;
-    background-color: #4C4C4C;
-    font-family: 'Rubik', sans-serif;
-    color: #d4d1d1;
-    
-    // font-family: 'Roboto Mono', monospace;
-
-    //TODO replace with actual image
-    background: url("../public/assets/images/space-bg.jpg");
 html,
-
-// html, body {
-//     box-sizing: border-box;
-//     background-color: #4C4C4C;
-//     font-family: 'Coustard', sans-serif;
-//     overflow: hidden
-// }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-.earth-system {
+body {
+  box-sizing: border-box;
+  background-color: #4C4C4C;
+  font-family: 'Rubik', sans-serif;
+  color: #d4d1d1; // font-family: 'Roboto Mono', monospace;
+  //TODO replace with actual image
+  background: url("../public/assets/images/space-bg.jpg");
+  html,
+  // html, body {
+  //     box-sizing: border-box;
+  //     background-color: #4C4C4C;
+  //     font-family: 'Coustard', sans-serif;
+  //     overflow: hidden
+  // }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  .earth-system {
     height: $mars-orbit + px;
     width: $mars-orbit + px;
     transform: rotateX(57deg);
     transform-style: preserve-3d;
     margin-left: auto;
     margin-right: auto;
-}
-
-.orbit {
-  border-radius: 50%;
-  width: $mars-orbit + px;
-  height: $mars-orbit + px;
-  border: solid 2px #FF454E;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.moon-orbit {
-  border-radius: 50%;
-  position: absolute;
-  left: (($mars-orbit/2) - ($moon-orbit/2)) + px;
-  top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
-  width: $moon-orbit + px;
-  height: $moon-orbit + px;
-  border: solid 2px #FFF;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.moon {
-  position: absolute;
-  left: 125px;
-  top: 115px;
-  width: 30px;
-  height: 50px;
-  animation: rotate-moon 56.7s infinite linear;
-  cursor: pointer;
-}
-
-.mars {
-  position: absolute;
-  width: 50px;
-  height: 90px;
-  left: (($mars-orbit/2) - 25) + px;
-  top: (($mars-orbit/2) - 45) + px;
-  animation: rotate 22s infinite linear;
-  margin-left: auto;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-.mars:hover {
-  animation-play-state: paused;
-}
-
-.moon:hover {
-  animation-play-state: paused;
-}
-
-.blur-filter {
-  filter: blur(5px);
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-}
-
-.infoPopupContainer {
-  position: fixed;
-  background: rgba(0,0,0,0.8);
-  top: 0;
-  bottom: 0;
-  left: -300px;
-  right: -300px;
-  z-index: 9000;
-  transform: rotateX(-57deg);
-}
-
-.infoPopup-infoHolder {
-  display: flex;
-  top: 40%;
-  left: 24%;
-  width: 100%;
-  position: absolute;
-}
-
-html .infoText {
-  // top: 40%;
-  // left: 24%;
-  font-family: 'Pontano Sans', sans-serif;
-  position: absolute;
-  opacity: 1;
-  text-shadow: 5 5px black;
-}
-
-.infoText ul {
-  padding: 12px;
-}
-
-.infoText span {
-  text-align: right;
-}
-
-.infoText-name {
-  font-size: 75px;
-  padding-bottom: 15px;
-  text-align: right;
-}
-
-.infoText-line-item {
-  font-size: 30px;
-  padding: 5px;
-  display: flex;
-}
-
-.infoText-line-item span:first-child {
-  text-align: left;
-  color: #999999;
-}
-
-.infoText-line-item span:nth-child(2) {
-  text-align: right;
-  flex-grow: 1;
-}
-
-.infoImage-container {
-  padding-left: 600px;
-}
-
-.infoPopup-image {
-  height: 57%;
-  margin-left: 8px;
-  margin-top: -5px;
-}
-
-.neo:hover {
-  animation-play-state: paused;
-}
-@keyframes rotate {
-  0% {
-    transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
   }
-  100% {
-    transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+  .orbit {
+    border-radius: 50%;
+    width: $mars-orbit + px;
+    height: $mars-orbit + px;
+    border: solid 2px #FF454E;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .moon-orbit {
+    border-radius: 50%;
+    position: absolute;
+    left: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+    top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
+    width: $moon-orbit + px;
+    height: $moon-orbit + px;
+    border: solid 2px #FFF;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .moon {
+    position: absolute;
+    left: 125px;
+    top: 115px;
+    width: 30px;
+    height: 50px;
+    animation: rotate-moon 56.7s infinite linear;
+    cursor: pointer;
+  }
+  .mars {
+    position: absolute;
+    width: 50px;
+    height: 90px;
+    left: (($mars-orbit/2) - 25) + px;
+    top: (($mars-orbit/2) - 45) + px;
+    animation: rotate 22s infinite linear;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+  }
+  .mars:hover {
+    animation-play-state: paused;
+  }
+  .moon:hover {
+    animation-play-state: paused;
+  }
+  .blur-filter {
+    filter: blur(5px);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
+  .infoPopupContainer {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    bottom: -300px;
+    left: -300px;
+    right: -300px;
+    z-index: 9000;
+    transform: rotateX(-57deg);
+  }
+  .infoPopup-infoHolder {
+    display: flex;
+    top: 40%;
+    left: 24%;
+    width: 100%;
+    position: absolute;
+  }
+  html .infoText {
+    // top: 40%;
+    // left: 24%;
+    font-family: 'Pontano Sans', sans-serif;
+    position: absolute;
+    opacity: 1;
+    text-shadow: 5 5px black;
+  }
+  .infoText ul {
+    padding: 12px;
+  }
+  .infoText span {
+    text-align: right;
+  }
+  .infoText-name {
+    font-size: 75px;
+    padding-bottom: 15px;
+    text-align: right;
+  }
+  .infoText-line-item {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    padding: 5px;
+    display: flex;
+  }
+  .infoText-line-item span:first-child {
+    text-align: left;
+    color: #999999;
+  }
+  .infoText-line-item span:nth-child(2) {
+    text-align: right;
+    flex-grow: 1;
+  }
+ 
+  .infoPopup-image {
+    height: 57%;
+    margin-left: 8px;
+    margin-top: -5px;
+  }
+  .neo:hover {
+    animation-play-state: paused;
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+    }
+    100% {
+      transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+    }
+  }
+  @keyframes rotate-moon {
+    0% {
+      transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+      z-index: 1400;
+    }
+    100% {
+      transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+      z-index: 1400;
+    }
   }
 }
-@keyframes rotate-moon {
-  0% {
-    transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
-    z-index: 1400;
-  }
-  100% {
-    transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
-    z-index: 1400;
-  }
-}
-
