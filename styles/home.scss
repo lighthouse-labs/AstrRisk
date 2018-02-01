@@ -99,7 +99,7 @@ body {
   height: 100vh;
 }
 
-.infoPopupBox {
+.infoPopupContainer {
   position: fixed;
   background: rgba(0,0,0,0.8);
   top: 0;
@@ -109,26 +109,30 @@ body {
   z-index: 9000;
   transform: rotateX(-57deg);
 }
-// .infoPopupBox-bottom {
-//   position: absolute;
-//   border-width: 10px 8px 0 8px;
-//   border-style: solid;
-//   border-color: pink transparent transparent transparent;
-//   bottom: 9px;
-//   transform: translateY(20px);
-// }
-html .infoText {
+
+.infoPopup-infoHolder {
+  display: flex;
   top: 40%;
   left: 24%;
+  width: 100%;
+  position: absolute;
+}
+
+html .infoText {
+  // top: 40%;
+  // left: 24%;
   font-family: 'Pontano Sans', sans-serif;
   position: absolute;
   opacity: 1;
   text-shadow: 5 5px black;
-  display: flex;
 }
 
 .infoText ul {
   padding: 12px;
+}
+
+.infoText span {
+  text-align: right;
 }
 
 .infoText-name {
@@ -140,14 +144,27 @@ html .infoText {
 .infoText-line-item {
   font-size: 30px;
   padding: 5px;
+  display: flex;
+}
+
+.infoText-line-item span:first-child {
+  text-align: left;
+  color: #999999;
+}
+
+.infoText-line-item span:nth-child(2) {
   text-align: right;
+  flex-grow: 1;
+}
+
+.infoImage-container {
+  padding-left: 600px;
 }
 
 .infoPopup-image {
-  width: 26%;
-  height: 26%;
-  margin-left: 35px;
-  margin-top: 15px;
+  height: 57%;
+  margin-left: 8px;
+  margin-top: -5px;
 }
 
 .neo:hover {
