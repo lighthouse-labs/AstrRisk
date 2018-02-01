@@ -20,6 +20,16 @@ html, body {
     color: #d4d1d1
 }
 
+// html, body {
+//     box-sizing: border-box;
+//     background-color: #4C4C4C;
+//     font-family: 'Coustard', sans-serif;
+//     overflow: hidden
+// }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 .earth-system {
     height: $mars-orbit + px;
     width: $mars-orbit + px;
@@ -27,7 +37,8 @@ html, body {
     transform-style: preserve-3d;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -340px;
+    margin-top: -240px;
+    margin-bottom: -360px;
 }
 
 
@@ -47,18 +58,19 @@ html, body {
   top: (($mars-orbit/2) - ($moon-orbit/2)) + px;
   width: $moon-orbit + px;
   height: $moon-orbit + px;
-  border: solid 2px #ccc;
+  border: solid 2px #FFF;
   margin-left: auto;
   margin-right: auto;
 }
 
 .moon {
     position: absolute;
-    left: (($moon-orbit / 2) - 15) + px;
-    top: (($moon-orbit / 2) - 25) + px;
+    left: 125px;
+    top: 115px;
     width: 30px;
     height: 50px;
     animation: rotate-moon 56.7s infinite linear;
+    cursor: pointer;
 }
 
 .mars {
@@ -70,6 +82,7 @@ html, body {
     animation: rotate 22s infinite linear;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 }
 
 .mars:hover {
@@ -108,6 +121,8 @@ html, body {
 }
 .infoText ul {
   padding: 12px;
+.neo:hover {
+  animation-play-state: paused;
 }
 
 @keyframes rotate {
@@ -122,10 +137,11 @@ html, body {
 @keyframes rotate-moon {
   0% {
     transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
-    z-index: 99;
+    z-index: 1400;
   }
 
   100% {
     transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+    z-index: 1400;
   }
 }

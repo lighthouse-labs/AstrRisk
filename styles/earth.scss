@@ -1,7 +1,8 @@
 .earth {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 730px;
+    top: 715px;
+    cursor: pointer;
 }
 
 .earth:hover {
@@ -10,34 +11,34 @@
 
 .cube div {
     position: absolute;
-    width: 120px;
-    height: 120px;
+    width: 60px;
+    height: 60px;
     border: 0.3px solid rgb(40,165,255);
     background: rgb(40,165,255);
     text-align: center;
-    line-height: 120px;
+    line-height: 60px;
     font-size: 100px;
     box-shadow: inset 0px 0px 100px #4C4C4C;
     z-index: 16;
 }
 
 .face1 { 
-    transform: translateZ(60px);
+    transform: translateZ(30px);
 }
 .face2 { 
-    transform: rotateY(90deg) translateZ(60px);
+    transform: rotateY(90deg) translateZ(30px);
 }
 .face3 { 
-    transform: rotateY(90deg) rotateX(90deg) translateZ(60px);
+    transform: rotateY(90deg) rotateX(90deg) translateZ(30px);
 }
 .face5 { 
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(30px);
 }
 .face4 { 
-    transform: rotateY(180deg) rotateZ(90deg) translateZ(60px);
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(30px);
 }
 .face6 { 
-    transform: rotateX(-90deg) translateZ(60px);
+    transform: rotateX(-90deg) translateZ(30px);
 }
 
 .cube {
@@ -46,7 +47,11 @@
     top: -60px;
     animation: spincube 42s linear infinite;
     transform-style: preserve-3d;
-    transform-origin: 60px 60px 0;
+    transform-origin: 30px 30px 0;
+}
+
+.cube:hover {
+      animation-play-state: paused;
 }
 
 @keyframes spincube {

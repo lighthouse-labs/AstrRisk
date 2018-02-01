@@ -11,9 +11,11 @@ class App extends Component {
     super(props);
   }
 
+
   componentDidMount() {
     this.props.getFireballData();
   }
+
 
   render() {
 
@@ -22,9 +24,6 @@ class App extends Component {
     return (
       <Fragment>
         <EarthSystem neodata={this.state}/>
-        {/* <h2>{this.props.testState}</h2> */}
-        {/* <button onClick={() => this.props.getNeoData('1990-01-0')}>LOAD NEO DATA</button> */}
-        {/* <button onClick={() => this.props.testButton('HELLO')}>TEST BUTTON</button> */}
 
         <div className="range-slider">
           <p className="range-slider-date">{this.props.neoData[0].close_approach_data[0].close_approach_date}</p>
