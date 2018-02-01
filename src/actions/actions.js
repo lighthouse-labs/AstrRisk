@@ -55,3 +55,7 @@ export const loadNeoData = (data) => ({
   type: types.LOADNEODATA,
   payload: data
 })
+
+export const showNeoData = (data) => ({
+  type: types.SHOWNEODATA,
+})

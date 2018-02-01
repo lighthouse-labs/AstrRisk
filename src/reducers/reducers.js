@@ -130,6 +130,16 @@ export const testReducer = (state = initialState, action) => {
   }
 }
 
+export const fireBallDataReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOADFIREBALLDATA':
+      console.log('New Fireball Data: ', action.payload)
+      return action.payload
+    default:
+      return state
+  }
+}
+
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
@@ -139,21 +149,22 @@ export const neoDataReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
+export const showNeoData = (state = 'No NEO data', action) => {
   switch (action.type) {
-    case 'YEAR':
-      // console.log('New Year set: ', action.payload)
+    case 'SHOWNEODATA':
+      console.log('New NEO Data: ', action.payload)
       return action.payload
     default:
       return state
   }
 }
 
-export const fireBallDataReducer = (state = initialState, action) => {
+
+
+export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
   switch (action.type) {
-    case 'LOADFIREBALLDATA':
-      console.log('New Fireball Data: ', action.payload)
+    case 'YEAR':
+      // console.log('New Year set: ', action.payload)
       return action.payload
     default:
       return state

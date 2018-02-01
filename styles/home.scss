@@ -1,13 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Coustard");
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
 
 $mars-orbit: 1400;
 $moon-orbit: 280;
 $neo-orbit: 700;
 
-html, body {
-    background-color: #4C4C4C;
-    font-family: 'Coustard', sans-serif;
+html {
+  background-color: black; // to remove
+}
 
+body {
+  opacity: 0.3; // to remove
+  background-color: #4C4C4C;
+}
+
+html, body {
+    font-family: 'Press Start 2P', cursive;
+    color: #d4d1d1
 }
 
 .earth-system {
@@ -68,6 +78,36 @@ html, body {
 
 .moon:hover {
   animation-play-state: paused;
+}
+
+// .infoPopupBox {
+//   transform: rotateX(-57deg);
+//   position: absolute;
+//   width: 250px;
+//   height: 154px;
+//   left: -280px;
+//   top: -350px;
+//   border: solid 2px #ccc;
+//   border-radius: 2%;
+//   box-shadow: 4px 6px 1px black;
+//   background: slategrey;
+// }
+
+// .infoPopupBox-bottom {
+//   position: absolute;
+//   border-width: 10px 8px 0 8px;
+//   border-style: solid;
+//   border-color: pink transparent transparent transparent;
+//   bottom: 9px;
+//   transform: translateY(20px);
+// }
+
+.infoText {
+  font-family: 'Pontano Sans', sans-serif;
+  position: absolute;
+}
+.infoText ul {
+  padding: 12px;
 }
 
 @keyframes rotate {
