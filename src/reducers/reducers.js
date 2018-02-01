@@ -41,7 +41,7 @@ const initialState = [{
 }, {
   "neo_reference_id": "3250293",
   "name": "(2004 QA22)",
-  "nasa_jpl_url": "http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3250293",
+  "nasa_jpl_url": "https://github.com/Bsadoway/AstrRisk",
   "absolute_magnitude_h": 27.9,
   "estimated_diameter": {
     "kilometers": {
@@ -143,13 +143,14 @@ export const fireBallDataReducer = (state = initialState, action) => {
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
-      console.log('New NEO Data: ', action.payload)
+      // console.log('New NEO Data: ', action.payload)
       return action.payload
     default:
       return state
   }
 }
-export const showNeoData = (state = 'No NEO data', action) => {
+
+export const yearReducer = (state = '2015-01-01', action) => {
   switch (action.type) {
     case 'SHOWNEODATA':
       console.log('New NEO Data: ', action.payload)

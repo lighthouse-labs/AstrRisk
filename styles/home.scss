@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Coustard");
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
-@import url("https://fonts.googleapis.com/css?family=Pontano+Sans");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:900");
 
 $mars-orbit: 1400;
 $moon-orbit: 280;
@@ -16,8 +14,13 @@ body {
 }
 
 html, body {
-    font-family: 'Press Start 2P', cursive;
-    color: #d4d1d1
+    box-sizing: border-box;
+    background-color: #4C4C4C;
+    font-family: 'Rubik', sans-serif;
+    // font-family: 'Roboto Mono', monospace;
+
+    //TODO replace with actual image
+    background: url("../public/assets/images/space-bg.jpg");
 }
 
 // html, body {
@@ -37,8 +40,6 @@ html, body {
     transform-style: preserve-3d;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -240px;
-    margin-bottom: -360px;
 }
 
 
