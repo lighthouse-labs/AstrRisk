@@ -9,19 +9,31 @@
 }
 
 .range-slider-date {
-  font-size: 2em;
-  padding: 20px;
+  font-size: 50px;
+  padding-top: 43px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-.range-button svg{
-  width: 30px;
+.range-text {
+  padding-top: 23px;
+}
+
+.range-button{
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.range-button:hover{
+  color: yellow;
+  transform: scale(1.2);
 }
 
 .range-slider-months li {
+  font-family: 'Roboto Mono', monospace;
+
   float:left;
   padding: 0 35px;
 }

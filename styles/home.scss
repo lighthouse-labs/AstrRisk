@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Coustard");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Rubik:900");
 
 $mars-orbit: 1400;
 $moon-orbit: 280;
@@ -7,7 +7,9 @@ $neo-orbit: 700;
 html, body {
     box-sizing: border-box;
     background-color: #4C4C4C;
-    font-family: 'Coustard', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    // font-family: 'Roboto Mono', monospace;
+
     //TODO replace with actual image
     background: url("../public/assets/images/space-bg.jpg");
 }

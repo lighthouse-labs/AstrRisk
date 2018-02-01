@@ -70,13 +70,13 @@ class SliderBar extends Component {
 
           <div className="range-slider-date">
             <div className="range-button">
-              <TiIconPack.TiArrowLeftOutline onClick={e => this.goBackOneDay()}/>
+              <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
             </div>
             <div className="range-text">
               {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
             </div>
             <div className="range-button">
-              <TiIconPack.TiArrowRightOutline onClick={e => this.goForwardOneDay()}/>
+              <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
             </div>
           </div>
           <ul className="range-slider-months">
