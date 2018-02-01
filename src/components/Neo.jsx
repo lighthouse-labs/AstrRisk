@@ -23,11 +23,9 @@ const scaledDistance = Math.floor(dScale(distance));
 const keyframes = `@keyframes ${name} {
         0% {
             transform: rotateZ(0deg) translateX(${scaledDistance / 2}px) rotateZ(0deg) rotateX(0deg);
-            z-index: ${1400 + scaledDistance};
         }
         100% {
             transform: rotateZ(360deg) translateX(${scaledDistance / 2}px) rotateZ(-360deg) rotateX(0deg);
-            z-index: ${1400-scaledDistance};
         }    
     }`;
 
