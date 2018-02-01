@@ -5,7 +5,7 @@ const rootReducer = combineReducers({
   testReducer,
   neoData: neoDataReducer,
   fireBallData: fireBallDataReducer,
-  currentYear: yearReducer
+  currentDate: yearReducer
 })
 
 export default rootReducer;
