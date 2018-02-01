@@ -6,6 +6,10 @@ import {testButton, getNeoData, getFireballData} from './actions/actions.js';
 import * as d3 from 'd3';
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
+import * as FontAwesome from 'react-icons/lib/fa'
+import * as TiIconPack from 'react-icons/lib/ti'
+
+
 
 const momentRange = extendMoment(moment);
 
@@ -34,13 +38,13 @@ class App extends Component {
 
   updateRangeSlider() {}
 
+  // updates the range slider with the current value tranlated to a date
   changeRange(e) {
     const startDate = new Date(this.getCurrentYear(), 0, 1);
     const endDate = new Date(this.getCurrentYear(), 11, 31);
     const range = (momentRange.range(startDate, endDate)).diff("days") + 1;
     e.currentTarget.max = range;
     this.state.slider = e.currentTarget.value;
-    // console.log(e.currentTarget.value);
 
     return this.props.getNeoData(moment().year(this.getCurrentYear()).date(e.currentTarget.value).format('YYYY-MM-DD'));
   }
@@ -72,9 +76,18 @@ class App extends Component {
     return (<Fragment>
       <EarthSystem neodata={this.state}/>
       <div className="range-slider">
-        <button onClick={e => this.goBackOneDay()}>RW</button>
-        <button onClick={e => this.goForwardOneDay()}>FF</button>
-        <p className="range-slider-date">{this.props.neoData[0].close_approach_data[0].close_approach_date}</p>
+
+        <div className="range-slider-date">
+          <div className="range-button">
+            <TiIconPack.TiArrowLeftOutline onClick={e => this.goBackOneDay()}/>
+          </div>
+          <div className="range-text">
+            {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
+          </div>
+          <div className="range-button">
+            <TiIconPack.TiArrowRightOutline onClick={e => this.goForwardOneDay()}/>
+          </div>
+        </div>
         <ul className="range-slider-months">
           <li>Jan</li>
           <li>Feb</li>
@@ -89,6 +102,7 @@ class App extends Component {
           <li>Nov</li>
           <li>Dec</li>
         </ul>
+
         <input ref='sliderRef'
                type='range'
                min='1'

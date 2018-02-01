@@ -8,7 +8,8 @@ html, body {
     box-sizing: border-box;
     background-color: #4C4C4C;
     font-family: 'Coustard', sans-serif;
-    overflow: hidden
+    //TODO replace with actual image
+    background: url("../public/assets/images/space-bg.jpg");
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -21,8 +22,6 @@ html, body {
     transform-style: preserve-3d;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -240px;
-    margin-bottom: -360px;
 }
 
 
