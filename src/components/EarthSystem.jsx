@@ -11,6 +11,7 @@ class EarthSystem extends Component{
       <div className="earth-system">
         <Orbit/>
         <Earth/>
+        {/* <div className="blur-filter"></div> */}
       </div>
     )
   }
