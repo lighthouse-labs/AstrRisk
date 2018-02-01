@@ -23,11 +23,12 @@ class Earth extends Component {
         <div className="infoText">
           <ul>
             <li className="infoText-name">453563 (2010 BB)</li>
-            <li>Estimated diameter: 250-500m </li>
-            <li>Is potentially hazardous: TRUE </li>
-            <li>Relative velocity: 7610m/s </li>
-            <li>Miss distance: 4,701,211km </li>
+            <li className="infoText-line-item">Estimated diameter: 250-500m</li>
+            <li className="infoText-line-item">Is potentially hazardous:      1       TRUE</li>
+            <li className="infoText-line-item">Relative velocity:              7610m/s </li>
+            <li className="infoText-line-item">Miss distance:               4,701,211km </li>
           </ul>
+            <img src='../../public/assets/images/neo.svg' class="infoPopup-image"/>
         </div>
         <div className="infoPopupBox-bottom">
         </div>
