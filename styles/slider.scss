@@ -15,10 +15,14 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
+  margin-bottom: -15px;
+
 }
 
 .range-text {
   padding-top: 23px;
+  height: 100%;
+  user-select: none;
 }
 
 .range-button{
@@ -31,9 +35,21 @@
   transform: scale(1.2);
 }
 
+.range-year-picker {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto Mono', monospace;
+  width: 150px;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
 .range-slider-months li {
   font-family: 'Roboto Mono', monospace;
-
+  user-select: none;
   float:left;
   padding: 0 35px;
 }
