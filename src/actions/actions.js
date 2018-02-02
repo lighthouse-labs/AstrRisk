@@ -44,18 +44,23 @@ export const getFireballData = () => {
 export const getDate = (date) => ({
   type: types.GETDATE,
   payload: date
-})
+});
 
 export const loadFireballData = (data) => ({
   type: types.LOADFIREBALLDATA,
   payload: data
-})
+});
 
 export const loadNeoData = (data) => ({
   type: types.LOADNEODATA,
   payload: data
-})
+});
 
 export const showNeoData = (data) => ({
   type: types.SHOWNEODATA,
-})
+});
+
+export const changeSlider = (data) => ({
+  type: types.SLIDERCHANGE,
+  payload: data
+});
