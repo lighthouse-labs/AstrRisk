@@ -21,31 +21,34 @@ class SliderBar extends Component {
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
+    this.updateRange();
   }
 
-  // updates the range slider with the current value tranlated to a date
-  changeRange(e) {
+  // updates the slider range max value
+  updateRange(){
     const startDate = new Date(this.getCurrentYear(), 0, 1);
     const endDate = new Date(this.getCurrentYear(), 11, 31);
     const range = (momentRange.range(startDate, endDate)).diff("days") + 1;
     this.setState({range: range})
-    this.setState({slider: e.currentTarget.value});
+  }
+
+  // updates the range slider with the current value tranlated to a date
+  changeRange(e) {
+    this.setState({slider: Number(e.currentTarget.value)});
     this.props.getNeoData(moment().year(this.getCurrentYear()).dayOfYear(e.currentTarget.value).format('YYYY-MM-DD'));
   }
 
   // goes back one day in the current year timeline and updates the range slider value
   goBackOneDay() {
     if (this.props.currentDate !== `${this.getCurrentYear()}-01-01`) {
-      this.state.slider--;
-      this.refs.sliderRef.value = this.state.slider;
+      this.setState( {slider: Number(this.state.slider-=1)});
       this.props.getNeoData(moment(this.props.currentDate).subtract('1', 'days').format('YYYY-MM-DD'));
     }
   }
   // goes forward one day in the current year timeline and updates the range slider value
   goForwardOneDay() {
     if (this.props.currentDate !== `${this.getCurrentYear()}-12-31`) {
-      this.state.slider++;
-      this.refs.sliderRef.value = this.state.slider;
+      this.setState( {slider: Number(this.state.slider+=1)});
       this.props.getNeoData(moment(this.props.currentDate).add('1', 'days').format('YYYY-MM-DD'));
     }
   }
@@ -59,7 +62,7 @@ class SliderBar extends Component {
     const date = `${e.currentTarget.value}-01-01`;
     this.props.getNeoData(date);
     this.setState({slider: 1});
-
+    this.updateRange();
   }
 
   render() {
@@ -85,7 +88,7 @@ class SliderBar extends Component {
                 <option value="2016">2016</option>
               </select>
             </div>
-            
+
 
             <ul className="range-slider-months">
               <li>Jan</li>
