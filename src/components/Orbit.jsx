@@ -28,9 +28,9 @@ class Orbit extends Component {
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
       </div>
 
-      {/* <div className='fireball-path'>
+      <div className='fireball-path'>
         <Fireball/>
-      </div> */}
+      </div>
 
         {
           this.props.neoData.map(function(neo, i) {
