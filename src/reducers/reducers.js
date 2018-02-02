@@ -124,9 +124,9 @@ export const testReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'TEST':
       console.log('The payload is: ', action.payload);
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
   }
 }
 
@@ -134,9 +134,9 @@ export const fireBallDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADFIREBALLDATA':
       console.log('New Fireball Data: ', action.payload)
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
   }
 }
 
@@ -144,9 +144,9 @@ export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
       // console.log('New NEO Data: ', action.payload)
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
   }
 }
 
@@ -154,9 +154,18 @@ export const dateReducer = (state = '2015-01-01', action) => {
   switch (action.type) {
     case 'GETDATE':
       console.log('New NEO Data: ', action.payload)
-      return action.payload
+      return action.payload;
     default:
-      return state
+      return state;
+  }
+}
+
+export const getSliderReducer = (state = 1, action) => {
+  switch(action.type){
+    case 'SLIDERCHANGE':
+      return action.payload;
+    default:
+      return state;
   }
 }
 
