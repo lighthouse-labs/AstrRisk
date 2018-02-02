@@ -23,6 +23,14 @@ class Neo extends Component {
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
     const neoName = name;
+    // Formula for 
+    const volume = (4/3) * Math.PI * Math.pow((avgDiameter / 2), 3);
+    console.log('volume: ', volume)
+    const mass = 2000 * volume;
+    console.log('mass: ', mass)
+    const ke = 0.5 * mass * Math.pow(speed, 2);
+    console.log('ke: ', ke)
+    const kt = +(ke * 0.00000000023901).toFixed(2);
 
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
@@ -91,6 +99,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Is potentially hazardous:</span> <span>{hazard}</span></div>
               <div className="infoText-line-item"><span>Relative velocity:</span> <span>{Math.floor(speed * 1000)} m/s</span></div>
               <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
+              <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{kt} Mt</span></div>
             </div>
             <div className="infoImage-container">
               <img src='../../public/assets/images/neo.svg' className="infoPopup-image" />

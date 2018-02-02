@@ -4,6 +4,7 @@ import SliderBar from './components/SliderBar.jsx';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData} from './actions/actions.js';
+import BarChart from './components/BarChart.jsx';
 
 
 class App extends Component {
@@ -22,9 +23,10 @@ class App extends Component {
   render() {
 
     return (<Fragment>
-      <EarthSystem neodata={this.state}/>
-      <SliderBar />
-          </Fragment>);
+        <EarthSystem neodata={this.state}/>
+        <SliderBar />
+      </Fragment>
+    );
   }
 }
 

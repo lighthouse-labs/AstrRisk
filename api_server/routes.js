@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const moment = require('moment');
 
 module.exports = () => {
 
   // Servers JSON for requested date
   router.get("/api/neo/:date", (req, res) => {
     const date = req.params.date;
+    const year = Moment(date).format('YYYY');
     try {
-      fs.readFile(`./json/${date}/${date}.json`, (err, data) => {
+      fs.readFile(`./json/${year}/${date}.json`, (err, data) => {
         if (data !== undefined) {
           console.log(`Data access request for ${date}`);
           res.json(JSON.parse(data));
