@@ -11,9 +11,13 @@ class Orbit extends Component {
 
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+
+  }
 
   render() {
+
+
     return (<Fragment>
 
       <div className="moon-orbit">
@@ -30,12 +34,16 @@ class Orbit extends Component {
 
         {
           this.props.neoData.map(function(neo, i) {
+            const distance = neo.close_approach_data[0].miss_distance.kilometers;
+            const avgDiameter = Math.floor((neo.estimated_diameter.meters.estimated_diameter_min + neo.estimated_diameter.meters.estimated_diameter_max) / 2);
+            const speed = neo.close_approach_data[0].relative_velocity.kilometers_per_second;
+            const name = neo.name;
+            const hazard = neo.is_potentially_hazardous_asteroid ? 'Yes' : 'No';
+            
             return (
-
-              <Neo key={i} name={neo.name}
-              distance={neo.close_approach_data[0].miss_distance.kilometers}
-              speed={neo.close_approach_data[0].relative_velocity.kilometers_per_second
-              }></Neo>)
+              <Neo key={i} name={name} distance={distance} avgDiameter={avgDiameter} speed={speed} hazard={hazard}></Neo>
+            )
+              
           })
         }
       
