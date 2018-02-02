@@ -153,3 +153,13 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #ffffff;
 }
+
+.select{
+  background: rgba(0,0,0,0.1);
+  color: white;
+  border: none;
+}
+
+.select:focus {
+  outline: none;
+}
