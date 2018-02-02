@@ -3,9 +3,12 @@
 .range-slider {
   color: #FFF;
   width: 1200px;
-  margin-left: auto;
+  margin-left: -600px;
   margin-right: auto;
   padding-bottom: 40px;
+  position: fixed;
+  left: 50%;
+  bottom: 0px;
 }
 
 .range-slider-date {
