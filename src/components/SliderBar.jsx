@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {testButton, getNeoData, getFireballData} from '../actions/actions.js';
+import {testButton, getNeoData, getFireballData, changeSlider} from '../actions/actions.js';
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
 import * as FontAwesome from 'react-icons/lib/fa'
@@ -34,21 +34,21 @@ class SliderBar extends Component {
 
   // updates the range slider with the current value tranlated to a date
   changeRange(e) {
-    this.setState({slider: Number(e.currentTarget.value)});
+    this.props.changeSlider(Number(e.currentTarget.value));
     this.props.getNeoData(moment().year(this.getCurrentYear()).dayOfYear(e.currentTarget.value).format('YYYY-MM-DD'));
   }
 
   // goes back one day in the current year timeline and updates the range slider value
   goBackOneDay() {
     if (this.props.currentDate !== `${this.getCurrentYear()}-01-01`) {
-      this.setState( {slider: Number(this.state.slider-=1)});
+      this.props.changeSlider(Number(this.props.sliderData-1));
       this.props.getNeoData(moment(this.props.currentDate).subtract('1', 'days').format('YYYY-MM-DD'));
     }
   }
   // goes forward one day in the current year timeline and updates the range slider value
   goForwardOneDay() {
     if (this.props.currentDate !== `${this.getCurrentYear()}-12-31`) {
-      this.setState( {slider: Number(this.state.slider+=1)});
+      this.props.changeSlider(Number(this.props.sliderData+1));
       this.props.getNeoData(moment(this.props.currentDate).add('1', 'days').format('YYYY-MM-DD'));
     }
   }
@@ -61,7 +61,8 @@ class SliderBar extends Component {
   changeYear(e) {
     const date = `${e.currentTarget.value}-01-01`;
     this.props.getNeoData(date);
-    this.setState({slider: 1});
+    this.props.changeSlider(1);
+    // this.setState({slider: 1});
     this.updateRange();
   }
 
@@ -110,7 +111,7 @@ class SliderBar extends Component {
               type='range'
               min='1'
               max={this.state.range}
-              step='1' value={this.state.slider}
+              step='1' value={this.props.sliderData}
               className='slider'
               onChange={e => this.changeRange(e)}>
             </input>
@@ -130,14 +131,15 @@ class SliderBar extends Component {
 }
 
 function mapStateToProps(state) {
-  return {neoData: state.neoData, testState: state.testReducer, fireBallData: state.fireBallData, currentDate: state.currentDate}
+  return {neoData: state.neoData, testState: state.testReducer, fireBallData: state.fireBallData, currentDate: state.currentDate,sliderData: state.sliderData }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     testButton, //Usage: test('string to display');
     getNeoData, //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
-    getFireballData
+    getFireballData,
+    changeSlider,
   }, dispatch)
 }
 
