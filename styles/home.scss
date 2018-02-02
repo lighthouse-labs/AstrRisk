@@ -15,7 +15,9 @@
         font-family: 'Rubik', sans-serif;
         color: #d4d1d1;
         background: url("../public/assets/images/star-tile.png");
+        box-shadow: inset 0 0 400px black
     }
+
 
     .earth-system {
         height: $mars-orbit + px;
@@ -24,6 +26,8 @@
         transform-style: preserve-3d;
         margin-left: auto;
         margin-right: auto;
+        margin-top: -290px;
+        margin-bottom: -200px;
     }
 
     .hidden {
@@ -37,6 +41,7 @@
         border: solid 2px #FF454E;
         margin-left: auto;
         margin-right: auto;
+        box-shadow: inset 0 0 50px red;
     }
 
     .moon-orbit {
@@ -49,6 +54,7 @@
         border: solid 2px #FFF;
         margin-left: auto;
         margin-right: auto;
+        box-shadow: inset 0 0 50px white;
     }
 
     .moon {
@@ -79,13 +85,6 @@
 
     .moon:hover {
         animation-play-state: paused;
-    }
-
-    .blur-filter {
-      filter: blur(5px);
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
     }
 
     .infoPopupContainer {

@@ -80,7 +80,7 @@ class SliderBar extends Component {
               </div>
             </div>
             <div className="range-year-picker">
-              <select onChange={e => this.changeYear(e)}>
+              <select onChange={e => this.changeYear(e)} className="select">
                 <option value="2015">2015</option>
                 <option value="2016">2016</option>
               </select>

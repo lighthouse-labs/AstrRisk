@@ -65,7 +65,6 @@ class Neo extends Component {
       marginLeft: "auto",
       marginRight: "auto",
       zIndex: "-40",
-      opacity: "0.6",
     }
 
     const createNeo = () => {
