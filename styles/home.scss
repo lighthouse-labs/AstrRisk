@@ -8,10 +8,7 @@ html, body {
     box-sizing: border-box;
     background-color: #4C4C4C;
     font-family: 'Rubik', sans-serif;
-    // font-family: 'Roboto Mono', monospace;
-
-    //TODO replace with actual image
-    background: url("../public/assets/images/space-bg.jpg");
+    background: url("../public/assets/images/star-tile.png");
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -26,6 +23,9 @@ html, body {
     margin-right: auto;
 }
 
+.hidden {
+  display: none;
+}
 
 .orbit {
     border-radius: 50%;

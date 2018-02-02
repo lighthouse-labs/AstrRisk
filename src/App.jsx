@@ -15,7 +15,7 @@ class App extends Component {
   componentDidMount() {
     this.props.getFireballData();
     this.props.getNeoData(this.props.currentDate);
-
+    document.getElementById("loader").className += " hidden";
   }
 
 
