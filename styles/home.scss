@@ -15,8 +15,9 @@
         font-family: 'Rubik', sans-serif;
         color: #d4d1d1;
         background: url("../public/assets/images/star-tile.png");
-        box-shadow: inset 0 0 500px black;
+        box-shadow: inset 0 0 400px black
     }
+
 
     .earth-system {
         height: $mars-orbit + px;
@@ -25,6 +26,8 @@
         transform-style: preserve-3d;
         margin-left: auto;
         margin-right: auto;
+        margin-top: -290px;
+        margin-bottom: -200px;
     }
 
     .hidden {
