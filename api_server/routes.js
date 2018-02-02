@@ -8,7 +8,7 @@ module.exports = () => {
   // Servers JSON for requested date
   router.get("/api/neo/:date", (req, res) => {
     const date = req.params.date;
-    const year = Moment(date).format('YYYY');
+    const year = moment(date).format('YYYY');
     try {
       fs.readFile(`./json/${year}/${date}.json`, (err, data) => {
         if (data !== undefined) {
