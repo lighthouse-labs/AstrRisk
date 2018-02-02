@@ -3,12 +3,9 @@
 .range-slider {
   color: #FFF;
   width: 1200px;
-  margin-left: -600px;
+  margin-left: auto;
   margin-right: auto;
   padding-bottom: 40px;
-  position: fixed;
-  left: 50%;
-  bottom: 0px;
 }
 
 .range-slider-date {
@@ -68,6 +65,7 @@
   float:left;
   padding: 0 35px;
 }
+
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;

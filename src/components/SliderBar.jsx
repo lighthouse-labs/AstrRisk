@@ -85,6 +85,7 @@ class SliderBar extends Component {
                 <option value="2016">2016</option>
               </select>
             </div>
+            
 
             <ul className="range-slider-months">
               <li>Jan</li>
