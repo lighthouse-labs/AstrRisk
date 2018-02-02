@@ -1,0 +1,36 @@
+.fireball-path {
+  position: absolute;
+  top: -130px;
+  left: -130px;
+  animation: pulsate 6s linear infinite,
+  fireball 10s cubic-bezier(0.690, 0.340, 0.870, 0.600);
+  // animation-fill-mode: forwards;
+  // -webkit-animation-fill-mode: forwards;
+}
+
+.fireball {
+  height: 50px;
+}
+
+
+@keyframes fireball{
+  0% {
+    transform: translateX(-30px) translateY(-30px)
+    
+  }
+  100% {
+    transform: translateX(735px) translateY(735px);
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+  }
+  50% {
+    transform: translateX(715px) translateY(715px) scaleX(1.1) scaleY(1.1);
+  }
+  100% {
+    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+  }
+}

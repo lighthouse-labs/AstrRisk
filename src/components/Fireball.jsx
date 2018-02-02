@@ -11,10 +11,14 @@ class Fireball extends Component {
   //fireBallData.ta
 
   render() {
+    const { fireBallData, currentDate } = this.props;
+    const { date, energy, impactEnergy } = fireBallData;
+
     return (
       <Fragment>
-          <img src='../../public/assets/images/neo.svg' className="fireball" />
-          {/* {this.props.fireBallData['2018-01-22'] && this.props.fireBallData['2018-01-22'][1]} */}
+          <div>
+            {fireBallData[currentDate] && <img src='../../public/assets/images/neo.svg' className="fireball"/>}
+          </div>
       </Fragment>
     )
   }
@@ -26,7 +30,7 @@ function mapStateToProps(state) {
     neoData: state.neoData,
     fireBallData: state.fireBallData,
     testState: state.testReducer,
-    currentYear: state.currentYear
+    currentDate: state.currentDate
   }
 }
 
