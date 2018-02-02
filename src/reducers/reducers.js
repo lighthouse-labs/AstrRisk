@@ -160,6 +160,17 @@ export const dateReducer = (state = '2015-01-01', action) => {
   }
 }
 
+export const togglePopUpReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLEPOPUP':
+      console.log('hello');
+      const bool = !state;
+      return bool;
+    default:
+      return state
+  }
+}
+
 
 
 // export const yearReducer = (state = 'NO CURRENT YEAR', action) => {

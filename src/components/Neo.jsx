@@ -22,6 +22,7 @@ class Neo extends Component {
 
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
+    const neoName = name;
 
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
@@ -46,7 +47,6 @@ class Neo extends Component {
         cursor: pointer;
         padding: 20px;
         animation: ${name} ${speed*2}s infinite linear;
-        z-index: 300;
       }`;
 
     const hoverpause = `.${name}:hover {
@@ -86,7 +86,7 @@ class Neo extends Component {
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
           <div className="infoPopup-infoHolder">
             <div className="infoText">
-              <div className="infoText-name">453563 (2010 BB)</div>
+              <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated diameter:</span> <span>{avgDiameter} m</span></div>
               <div className="infoText-line-item"><span>Is potentially hazardous:</span> <span>{hazard}</span></div>
               <div className="infoText-line-item"><span>Relative velocity:</span> <span>{Math.floor(speed * 1000)} m/s</span></div>
