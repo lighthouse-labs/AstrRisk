@@ -39,12 +39,13 @@ class Neo extends Component {
 
     const newclass = `.${name} {
         position: absolute;
-        width: 40px;
-        height: 65px;
-        left: 675px;
-        top: 675px;
+        width: 80px;
+        height: 106px;
+        left: 660px;
+        top: 644px;
         cursor: pointer;
-        animation: ${name} ${speed}s infinite linear;
+        padding: 20px;
+        animation: ${name} ${speed*2}s infinite linear;
         z-index: 300;
       }`;
 

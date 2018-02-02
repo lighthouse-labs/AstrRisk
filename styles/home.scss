@@ -45,6 +45,7 @@ body {
     border: solid 2px #FF454E;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: inset 0 0 50px red;
   }
   .moon-orbit {
     border-radius: 50%;
@@ -56,13 +57,14 @@ body {
     border: solid 2px #FFF;
     margin-left: auto;
     margin-right: auto;
+     box-shadow: inset 0 0 50px white;
   }
   .moon {
     position: absolute;
-    left: 125px;
-    top: 115px;
-    width: 30px;
-    height: 50px;
+    left: 100px;
+    top: 90px;
+    width: 60px;
+    height: 98px;
     animation: rotate-moon 56.7s infinite linear;
     cursor: pointer;
   }
@@ -159,11 +161,9 @@ body {
   @keyframes rotate-moon {
     0% {
       transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
-      z-index: 1400;
     }
     100% {
       transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
-      z-index: 1400;
     }
   }
 }
