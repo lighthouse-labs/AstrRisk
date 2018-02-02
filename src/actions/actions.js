@@ -41,6 +41,10 @@ export const getFireballData = () => {
   }
 }
 
+export const togglePopUp = () => ({
+  type: types.TOGGLEPOPUP
+});
+
 export const getDate = (date) => ({
   type: types.GETDATE,
   payload: date

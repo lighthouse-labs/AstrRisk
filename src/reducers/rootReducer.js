@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer } from './reducers';
+import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer, togglePopUpReducer } from './reducers';
 
 const rootReducer = combineReducers({
   testReducer,
   neoData: neoDataReducer,
   fireBallData: fireBallDataReducer,
   currentDate: dateReducer,
-  sliderData: getSliderReducer
+  sliderData: getSliderReducer,
+  showPopUp: togglePopUpReducer
 })
 
 export default rootReducer;
