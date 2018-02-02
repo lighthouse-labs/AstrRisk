@@ -16,11 +16,8 @@ class SliderBar extends Component {
     this.state = {
       slider: 1,
       range: 365
-
     }
-
   }
-
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
@@ -30,7 +27,7 @@ class SliderBar extends Component {
   changeRange(e) {
     const startDate = new Date(this.getCurrentYear(), 0, 1);
     const endDate = new Date(this.getCurrentYear(), 11, 31);
-    const range = (momentRange.range(startDate, endDate)).diff("days") +1;
+    const range = (momentRange.range(startDate, endDate)).diff("days") + 1;
     this.setState({range: range})
     this.setState({slider: e.currentTarget.value});
     this.props.getNeoData(moment().year(this.getCurrentYear()).dayOfYear(e.currentTarget.value).format('YYYY-MM-DD'));
@@ -66,53 +63,65 @@ class SliderBar extends Component {
   }
 
   render() {
-    return (<Fragment>
-      <div className="range-slider">
 
-        <div className="range-slider-date">
-          <div className="range-button">
-            <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
+    const makeSlider = () => {
+      return (
+        <Fragment>
+          <div className="range-slider">
+            <div className="range-slider-date">
+              <div className="range-button">
+                <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
+              </div>
+              <div className="range-text">
+                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
+              </div>
+              <div className="range-button">
+                <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
+              </div>
+            </div>
+            <div className="range-year-picker">
+              <select onChange={e => this.changeYear(e)}>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+              </select>
+            </div>
+
+            <ul className="range-slider-months">
+              <li>Jan</li>
+              <li>Feb</li>
+              <li>Mar</li>
+              <li>Apr</li>
+              <li>May</li>
+              <li>Jun</li>
+              <li>Jul</li>
+              <li>Aug</li>
+              <li>Sep</li>
+              <li>Oct</li>
+              <li>Nov</li>
+              <li>Dec</li>
+            </ul>
+
+            <input
+              ref='sliderRef'
+              type='range'
+              min='1'
+              max={this.state.range}
+              step='1' value={this.state.slider}
+              className='slider'
+              onChange={e => this.changeRange(e)}>
+            </input>
           </div>
-          <div className="range-text">
-            {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
-          </div>
-          <div className="range-button">
-            <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
-          </div>
-        </div>
-        <div className="range-year-picker">
-          <select onChange={e => this.changeYear(e)}>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-          </select>
-        </div>
+        </Fragment>
+      )
+    }
 
-        <ul className="range-slider-months">
-          <li>Jan</li>
-          <li>Feb</li>
-          <li>Mar</li>
-          <li>Apr</li>
-          <li>May</li>
-          <li>Jun</li>
-          <li>Jul</li>
-          <li>Aug</li>
-          <li>Sep</li>
-          <li>Oct</li>
-          <li>Nov</li>
-          <li>Dec</li>
-        </ul>
+    const rangeSlider = makeSlider();
 
-        <input ref='sliderRef'
-               type='range'
-               min='1'
-               max={this.state.range}
-               step='1'
-               value={this.state.slider}
-               className='slider'
-               onChange={e => this.changeRange(e)}></input>
-      </div>
-
-    </Fragment>)
+    return (
+      <Fragment>
+        {rangeSlider}
+      </Fragment>
+    )
   }
 }
 
