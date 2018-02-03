@@ -48,7 +48,7 @@ class Neo extends Component {
         width: 80px;
         height: 80px;
         left: 660px;
-        top: 644px;
+        top: 660px;
         cursor: pointer;
         padding: 20px;
         animation-name: ${name};
@@ -70,7 +70,7 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 2px #ccc",
+      border: "dashed 4px #7E004E",
       marginLeft: "auto",
       marginRight: "auto",
       zIndex: "-40",
