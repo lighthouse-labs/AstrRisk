@@ -15,19 +15,18 @@
         font-family: 'Rubik', sans-serif;
         color: #d4d1d1;
         background: url("../public/assets/images/star-tile.png");
-        box-shadow: inset 0 0 400px black
     }
 
 
     .earth-system {
         height: $mars-orbit + px;
         width: $mars-orbit + px;
-        transform: rotateX(57deg);
         transform-style: preserve-3d;
         margin-left: auto;
         margin-right: auto;
         margin-top: -290px;
         margin-bottom: -200px;
+        transform: rotateX(57deg);
     }
 
     .hidden {
@@ -62,7 +61,7 @@
         left: 125px;
         top: 115px;
         width: 30px;
-        height: 50px;
+        height: 30px;
         animation: rotate-moon 56.7s infinite linear;
         cursor: pointer;
     }
@@ -70,7 +69,7 @@
     .mars {
         position: absolute;
         width: 50px;
-        height: 90px;
+        height: 50px;
         left: (($mars-orbit/2) - 25) + px;
         top: (($mars-orbit/2) - 45) + px;
         animation: rotate 22s infinite linear;
@@ -95,8 +94,8 @@
       left: -300px;
       right: -300px;
       z-index: 9000;
-      transform: rotateX(-57deg);
     }
+      // transform: rotateX(-57deg);
 
     .infoPopup-infoHolder {
       display: flex;
@@ -160,20 +159,20 @@
 
     @keyframes rotate {
         0% {
-            transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+            transform: rotateZ(0deg) translateX(($mars-orbit / 2) + px) rotateZ(0deg);
         }
         100% {
-            transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+            transform: rotateZ(360deg) translateX(($mars-orbit / 2) + px) rotateZ(-360deg);
         }
     }
 
     @keyframes rotate-moon {
         0% {
-            transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(0deg);
+            transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg);
             z-index: 1400;
         }
         100% {
-            transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(0deg);
+            transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg);
             z-index: 1400;
         }
     }
@@ -185,7 +184,6 @@
       margin-top: -135px;
       color: #FFA200FF;
       margin-left: 20px;
-      transform: rotateX(-37deg);
       stroke: black;
       stroke-width: 1.3;
       z-index: 9000;
