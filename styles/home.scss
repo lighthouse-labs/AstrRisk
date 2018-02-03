@@ -70,87 +70,86 @@
         position: absolute;
         width: 50px;
         height: 50px;
-        left: (($mars-orbit) - 25) + px;
-        top: (($mars-orbit) - 25) + px;
-        animation: rotate 38s infinite linear;
+        left: -25px;
+        top: 1400px;
         margin-left: auto;
         margin-right: auto;
         cursor: pointer;
+        transform: rotateX(-57deg);
+        transition: 0.5s;
     }
 
     .mars:hover {
-        animation-play-state: paused;
+        transform: scale(1.3) rotateX(-54deg);
     }
 
     .moon:hover {
-        animation-play-state: paused;
+        transform: scale(1.3) rotateX(-54deg);
     }
 
     .infoPopupContainer {
-      position: fixed;
-      background: rgba(0, 0, 0, 0.8);
-      top: 0;
-      bottom: -300px;
-      left: -300px;
-      right: -300px;
-      z-index: 9000;
-    }
-      // transform: rotateX(-57deg);
-
+        position: fixed;
+        background: rgba(0, 0, 0, 0.8);
+        top: 0;
+        bottom: -300px;
+        left: -300px;
+        right: -300px;
+        z-index: 9000;
+    } // transform: rotateX(-57deg);
     .infoPopup-infoHolder {
-      display: flex;
-      top: 40%;
-      left: 24%;
-      width: 100%;
-      position: absolute;
+        display: flex;
+        top: 40%;
+        left: 24%;
+        width: 100%;
+        position: absolute;
     }
 
     html .infoText {
-      font-family: 'Pontano Sans', sans-serif;
-      position: absolute;
-      opacity: 1;
-      text-shadow: 5 5px black;
+        font-family: 'Pontano Sans', sans-serif;
+        position: absolute;
+        opacity: 1;
+        text-shadow: 5 5px black;
     }
 
     .infoText ul {
-      padding: 12px;
+        padding: 12px;
     }
 
     .infoText span {
-      text-align: right;
+        text-align: right;
     }
 
     .infoText-name {
-      font-size: 75px;
-      padding-bottom: 15px;
-      text-align: left;
-      min-width: 640px;
+        font-size: 75px;
+        padding-bottom: 15px;
+        text-align: left;
+        min-width: 640px;
     }
 
     .infoText-line-item {
-      font-family: 'Roboto Mono', monospace;
-      font-size: 30px;
-      padding: 5px;
-      display: flex;
+        font-family: 'Roboto Mono', monospace;
+        font-size: 30px;
+        padding: 5px;
+        display: flex;
     }
 
     .infoText-line-item span:first-child {
-      text-align: left;
-      color: #999999;
+        text-align: left;
+        color: #999999;
     }
 
     .infoText-line-item span:nth-child(2) {
-      text-align: right;
-      flex-grow: 1;
+        text-align: right;
+        flex-grow: 1;
     }
 
     .infoPopup-image {
-      width: 58%;
+        width: 58%;
     }
 
     .infoImage-container {
-      height: 57%;
-      margin-left: 670px;
+        height: 57%;
+        margin-left: 670px;
     }
 
     .neo:hover {
@@ -159,11 +158,11 @@
 
     @keyframes rotate {
         0% {
-            transform: rotateZ(0deg) translateX(($mars-orbit) + px) rotateZ(0deg) rotateX(-57deg);
+            transform: rotateZ(180deg) translateX(($mars-orbit) + px) rotateZ(180deg) rotateX(-57deg);
             z-index: 30;
         }
         100% {
-            transform: rotateZ(360deg) translateX(($mars-orbit) + px) rotateZ(-360deg) rotateX(-57deg);
+            transform: rotateZ(180deg) translateX(($mars-orbit) + px) rotateZ(180deg) rotateX(-57deg);
             z-index: 30;
         }
     }
@@ -180,17 +179,17 @@
     }
 
     .alert {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      color: #FFA200FF;
-      stroke: black;
-      stroke-width: 1.3;
-      z-index: 9000;
-      tranform: rotateX(-57deg);
+        position: absolute;
+        left: 50%;
+        top: 450px;
+        color: #FFA200FF;
+        stroke: black;
+        stroke-width: 1.3;
+        z-index: 9000;
+        tranform: rotateX(-57deg);
     }
 
-      .alert:hover {
-      color: #FF8082;
-      stroke: red;
+    .alert:hover {
+        color: #FF8082;
+        stroke: red;
     }
