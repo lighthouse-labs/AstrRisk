@@ -12,33 +12,18 @@ const momentRange = extendMoment(moment);
 class SliderBar extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      range: 0
-    }
   }
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
-    let e = 0;
-    this.updateRange(e);
   }
 
   // updates the slider range max value
-  updateRange(e){
-    let startDate = 0;
-    let endDate = 0;
-
-    if(e){
-      startDate = new Date(e.currentTarget.value, 0, 1);
-      endDate = new Date(e.currentTarget.value, 11, 31);
-    } else {
-      startDate = new Date(this.getCurrentYear(), 0, 1);
-      endDate = new Date(this.getCurrentYear(), 11, 31);
-    }
-
+  updateRange(){
+    const startDate = new Date(this.getCurrentYear(), 0, 1);
+    const endDate = new Date(this.getCurrentYear(), 11, 31);
     const range = (momentRange.range(startDate, endDate)).diff("days")+1;
-    this.setState({range: range});
+    return range;
   }
 
   // updates the range slider with the current value tranlated to a date
@@ -71,7 +56,6 @@ class SliderBar extends Component {
     const date = `${e.currentTarget.value}-01-01`;
     this.props.getNeoData(date);
     this.props.changeSlider(1);
-    this.updateRange(e);
   }
 
   render() {
@@ -85,18 +69,24 @@ class SliderBar extends Component {
                 <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
               </div>
               <div className="range-text">
-                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
+                <div className="range-year-picker">
+
+                  <select onChange={e => this.changeYear(e)} className="select">
+
+                    <option value="2015">
+                      {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("YYYY")}
+                      <FontAwesome.FaChevronDown />
+                    </option>
+                    <option value="2016">2016</option>
+                  </select>
+                </div>
+                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do ")}
               </div>
               <div className="range-button">
                 <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
               </div>
             </div>
-            <div className="range-year-picker">
-              <select onChange={e => this.changeYear(e)} className="select">
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-              </select>
-            </div>
+
 
 
             <ul className="range-slider-months">
@@ -118,7 +108,7 @@ class SliderBar extends Component {
               ref='sliderRef'
               type='range'
               min='1'
-              max={this.state.range}
+              max={this.updateRange()}
               step='1' value={this.props.sliderData}
               className='slider'
               onChange={e => this.changeRange(e)}>

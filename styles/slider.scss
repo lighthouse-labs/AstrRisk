@@ -10,7 +10,7 @@
 
 .range-slider-date {
   font-size: 50px;
-  padding-top: 43px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -26,7 +26,7 @@
 }
 
 .range-button{
-  padding-bottom: 20px;
+  margin-top: 85px;
   cursor: pointer;
   transition: width 2s;
 }
@@ -46,17 +46,13 @@
   padding-bottom: 20px;
 
   select {
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1.4em;
-    width: 150px;
-    height: 40px;
-    box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
-    transition: .3s ease-in-out;
-
-    option {
-      font-size: 1.2em;
+    cursor: pointer;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1em;
+    &:hover{
+      color: yellow;
+      transform: scale(1.2);
     }
-
   }
 }
 
