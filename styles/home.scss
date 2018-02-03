@@ -15,6 +15,7 @@
         font-family: 'Rubik', sans-serif;
         color: #d4d1d1;
         background: url("../public/assets/images/star-tile.png");
+        overflow-x: hidden;
     }
 
 
@@ -36,9 +37,9 @@
     .orbit {
         position: absolute;
         border-radius: 50%;
-        top: -480px;
-        width: 2400px;
-        height: 2400px;
+        margin-top: -700px;
+        width: 2800px;
+        height: 2800px;
         border: solid 4px #FF454E;
         box-shadow: inset 0 0 50px red;
     }
@@ -53,7 +54,6 @@
         border: solid 4px #FFF;
         margin-left: auto;
         margin-right: auto;
-        // box-shadow: inset 0 0 50px white;
     }
 
     .moon {
@@ -71,7 +71,7 @@
         width: 50px;
         height: 50px;
         left: (($mars-orbit) - 25) + px;
-        top: (($mars-orbit/2) + 25) + px;
+        top: (($mars-orbit) - 25) + px;
         animation: rotate 38s infinite linear;
         margin-left: auto;
         margin-right: auto;
