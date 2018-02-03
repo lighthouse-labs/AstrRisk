@@ -28,6 +28,7 @@
 .range-button{
   padding-bottom: 20px;
   cursor: pointer;
+  transition: width 2s;
 }
 
 .range-button:hover{

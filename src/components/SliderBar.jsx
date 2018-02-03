@@ -14,22 +14,31 @@ class SliderBar extends Component {
     super(props);
 
     this.state = {
-      slider: 1,
-      range: 365
+      range: 0
     }
   }
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
-    this.updateRange();
+    let e = 0;
+    this.updateRange(e);
   }
 
   // updates the slider range max value
-  updateRange(){
-    const startDate = new Date(this.getCurrentYear(), 0, 1);
-    const endDate = new Date(this.getCurrentYear(), 11, 31);
-    const range = (momentRange.range(startDate, endDate)).diff("days") + 1;
-    this.setState({range: range})
+  updateRange(e){
+    let startDate = 0;
+    let endDate = 0;
+
+    if(e){
+      startDate = new Date(e.currentTarget.value, 0, 1);
+      endDate = new Date(e.currentTarget.value, 11, 31);
+    } else {
+      startDate = new Date(this.getCurrentYear(), 0, 1);
+      endDate = new Date(this.getCurrentYear(), 11, 31);
+    }
+
+    const range = (momentRange.range(startDate, endDate)).diff("days")+1;
+    this.setState({range: range});
   }
 
   // updates the range slider with the current value tranlated to a date
@@ -62,8 +71,7 @@ class SliderBar extends Component {
     const date = `${e.currentTarget.value}-01-01`;
     this.props.getNeoData(date);
     this.props.changeSlider(1);
-    // this.setState({slider: 1});
-    this.updateRange();
+    this.updateRange(e);
   }
 
   render() {
