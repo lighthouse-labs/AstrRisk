@@ -29,31 +29,40 @@ class Neo extends Component {
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
     const dScale = d3.scaleLinear().domain([6371, 54600000]).range([280, 1400]);
     const scaledDistance = Math.floor(dScale(distance));
+    const randomDeg = Math.floor(Math.random() * 360);
+    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
-            transform: rotateZ(0deg) translateX(${scaledDistance / 2}px) rotateZ(0deg) rotateX(0deg);
+            transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(${600 * plusOrMinus}px);
+            opacity: 0;
+            
         }
         100% {
-            transform: rotateZ(360deg) translateX(${scaledDistance / 2}px) rotateZ(-360deg) rotateX(0deg);
+            transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(0px);
+            opacity: 1;
         }    
       }`;
 
     const newclass = `.${name} {
         position: absolute;
         width: 80px;
-        height: 106px;
+        height: 80px;
         left: 660px;
-        top: 644px;
+        top: 660px;
         cursor: pointer;
         padding: 20px;
-        animation: ${name} ${speed*2}s infinite linear;
+        animation-name: ${name};
+        animation-duration: 4s;
+        transform-origin: 40px 40px;
+        animation-fill-mode: forwards;
       }`;
 
-    const hoverpause = `.${name}:hover {
-        animation-play-state: paused;
-      }`
+    const imgClass = `.${name+1} {
+        transform: rotate(${-randomDeg}deg) rotateY(57deg);
+        width: 40px;
+        height: 40px;
+      }`;
 
-    // Generates orbit outline based on miss distance of NEO
     const orbitStyle = {
       borderRadius: "50%",
       position: "absolute",
@@ -61,7 +70,7 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 2px #ccc",
+      border: "dashed 4px #7E004E",
       marginLeft: "auto",
       marginRight: "auto",
       zIndex: "-40",
@@ -70,7 +79,9 @@ class Neo extends Component {
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
-        <img src='../../public/assets/images/neo.svg' onClick={e => this.togglePopUp()} className={name} />
+        <div className={name}>
+        <img src='../../public/assets/images/meteor.svg' onClick={e => this.togglePopUp()} className={name+1}/>
+        </div>
       </Fragment>
       )
     }
@@ -78,7 +89,7 @@ class Neo extends Component {
     const nearEarthObject = createNeo();
     document.styleSheets[0].insertRule(keyframes, document.styleSheets[0].cssRules.length)
     document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
-    document.styleSheets[0].insertRule(hoverpause, document.styleSheets[0].cssRules.length)
+    document.styleSheets[0].insertRule(imgClass, document.styleSheets[0].cssRules.length)
 
     const createPopUp = () => {
       return (
@@ -92,7 +103,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
             </div>
             <div className="infoImage-container">
-              <img src='../../public/assets/images/neo.svg' className="infoPopup-image" />
+              <img src='../../public/assets/images/meteor.svg' className="infoPopup-image" />
             </div>
           </div>
         </div>
