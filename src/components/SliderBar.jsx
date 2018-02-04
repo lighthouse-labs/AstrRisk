@@ -69,7 +69,7 @@ class SliderBar extends Component {
   renderDates(startYear, endYear, e){
     let options = [];
     for(let i =startYear; i <= endYear; i++){
-      if(i === this.getCurrentYear()){
+      if(i + 1 === this.getCurrentYear()){
         options.push(<div value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
       } else {
         options.push(<div value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
@@ -96,20 +96,25 @@ class SliderBar extends Component {
               <div className="range-button">
                 <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
               </div>
-              <div className="range-text">
-                <div className='range-year-picker'>
-                  <a href='#current' className={this.state.showSelector ? 'range-hidden' : 'range-text-link'} onClick={e => this.classChanger()}>
-                    {this.getCurrentYear()}
-                  </a>
-                  <div className={this.state.showSelector ? 'select' : 'range-hidden'}
-                    size={this.state.size}
-                    onChange={e => {this.changeYear(e); this.dropdownShrink(e)}}
-                    onClick={e => this.dropdownGrow(e)}
-                    defaultValue={this.getCurrentYear()}
-                    >
-                    {this.renderDates(startYear, endYear)}
-                  </div>
+              <div>
+
+              </div>
+              <a href='#current' className={this.state.showSelector ? 'range-hidden' : 'range-text-link'} onClick={e => this.classChanger()}>
+                {this.getCurrentYear()}
+                <TiIconPack.TiArrowUnsorted size={'30px'}/>
+              </a>
+              <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
+                <div
+                  onChange={e => this.changeYear(e)}
+
+                  defaultValue={this.getCurrentYear()}
+                  >
+                  {this.renderDates(startYear, endYear)}
                 </div>
+
+              </div>
+              <TiIconPack.TiArrowUnsorted className="dropdown-icon" size={'30px'}/>
+              <div className="range-text">
                 {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do")}
               </div>
               <div className="range-button">
