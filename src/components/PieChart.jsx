@@ -148,11 +148,18 @@ class PieChart extends Component {
 
         // Axis 
 
-        const xScale = d3.scaleTime().range([0,250]);
+        const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date ('2018-12-31')]).range([0,400]);
+        const yScale = d3.scaleLinear().domain([0,200]).range([200,0]);
 
-        const node = this.refs.axis;
-        const axis = d3.select(node)
-          .call(d3.axisBottom(xScale));
+        const xNode = this.refs.xAxis;
+        const yNode = this.refs.yAxis;
+        const xAxis = d3.select(xNode)
+                      .attr('stroke', '#42f498')
+                      .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat('%b')).ticks(11));
+        const yAxis = d3.select(yNode)
+                      .attr('stroke', '#42f498')
+                      .call(d3.axisLeft(yScale).ticks(4));
+
 
 
     return (
@@ -190,13 +197,13 @@ class PieChart extends Component {
               <text x={0} y={-(radius) - 20} fontFamily="Verdana" fontSize="10">4444</text>
             </g>
           </svg>
-        <svg width={width} height={height}>
+        <svg width={width} height={height + 200}>
           <g transform={"translate(" + width / 2 + "," + height / 2 + ")"}>
               {sliderAlert}
               {bars}
           </g>
-          <g className="axixs" ref="axis" transform={"translate(" + width / 2 + "," + height / 2 + ")"}>
-          </g>
+          <g className="x-axis" ref="xAxis" transform={"translate(" + width / 2 + "," + height + ")"}></g>
+          <g className="y-axis" ref="yAxis" transform={"translate(" + width / 2 + "," + 100 + ")"}></g>
         </svg>
       </Fragment>
     )
