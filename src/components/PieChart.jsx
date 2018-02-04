@@ -81,7 +81,7 @@ class PieChart extends Component {
         const lx = (value, i) => { return rScale(0.5) * Math.cos(angleSlice*i * 2 - Math.PI / 2)};
         const ly = (value, i) => { return rScale(0.5) * Math.sin(angleSlice*i * 2 - Math.PI / 2)};
         
-        console.log('rscale value is: ', rScale(0.35));
+        // console.log('rscale value is: ', rScale(0.35));
 
         var radarLine = d3.lineRadial()
             // .curveLinearClosed()
@@ -91,7 +91,7 @@ class PieChart extends Component {
 
         const axisLines = d3.line()
             // .x((d,i) => { console.log('i is: ', i); return d })
-            .x(d => { console.log('d.x is: ', d.x); return d.x })
+            .x(d => { return d.x })
             .y(d => { return d.y })
 
         var spiderChartData = radarLine(data2[this.state.dataset2])
@@ -102,6 +102,8 @@ class PieChart extends Component {
             <circle cx={0} cy={0} r={radius * (i + 1) / 4} key={Math.floor(Math.random() * 800)} stroke={"#CDCDCD"} fillOpacity={0}/>
           ))
         )
+
+        const gridSquare = (<rect height={radius} width={radius} transform={`rotate(45 ${radius / 2} ${radius / 2})`} stroke={'#CDCDCD'} fill={"none"} /> )
 
         var gridLines = d3.lineRadial()
           // .curveLinearClosed()
@@ -123,7 +125,35 @@ class PieChart extends Component {
         )
 
 
-        console.log('graph grid is: ', graphGrid);
+        // console.log('graph grid is: ', graphGrid);
+
+        // Fireball slider alerts
+        const fireballs = [1, 57, 90, 355];
+
+        const sliderAlert = (
+          fireballs.map(fireball => (
+            <circle cx={fireball} cy={0} r={3} key={Math.floor(Math.random() * 800)} stroke={color(16)} fill={color(16)} />            
+          ))
+        )
+
+        // Bar charts for monthly/annual data
+        const barNeoData = [[{ x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }], [{ x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }]]
+        const barScale = d3.scaleLinear().domain([0,300]).range([0,250]);
+        const bars = (
+          barNeoData[this.state.dataset2].map((neo, i) => (
+            <rect width={20} height={barScale(neo.x)} y={50 - barScale(neo.x)} x={i * 40} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4}/>
+            // <rect width={20} height={50} y={0} x={40} fill={'42f498'}/>
+          ))
+        )
+
+        // Axis 
+
+        const xScale = d3.scaleTime().range([0,250]);
+
+        const node = this.refs.axis;
+        const axis = d3.select(node)
+          .call(d3.axisBottom(xScale));
+
 
     return (
       <Fragment>
@@ -152,6 +182,7 @@ class PieChart extends Component {
               <path fill={color(16)} key={2999} stroke={'#CDCDCD'} d={spiderChartData} fillOpacity={0.7} fill={'none'} filter={'url(#blurMe)'}/>
               <path stroke={'#CDCDCD'} key={19090} d={graphAxis} fillOpacity={0.2}/>
               {graphGrid}
+              {gridSquare}
               {dataDots}
               <text x={radius + 20} y={0} fontFamily="Verdana" fontSize="10">1111</text>
               <text x={-(radius) - 20} y={0} fontFamily="Verdana" fontSize="10">2222</text>
@@ -161,6 +192,10 @@ class PieChart extends Component {
           </svg>
         <svg width={width} height={height}>
           <g transform={"translate(" + width / 2 + "," + height / 2 + ")"}>
+              {sliderAlert}
+              {bars}
+          </g>
+          <g className="axixs" ref="axis" transform={"translate(" + width / 2 + "," + height / 2 + ")"}>
           </g>
         </svg>
       </Fragment>
