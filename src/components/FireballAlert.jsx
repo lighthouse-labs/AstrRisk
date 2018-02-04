@@ -16,7 +16,9 @@ class FireballAlert extends Component {
   render() {
     return (
       <Fragment>
-          <Material.MdFeedback size={90} className="alert"/>
+      <div className="alertContainer">
+          <Material.MdWarning size={90} className="alert"/>
+      </div>
       </Fragment>
     )
   }

@@ -26,7 +26,6 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: -290px;
-        margin-bottom: -200px;
         transform: rotateX(57deg);
     }
 
@@ -42,6 +41,7 @@
         height: 2800px;
         border: solid 4px #FF454E;
         box-shadow: inset 0 0 50px red;
+        z-index: 0;
     }
 
     .moon-orbit {
@@ -95,7 +95,8 @@
         left: -300px;
         right: -300px;
         z-index: 9000;
-    } // transform: rotateX(-57deg);
+        transform: rotateX(-57deg);
+    } 
     .infoPopup-infoHolder {
         display: flex;
         top: 40%;
@@ -159,37 +160,37 @@
     @keyframes rotate {
         0% {
             transform: rotateZ(180deg) translateX(($mars-orbit) + px) rotateZ(180deg) rotateX(-57deg);
-            z-index: 30;
         }
         100% {
             transform: rotateZ(180deg) translateX(($mars-orbit) + px) rotateZ(180deg) rotateX(-57deg);
-            z-index: 30;
         }
     }
 
     @keyframes rotate-moon {
         0% {
             transform: rotateZ(0deg) translateX(($moon-orbit / 2) + px) rotateZ(0deg) rotateX(-57deg);
-            z-index: 1400;
+            z-index: 1;
         }
         100% {
             transform: rotateZ(360deg) translateX(($moon-orbit / 2) + px) rotateZ(-360deg) rotateX(-57deg);
-            z-index: 1400;
+            z-index: 1;
         }
     }
 
-    .alert {
+    .alertContainer {
+        height: 90px;
+        width: 35px;
+    }
+
+
+    .alertContainer svg{
         position: absolute;
         left: 50%;
         top: 450px;
         color: #FFA200FF;
-        stroke: black;
-        stroke-width: 1.3;
-        z-index: 9000;
-        tranform: rotateX(-57deg);
     }
 
-    .alert:hover {
+    .alertContainer svg:hover {
         color: #FF8082;
         stroke: red;
     }
