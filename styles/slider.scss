@@ -47,23 +47,30 @@ $yearPickerValue: 550px;
 
 .range-text-link {
   position: absolute;
-  text-decoration: none;
-  color: #FFF;
   padding-left: $yearPickerValue;
+  user-select: none;
 
+  a {
+    color: #FFF;
+    text-decoration: none;
+  }
+  a:hover {
+    color: rgb(255, 255, 0);
+  }
 }
+
 .dropdown-icon {
   position: absolute;
   left: 683px;
-  top: 14px;
+  top: 10px;
 }
+
 .range-year-picker {
   position: absolute;
   height: 150px;
-  bottom: 190.5px;
+  bottom: 175px;
   overflow-y: scroll;
   padding-left: $yearPickerValue;
-
 
   div {
     cursor: pointer;
@@ -78,11 +85,16 @@ $yearPickerValue: 550px;
   }
 }
 
-.range-slider-months li {
-  font-family: 'Roboto Mono', monospace;
-  user-select: none;
-  float: left;
-  padding: 0 35px;
+.range-slider-months {
+
+
+  li {
+    font-family: 'Roboto Mono', monospace;
+    user-select: none;
+    float: left;
+    font-size: 1.35em;
+    padding: 0 35px;
+  }
 }
 
 input[type=range] {

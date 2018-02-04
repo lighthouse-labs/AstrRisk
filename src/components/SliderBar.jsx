@@ -6,6 +6,7 @@ import moment from 'moment';
 import {extendMoment} from 'moment-range';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
+import * as MdIconPack from 'react-icons/lib/md'
 
 const momentRange = extendMoment(moment);
 
@@ -59,7 +60,6 @@ class SliderBar extends Component {
 
   // value change for the select year dropdown menu
   changeYear(e) {
-    console.log(e.currentTarget.textContent);
     const date = `${e.currentTarget.textContent}-01-01`;
     this.props.getNeoData(date);
     this.props.changeSlider(1);
@@ -94,15 +94,16 @@ class SliderBar extends Component {
           <div className="range-slider">
             <div className="range-slider-date">
               <div className="range-button">
-                <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
+                <MdIconPack.MdArrowBack size={70} onClick={e => this.goBackOneDay()}/>
               </div>
               <div>
 
               </div>
-              <a href='#current' className={this.state.showSelector ? 'range-hidden' : 'range-text-link'} onClick={e => this.classChanger()}>
-                {this.getCurrentYear()}
-                <TiIconPack.TiArrowUnsorted size={'30px'}/>
-              </a>
+              <div className={this.state.showSelector ? 'range-hidden' : 'range-text-link'} onClick={e => this.classChanger()}>
+                <a href='#current' >
+                  {this.getCurrentYear()}
+                </a>
+              </div>
               <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
                 <div
                   onChange={e => this.changeYear(e)}
@@ -118,7 +119,7 @@ class SliderBar extends Component {
                 {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do")}
               </div>
               <div className="range-button">
-                <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
+                <MdIconPack.MdArrowForward size={70} onClick={e => this.goForwardOneDay()}/>
               </div>
             </div>
 
