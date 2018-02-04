@@ -16,7 +16,7 @@ class FireballAlert extends Component {
     const { date, energy, impactEnergy } = fireBallData;
     return (
       <Fragment>
-      <div className="alertContainer">
+      <div className="alertContainer" onClick={e => this.setState({showfireball: true})}>
       {fireBallData[currentDate] && <Material.MdWarning className="alert" onClick={e => this.setState({showfireball: true})}/>
       }
       </div>

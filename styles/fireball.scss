@@ -2,10 +2,7 @@
   position: absolute;
   top: -130px;
   left: -130px;
-  animation: pulsate 6s linear infinite,
-  fireball 10s cubic-bezier(0.690, 0.340, 0.870, 0.600);
-  // animation-fill-mode: forwards;
-  // -webkit-animation-fill-mode: forwards;
+  animation: pulsate 5s cubic-bezier(0.690, 0.340, 0.870, 0.600) forwards;
 }
 
 .fireball {
@@ -13,24 +10,20 @@
 }
 
 
-@keyframes fireball{
-  0% {
-    transform: translateX(-30px) translateY(-30px)
-    
-  }
-  100% {
-    transform: translateX(735px) translateY(735px);
-  }
-}
-
 @keyframes pulsate {
   0% {
-    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+    transform: translateX(-30px) translateY(-30px) scaleX(1) scaleY(1) rotateX(-57deg);
+    opacity: 0;
   }
   50% {
-    transform: translateX(715px) translateY(715px) scaleX(1.1) scaleY(1.1);
+    transform: translateX(807px) translateY(770px) scaleX(1) scaleY(1) rotateX(-57deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(807px) translateY(770px) rotateX(-57deg) scaleX(5) scaleY(5);
   }
   100% {
-    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+    transform: translateX(807px) translateY(770px) scaleX(1) scaleY(1) rotateX(-57deg);
+    opacity: 0;
   }
 }

@@ -62,6 +62,7 @@ class Neo extends Component {
         transform: rotate(${-randomDeg}deg) rotateY(57deg);
         width: 40px;
         height: 40px;
+        cursor: pointer;
       }`;
 
     const orbitStyle = {
@@ -80,7 +81,7 @@ class Neo extends Component {
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
-        <div className={name}>
+        <div className={name} onClick={e => this.togglePopUp()}>
         <img src='../../public/assets/images/meteor.svg' onClick={e => this.togglePopUp()} className={name+1}/>
         </div>
       </Fragment>

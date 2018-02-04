@@ -1,14 +1,93 @@
-<?xml version="1.0"?><svg width="495" height="480" xmlns="http://www.w3.org/2000/svg">
- <metadata id="metadata7">image/svg+xml</metadata>
- <g>
-  <title>Layer 1</title>
-  <g id="layer1">
-   <g id="g3000">
-    <path fill="#9CF112FF" d="m309,29.99999l-180.999985,88.644258l180.999985,88.644264l181,-88.644264l-181,-88.644258z" id="path2987"/>
-    <path fill="#00D87EFF" id="path2989" d="m309,207.288513l0,221.610687l181,-88.644287l0,-221.610664l-181,88.644264z"/>
-    <path fill="#00A25EFF" d="m309,207.288513l0,221.610687l-180.999985,-88.644287l0,-221.610664l180.999985,88.644264z" id="path2991"/>
-    <path fill="none" stroke="#4d4d4d" stroke-width="1px" d="m309,30.113611l-180.999985,88.644262l0,221.610657l180.999985,88.644257l181,-88.644257l0,-221.610657l-181,-88.644262z" id="path2993"/>
-   </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="88.145027mm"
+   height="88.145027mm"
+   viewBox="0 0 312.3249 312.3249"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="neo.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-12.926732"
+     inkscape:cy="146.92212"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1047"
+     inkscape:window-x="1920"
+     inkscape:window-y="606"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-155.4696,-191.61838)">
+    <circle
+       id="path3336-7"
+       cx="-311.63205"
+       cy="-347.78082"
+       r="156.16245"
+       style="fill:#ffd655;fill-opacity:1"
+       transform="scale(-1,-1)" />
+    <circle
+       id="path3336"
+       cx="-311.42856"
+       cy="-346.64792"
+       r="140"
+       style="fill:#ff8f2a;fill-opacity:1"
+       transform="scale(-1,-1)" />
+    <path
+       sodipodi:type="star"
+       style="fill:#ffac55;fill-opacity:1"
+       id="path4219"
+       sodipodi:sides="5"
+       sodipodi:cx="279.81226"
+       sodipodi:cy="387.17676"
+       sodipodi:r1="83.818314"
+       sodipodi:r2="67.81044"
+       sodipodi:arg1="-0.86217005"
+       sodipodi:arg2="-0.23385152"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 334.36049,323.53715 22.83296,95.85234 -84.10522,51.33544 -74.81285,-64.1253 37.86834,-90.96705 z"
+       inkscape:transform-center-x="-2.8571004"
+       inkscape:transform-center-y="-8.542997"
+       transform="matrix(-1.3750297,0,0,-1.4233601,695.14118,902.89775)" />
   </g>
- </g>
 </svg>
