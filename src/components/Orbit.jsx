@@ -4,6 +4,7 @@ import Neo from './Neo.jsx'
 import Fireball from './Fireball.jsx'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import FireballAlert from './FireballAlert.jsx';
 
 class Orbit extends Component {
   constructor(props) {
@@ -28,9 +29,8 @@ class Orbit extends Component {
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
       </div>
 
-      <div className='fireball-path'>
-        <Fireball/>
-      </div>
+      
+        <FireballAlert/>
 
         {
           this.props.neoData.map(function(neo, i) {

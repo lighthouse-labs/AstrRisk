@@ -8,14 +8,15 @@
         box-sizing: inherit;
     }
 
-    html,
+    html {
+      overflow: hidden; 
+    }
     body {
         box-sizing: border-box;
         background-color: #4C4C4C;
         font-family: 'Rubik', sans-serif;
         color: #d4d1d1;
         background: url("../public/assets/images/star-tile.png");
-        overflow-x: hidden;
     }
 
 
@@ -40,7 +41,7 @@
         width: 2800px;
         height: 2800px;
         border: solid 4px #FF454E;
-        box-shadow: inset 0 0 50px red;
+        box-shadow: inset 0 0 50px red, 0px 0px 0px 1000px rgba(0, 0, 0, 0.5);
         z-index: 0;
     }
 
@@ -178,19 +179,17 @@
     }
 
     .alertContainer {
-        height: 90px;
-        width: 35px;
+      transform: rotateX(-57deg);
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      z-index: 9990;
     }
 
-
-    .alertContainer svg{
-        position: absolute;
-        left: 50%;
-        top: 450px;
-        color: #FFA200FF;
+    .alert{
+      position: absolute;
+      font-size: 90px;
+      color: #FFA200FF;
+      z-index: 9990;
     }
 
-    .alertContainer svg:hover {
-        color: #FF8082;
-        stroke: red;
-    }

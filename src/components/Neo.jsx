@@ -29,7 +29,7 @@ class Neo extends Component {
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
     const dScale = d3.scaleLinear().domain([6371, 54600000]).range([280, 1400]);
     const scaledDistance = Math.floor(dScale(distance));
-    const randomDeg = Math.floor(Math.random() * 360);
+    const randomDeg = Math.pow(avgDiameter, 2);
     var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
@@ -54,8 +54,9 @@ class Neo extends Component {
         animation-name: ${name};
         animation-duration: 4s;
         transform-origin: 40px 40px;
-        animation-fill-mode: forwards;
+        transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(0px);
       }`;
+        // animation-fill-mode: forwards;
 
     const imgClass = `.${name+1} {
         transform: rotate(${-randomDeg}deg) rotateY(57deg);
