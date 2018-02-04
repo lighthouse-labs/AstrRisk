@@ -36,22 +36,28 @@
   transform: scale(1.2);
 }
 
+.range-hidden{
+  display:none;
+}
+
+
 .range-year-picker {
   display: flex;
+  height: 150px;
+  overflow-y: scroll;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 
   select {
     cursor: pointer;
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
+    color: #FFF;
     &:hover{
-      color: yellow;
-      transform: scale(1.2);
     }
   }
 }

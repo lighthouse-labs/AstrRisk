@@ -12,6 +12,12 @@ const momentRange = extendMoment(moment);
 class SliderBar extends Component {
   constructor(props) {
     super(props);
+
+    this.state={
+      size: 1,
+      showSelector: false,
+      selectorClassName: 'range-hidden'
+    }
   }
 
   componentDidMount() {
@@ -53,12 +59,34 @@ class SliderBar extends Component {
 
   // value change for the select year dropdown menu
   changeYear(e) {
-    const date = `${e.currentTarget.value}-01-01`;
+    console.log(e.currentTarget.textContent);
+    const date = `${e.currentTarget.textContent}-01-01`;
     this.props.getNeoData(date);
     this.props.changeSlider(1);
   }
 
+  // renders the datepicker
+  renderDates(startYear, endYear, e){
+    let options = [];
+    for(let i =startYear; i <= endYear; i++){
+      if(i === this.getCurrentYear()){
+        options.push(<div value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+      } else {
+        options.push(<div value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+      }
+    }
+    return(<Fragment>{options}</Fragment>);
+  }
+
+  // changes the class state for hidden divs
+  classChanger(){
+    this.setState({showSelector: !this.state.showSelector});
+  }
+
   render() {
+
+    const startYear = 2000;
+    const endYear   = 2020;
 
     const makeSlider = () => {
       return (
@@ -69,25 +97,25 @@ class SliderBar extends Component {
                 <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
               </div>
               <div className="range-text">
-                <div className="range-year-picker">
-
-                  <select onChange={e => this.changeYear(e)} className="select">
-
-                    <option value="2015">
-                      {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("YYYY")}
-                      <FontAwesome.FaChevronDown />
-                    </option>
-                    <option value="2016">2016</option>
-                  </select>
+                <div className='range-year-picker'>
+                  <a href='#current' className={this.state.showSelector ? 'range-hidden' : 'range-text-link'} onClick={e => this.classChanger()}>
+                    {this.getCurrentYear()}
+                  </a>
+                  <div className={this.state.showSelector ? 'select' : 'range-hidden'}
+                    size={this.state.size}
+                    onChange={e => {this.changeYear(e); this.dropdownShrink(e)}}
+                    onClick={e => this.dropdownGrow(e)}
+                    defaultValue={this.getCurrentYear()}
+                    >
+                    {this.renderDates(startYear, endYear)}
+                  </div>
                 </div>
-                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do ")}
+                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do")}
               </div>
               <div className="range-button">
                 <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
               </div>
             </div>
-
-
 
             <ul className="range-slider-months">
               <li>Jan</li>
