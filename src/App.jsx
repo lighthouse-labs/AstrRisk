@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData} from './actions/actions.js';
 import BarChart from './components/BarChart.jsx';
+import PieChart from './components/PieChart.jsx';
 
 
 class App extends Component {
@@ -23,8 +24,10 @@ class App extends Component {
   render() {
 
     return (<Fragment>
-        <EarthSystem neodata={this.state}/>
-        <SliderBar />
+        {/* <EarthSystem neodata={this.state}/>
+        <SliderBar /> */}
+        <PieChart/>
+        {/* <BarChart data={[5, 10, 1, 3]} size={[500, 500]} /> */}
       </Fragment>
     );
   }

@@ -25,17 +25,18 @@ class Neo extends Component {
     const neoName = name;
     // Formula for 
     const volume = (4/3) * Math.PI * Math.pow((avgDiameter / 2), 3);
-    console.log('volume: ', volume)
+    // console.log('volume: ', volume)
     const mass = 2000 * volume;
-    console.log('mass: ', mass)
+    // console.log('mass: ', mass)
     const ke = 0.5 * mass * Math.pow(speed, 2);
-    console.log('ke: ', ke)
+    // console.log('ke: ', ke)
     const kt = +(ke * 0.00000000023901).toFixed(2);
 
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
     const dScale = d3.scaleLinear().domain([6371, 54600000]).range([280, 1400]);
+    const sizeScale = d3.scaleLinear().domain([])
     const scaledDistance = Math.floor(dScale(distance));
     const keyframes = `@keyframes ${name} {
         0% {

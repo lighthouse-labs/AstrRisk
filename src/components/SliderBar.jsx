@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData} from '../actions/actions.js';
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
+import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
 
@@ -21,6 +22,7 @@ class SliderBar extends Component {
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
+    console.log('Current unix number is:: ', moment(this.props.currentDate).valueOf());
   }
 
   // updates the range slider with the current value tranlated to a date
@@ -72,9 +74,13 @@ class SliderBar extends Component {
               <div className="range-button">
                 <TiIconPack.TiArrowLeftOutline size={90} onClick={e => this.goBackOneDay()}/>
               </div>
-              <div className="range-text">
-                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do YYYY")}
-              </div>
+              <Motion
+                defaultStyle={{ date: moment(this.props.currentDate).valueOf() }}
+                style={{ date: spring(moment(this.props.currentDate).valueOf(), {stiffness: 190, damping: 50}) }}>
+                {value => <div className="range-text">
+                  {moment(Math.floor(value.date)).format('dddd, MMM Do YYYY')}
+                </div>
+              }</Motion>
               <div className="range-button">
                 <TiIconPack.TiArrowRightOutline size={90} onClick={e => this.goForwardOneDay()}/>
               </div>
