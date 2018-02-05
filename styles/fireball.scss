@@ -2,7 +2,7 @@
   position: absolute;
   top: -130px;
   left: -130px;
-  animation: pulsate 5s cubic-bezier(0.690, 0.340, 0.870, 0.600) forwards;
+  animation: impact 10s cubic-bezier(0.690, 0.340, 0.870, 0.600) forwards;
 }
 
 .fireball {
@@ -10,20 +10,29 @@
 }
 
 
-@keyframes pulsate {
+@keyframes impact {
   0% {
-    transform: translateX(-30px) translateY(-30px) scaleX(1) scaleY(1) rotateX(-57deg);
-    opacity: 0;
+    transform: translateX(-30px) translateY(-30px) rotateX(-57deg);
+    opacity: 1; border-radius: 50%; box-shadow: 0px 0px 0px 0px white;
+  }
+  30% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 1;border-radius: 50%; box-shadow: 0px 0px 0px 0px white;
+  }
+  40% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    box-shadow: 0px 0px 30px 50px white; border-radius: 50%;
   }
   50% {
-    transform: translateX(807px) translateY(770px) scaleX(1) scaleY(1) rotateX(-57deg);
-    opacity: 1;
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 0.5; box-shadow: 0px 0px 40px 30px white; border-radius: 50%;
   }
-  80% {
-    transform: translateX(807px) translateY(770px) rotateX(-57deg) scaleX(5) scaleY(5);
+  65% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 0.5; box-shadow: 0px 0px 40px 20px white; border-radius: 50%;
   }
   100% {
-    transform: translateX(807px) translateY(770px) scaleX(1) scaleY(1) rotateX(-57deg);
-    opacity: 0;
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 1; box-shadow: 0px 0px 40px 30px #FF2922; border-radius: 50%;
   }
 }

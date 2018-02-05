@@ -163,6 +163,8 @@
       transform: rotateX(-57deg);
       z-index: 900;
       cursor: pointer;
+      left: 731px;
+      top: 751px;
     }
 
     .alert{
@@ -173,3 +175,6 @@
       cursor: pointer;
     }
 
+    .alert:hover {
+      color: #FFD502FF;
+    }
