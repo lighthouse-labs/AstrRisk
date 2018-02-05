@@ -87,8 +87,8 @@ class SliderBar extends Component {
 
   render() {
 
-    const startYear = 2000;
-    const endYear   = 2020;
+    const startYear = 1900;
+    const endYear   = 2100;
 
     const makeSlider = () => {
       return (
@@ -106,7 +106,7 @@ class SliderBar extends Component {
                   {this.getCurrentYear()}
                 </a>
               </div>
-              
+
               <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
                 <div
                   onChange={e => this.changeYear(e)}
