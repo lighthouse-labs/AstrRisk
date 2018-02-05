@@ -57,8 +57,6 @@ class Neo extends Component {
         height: 80px;
         left: 660px;
         top: 660px;
-        cursor: pointer;
-        padding: 20px;
         animation-name: ${name};
         animation-duration: 4s;
         transform-origin: 40px 40px;
@@ -97,7 +95,7 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 4px #7E004E",
+      border: "dashed 4px #6D2957FF",
       marginLeft: "auto",
       marginRight: "auto",
       zIndex: "-40",
@@ -129,8 +127,8 @@ class Neo extends Component {
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
-        <div className={name} onClick={e => this.togglePopUp()}>
-        <img src={randomImage()}  className={name+1}/>
+        <div className={name}>
+        <img src={this.randomImage()} onClick={e => this.togglePopUp()} className={name+1}/>
         </div>
       </Fragment>
       )
