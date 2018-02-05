@@ -120,16 +120,6 @@ const initialState = [{
   }]
 }];
 
-export const testReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'TEST':
-      console.log('The payload is: ', action.payload);
-      return action.payload;
-    default:
-      return state;
-  }
-}
-
 export const fireBallDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADFIREBALLDATA':
@@ -143,7 +133,15 @@ export const fireBallDataReducer = (state = initialState, action) => {
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
-      // console.log('New NEO Data: ', action.payload)
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+export const annualDataReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOADANNUALDATA':
       return action.payload;
     default:
       return state;

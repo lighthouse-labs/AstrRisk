@@ -41,8 +41,32 @@ export const getFireballData = () => {
   }
 }
 
+export const getAnnualNeoData = (year) => {
+  return (dispatch, getState) => {
+    console.log('Attempting to retrieve annual data...');
+    fetch(`http://localhost:3001/api/annual/${year}`)
+      .then(res => res.json())
+      .then(
+      (result) => {
+        console.log('Received annual data from server');
+        dispatch(getAnnualData(result));
+      },
+      (error) => {
+        console.log('Error getting annual data from server: ', error);
+      }
+      )
+  }
+}
+
+
+
 export const togglePopUp = () => ({
   type: types.TOGGLEPOPUP
+});
+
+export const getAnnualData = (data) => ({
+  type: types.LOADANNUALDATA,
+  payload: data
 });
 
 export const getDate = (date) => ({

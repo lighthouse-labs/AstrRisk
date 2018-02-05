@@ -86,10 +86,10 @@ class RadarChart extends Component {
             <filter id="blurMe">
               <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" />
             </filter>
-            <path fill={color(16)} key={29} d={radarDataPath} fillOpacity={0.6} />
             <path fill={color(16)} key={2999} stroke={'#CDCDCD'} d={radarDataPath} fillOpacity={0.7} fill={'none'} filter={'url(#blurMe)'} />
             <path stroke={'#CDCDCD'} key={19090} d={graphAxis} fillOpacity={0.2} />
             {graphGrid}
+            <path fill={color(16)} key={29} d={radarDataPath} fillOpacity={0.6} />
             {dataDots}
             <text x={radius + 20} y={0} fontFamily="Verdana" fontSize="10">1111</text>
             <text x={-(radius) - 20} y={0} fontFamily="Verdana" fontSize="10">2222</text>

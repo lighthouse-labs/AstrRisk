@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as d3 from 'd3';
 import RadarChart from './charts/RadarChart.jsx';
+import BarChart from './charts/BarChart.jsx';
 
 class Neo extends Component {
   constructor() {
@@ -101,7 +102,8 @@ class Neo extends Component {
       return (
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
           <div className="infoPopup-infoHolder">
-            <div className="infoText">
+            <BarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass} />
+            {/* <div className="infoText">
               <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated diameter:</span> <span>{avgDiameter} m</span></div>
               <div className="infoText-line-item"><span>Mass:</span> <span>{mass} kg</span></div>
@@ -109,7 +111,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
               <div className="infoText-line-item"><span>Relative velocity:</span> <span>{Math.floor(speed * 1000)} m/s</span></div>
               <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
-            </div>
+            </div> */}
             <div className="infoImage-container">
               {/* <img src='../../public/assets/images/meteor.svg' className="infoPopup-image" /> */}
               <RadarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass}/>
