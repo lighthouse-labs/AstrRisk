@@ -23,7 +23,7 @@ class BarChart extends Component {
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, 1000]);
-    const yScale = d3.scaleLinear().domain([0, 200]).range([800, 0]);
+    const yScale = d3.scaleLinear().domain([0, 25]).range([800, 0]);
 
     const xNode = this.refs.xAxis;
     const yNode = this.refs.yAxis;
@@ -34,7 +34,7 @@ class BarChart extends Component {
 
     const yAxis = d3.select(yNode)
       .attr('stroke', '#42f498')
-      .call(d3.axisLeft(yScale).ticks(4));
+      .call(d3.axisLeft(yScale).ticks(6));
   }
 
   printData() {
@@ -46,7 +46,7 @@ class BarChart extends Component {
       dailyNeoCount.push({[date]: length});
       // console.log(`date is: ${theDate}, count is: ${length}`);
     }
-    console.log(dailyNeoCount);
+    // console.log(dailyNeoCount);
   }
   // // }
 
@@ -59,11 +59,22 @@ class BarChart extends Component {
 
     let dailyNeoCount = [];
     for (let date in this.props.annualData) {
+      console.log(date)
       let length = this.props.annualData[date].length
       // console.log('length: ', length,)
       dailyNeoCount.push({length: length, dayOfYear: moment(date).dayOfYear() });
     }
     
+    dailyNeoCount.sort((a, b) => {
+      var keyA = a.dayOfYear,
+          keyB = b.dayOfYear;
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
+
+
+
     const margin = { top: 20, right: 20, bottom: 30, left: 50 },
           width = 1200 - margin.left - margin.right,
           height = 800 - margin.top - margin.bottom;
@@ -74,20 +85,20 @@ class BarChart extends Component {
     const barNeoData = [
       [{ x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }, { x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }],
       [{ x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }, { x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }]]
-    const barScale = d3.scaleLinear().domain([0, 30]).range([0, 800]);
+    const barScale = d3.scaleLinear().domain([0, 25]).range([0, 800]);
+
     const bars = (
-      // barNeoData[0].map((neo, i) => (
         dailyNeoCount.map((day, i) => (
-      //   console.log()
         <rect width={2} height={barScale(day.length)} y={10 - barScale(day.length)} x={day.dayOfYear * 4} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
-        // <rect width={2} height={barScale(neo.x)} y={50 - barScale(neo.x)} x={i} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
       ))
     )
 
     const chartLine = d3.line()
-                        .y(d => { return d.x })
-                        .x((d,i) => { return d.dayOfYear })
+                        .y(d => { return barScale(d.length) })
+                        .x((d,i) => { return d.dayOfYear * 4 })
                         // .curve(d3.curveBasis)
+
+    console.log(dailyNeoCount);
 
     const generatedLine = chartLine(dailyNeoCount);
 
@@ -97,14 +108,14 @@ class BarChart extends Component {
       <Fragment>
         <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
           <g transform={"translate(" + -180 + "," + 740 + ")"}>
-            <path transform={"translate(" + (margin.left + 20) + "," + -50 + ")"} fill={'#42f498'} key={24219} d={generatedLine} fillOpacity={1}/>
-            {bars}
+            <path transform={"translate(" + (margin.left + 20) + "," + -600 + ")"} fill={'#42f498'} key={24219} d={generatedLine} fillOpacity={1}/>
+            {/* {bars} */}
           </g>
           <g className="x-axis" ref="xAxis" transform={"translate(" + (margin.left + 20) + "," + height + ")"}></g>
-          <g className="y-axis" ref="yAxis" transform={"translate(" + margin.left + "," + 300 + ")"}></g>
+          <g className="y-axis" ref="yAxis" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
         </svg>
         {/* <button onClick={e => this.changeDataSet()}>Change dataset</button> */}
-        <button onClick={e => this.printData()}>Reload Data</button>
+        {/* <button onClick={e => this.printData()}>Reload Data</button> */}
       </Fragment>
     )
 
