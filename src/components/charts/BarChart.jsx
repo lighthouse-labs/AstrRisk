@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
+import { getAnnualNeoData } from '../../actions/actions';
 import * as d3 from 'd3';
 import moment from 'moment';
 
@@ -16,25 +17,30 @@ class BarChart extends Component {
   }
 
   makeAxis() {
-    const barNeoData = [
-      [{ x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }, { x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }],
-      [{ x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }, { x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }]]
+    // Margin for the graph
+    const margin = { top: 30, right: 30, bottom: 30, left: 30 },
+      width = 1200 - margin.left - margin.right,
+      height = 900 - margin.top - margin.bottom;
 
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, 1000]);
-    const yScale = d3.scaleLinear().domain([0, 200]).range([800, 0]);
+    // Scales x-axis & y-axis to the width and height
+    const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, width]);
+    const yScale = d3.scaleLinear().domain([0, 25]).range([height, 0]);
 
     const xNode = this.refs.xAxis;
     const yNode = this.refs.yAxis;
 
     const xAxis = d3.select(xNode)
       .attr('stroke', '#42f498')
-      .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat('%b')).ticks(12));
+      .call(d3.axisBottom(xScale).ticks(12).tickFormat(d3.timeFormat('%b')))
+      .selectAll("text")
+      .attr('transform', 'translate(50, 0)');
 
     const yAxis = d3.select(yNode)
       .attr('stroke', '#42f498')
       .call(d3.axisLeft(yScale).ticks(4));
+
   }
 
   printData() {
@@ -51,57 +57,66 @@ class BarChart extends Component {
   // // }
 
   render() {
-    if (!this.props.annualData.length) {
-      console.log('empty!');
-    } else {
-      console.log('not empty!')
-    }
+    // Margin for the graph
+    const margin = { top: 30, right: 30, bottom: 30, left: 30 },
+      width = 1200 - margin.left - margin.right,
+      height = 900 - margin.top - margin.bottom;
 
+    // Creates array for d3 to generate data from
     let dailyNeoCount = [];
     for (let date in this.props.annualData) {
-      let length = this.props.annualData[date].length
-      // console.log('length: ', length,)
-      dailyNeoCount.push({length: length, dayOfYear: moment(date).dayOfYear() });
+      const dayOfYear = moment(date).dayOfYear();
+      if (dayOfYear % 2 !== 0) {
+        const length = this.props.annualData[date].length
+        dailyNeoCount.push({length: length, dayOfYear: dayOfYear });
+      }
     }
     
-    const margin = { top: 20, right: 20, bottom: 30, left: 50 },
-          width = 1200 - margin.left - margin.right,
-          height = 800 - margin.top - margin.bottom;
+    // Sorts array based on day of year
+    dailyNeoCount.sort((a, b) => {
+      const keyA = a.dayOfYear,
+            keyB = b.dayOfYear;
+      // Compare the 2 dates
+      if (keyA < keyB) return -1;
+      if (keyA > keyB) return 1;
+      return 0;
+    });
 
     var color = d3.scaleOrdinal(d3['schemeCategory20'])
 
-    // Bar charts for monthly/annual data
-    const barNeoData = [
-      [{ x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }, { x: 200 }, { x: 80 }, { x: 100 }, { x: 20 }, { x: 180 }, { x: 200 }],
-      [{ x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }, { x: 20 }, { x: 45 }, { x: 170 }, { x: 80 }, { x: 10 }, { x: 170 }]]
-    const barScale = d3.scaleLinear().domain([0, 30]).range([0, 800]);
+    // Scales points along y-axis
+    const barScale = d3.scaleLinear().domain([0, 25]).range([0, height]);
+    // Scales points along the x-axis
+    const horizontalScale = d3.scaleLinear().domain([1,365]).range([0, width])
     const bars = (
-      // barNeoData[0].map((neo, i) => (
         dailyNeoCount.map((day, i) => (
-      //   console.log()
-        <rect width={2} height={barScale(day.length)} y={10 - barScale(day.length)} x={day.dayOfYear * 4} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
-        // <rect width={2} height={barScale(neo.x)} y={50 - barScale(neo.x)} x={i} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
+        <rect width={1} height={barScale(day.length)} y={10 - barScale(day.length)} x={horizontalScale(day.dayOfYear)} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
       ))
     )
 
+    // Generates single chart line
     const chartLine = d3.line()
-                        .y(d => { return d.x })
-                        .x((d,i) => { return d.dayOfYear })
-                        // .curve(d3.curveBasis)
+                        .y(d => { console.log('y', barScale(d.length)); return (barScale(d.length) * -1) })
+                        .x((d, i) => { console.log('x', horizontalScale(d.dayOfYear)); return horizontalScale(d.dayOfYear)})
+    //                     .x((d,i) => { return i + 105})
+    //                     // .curve(d3.curveBasis)
+
+    console.log(dailyNeoCount);
 
     const generatedLine = chartLine(dailyNeoCount);
+    // const generatedLine = chartLine(barNeoData[0]);
 
 
 
     return (
       <Fragment>
         <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-          <g transform={"translate(" + -180 + "," + 740 + ")"}>
-            <path transform={"translate(" + (margin.left + 20) + "," + -50 + ")"} fill={'#42f498'} key={24219} d={generatedLine} fillOpacity={1}/>
+          <g transform={"translate(" + (margin.left + 1) + "," + (height - 10) + ")"}>
+            <path transform={"translate(" + 0 + "," + -300 + ")"} stroke={'#f4e842'} fill={'none'} key={24219} d={generatedLine} strokeOpacity={0.9}/>
             {bars}
           </g>
-          <g className="x-axis" ref="xAxis" transform={"translate(" + (margin.left + 20) + "," + height + ")"}></g>
-          <g className="y-axis" ref="yAxis" transform={"translate(" + margin.left + "," + 300 + ")"}></g>
+          <g className="x-axis" ref="xAxis" transform={"translate(" + margin.left + "," + height + ")"}></g>
+          <g className="y-axis" ref="yAxis" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
         </svg>
         {/* <button onClick={e => this.changeDataSet()}>Change dataset</button> */}
         <button onClick={e => this.printData()}>Reload Data</button>
@@ -122,6 +137,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    getAnnualNeoData
   }, dispatch)
 }
 
