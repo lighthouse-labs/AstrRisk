@@ -35,12 +35,12 @@ class Neo extends Component {
         0% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(${600 * plusOrMinus}px);
             opacity: 0;
-            
+
         }
         100% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(0px);
             opacity: 1;
-        }    
+        }
       }`;
 
     const newclass = `.${name} {
@@ -82,7 +82,7 @@ class Neo extends Component {
       return (<Fragment>
         <div style={orbitStyle}></div>
         <div className={name} onClick={e => this.togglePopUp()}>
-        <img src='../../public/assets/images/meteor.svg' onClick={e => this.togglePopUp()} className={name+1}/>
+        <img src='../../public/assets/images/meteor2.svg'  className={name+1}/>
         </div>
       </Fragment>
       )
@@ -105,7 +105,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
             </div>
             <div className="infoImage-container">
-              <img src='../../public/assets/images/meteor.svg' className="infoPopup-image" />
+              <img src='../../public/assets/images/meteor2.svg' className="infoPopup-image" />
             </div>
           </div>
         </div>
@@ -136,5 +136,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Neo);
-
-
