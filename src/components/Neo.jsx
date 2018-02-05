@@ -83,7 +83,7 @@ class Neo extends Component {
     }
 
     const imgClass = `.${name+1} {
-      transform: rotate(${-randomDeg}deg) rotateY(57deg);
+      transform: rotate(${-randomDeg}deg) rotateY(57deg) rotate(${randomDeg}deg);
       ${setSize()}
       cursor: pointer;
     }`;
