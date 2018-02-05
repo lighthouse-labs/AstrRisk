@@ -114,7 +114,7 @@ class Neo extends Component {
             </div> */}
             <div className="infoImage-container">
               {/* <img src='../../public/assets/images/meteor.svg' className="infoPopup-image" /> */}
-              <RadarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass}/>
+              {/* <RadarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass}/> */}
             </div>
             <div className="neo-radar-chart">
             </div>
@@ -129,6 +129,7 @@ class Neo extends Component {
       <Fragment>
         {nearEarthObject}
         {this.state.showPopUP && popUp}
+        {/* {this.state.showPopUP && <BarChart/> } */}
       </Fragment>
     )
   }
