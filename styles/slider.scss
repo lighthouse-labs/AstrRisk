@@ -8,12 +8,15 @@ $yearPickerValue: 550px;
 }
 
 .range-slider {
-  position: relative;
+  position: absolute;
   color: #FFF;
   width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 40px;
+  z-index: 9000;
+  top: 715px;
+  left: 330px;
 }
 
 .range-slider-date {
