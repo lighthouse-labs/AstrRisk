@@ -8,7 +8,6 @@ export const getNeoData = (date) => {
       .then(res => res.json())
       .then(
       (result) => {
-        console.log('Received data from server');
         dispatch(loadNeoData(result));
         dispatch(getDate(date));
         dispatch(offFireball());
@@ -27,7 +26,6 @@ export const getFireballData = () => {
       .then(res => res.json())
       .then(
       (result) => {
-        console.log('Received fireball data from server');
         dispatch(loadFireballData(result))
       },
       (error) => {
@@ -44,7 +42,6 @@ export const getAnnualNeoData = (year) => {
       .then(res => res.json())
       .then(
       (result) => {
-        console.log('Received annual data from server');
         dispatch(getAnnualData(result));
       },
       (error) => {
@@ -60,6 +57,8 @@ export const toggleFireball = () => ({
 export const offFireball = () => ({
   type: types.OFFFIREBALL,
 });
+
+
 
 export const togglePopUp = () => ({
   type: types.TOGGLEPOPUP

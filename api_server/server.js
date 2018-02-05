@@ -3,10 +3,11 @@ const app = express();
 const path = require('path');
 const routes = require('./routes');
 const cors = require('cors');
+const api = require('./lib/api.js');
 
 app.use(express.static("public"));
 app.use(cors());
 
-app.use(routes());
+app.use(routes(api));
 
 app.listen(3001, () => console.log('Example app listening on port 3001!'))

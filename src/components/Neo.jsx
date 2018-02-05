@@ -154,7 +154,8 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
             </div>
             <div className="infoImage-container">
-              <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" />
+              {/* <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" /> */}
+              <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />
             </div>
           </div>
         </div>
