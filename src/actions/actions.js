@@ -10,6 +10,7 @@ export const getNeoData = (date) => {
       (result) => {
         dispatch(loadNeoData(result));
         dispatch(getDate(date));
+        dispatch(offFireball());
       },
       (error) => {
         console.log('Error getting data from server: ', error);
@@ -49,6 +50,13 @@ export const getAnnualNeoData = (year) => {
       )
   }
 }
+export const toggleFireball = () => ({
+  type: types.TOGGLEFIREBALL,
+});
+
+export const offFireball = () => ({
+  type: types.OFFFIREBALL,
+});
 
 
 

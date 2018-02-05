@@ -16,19 +16,7 @@ class Neo extends Component {
   componentDidMount() {
   }
 
-  randomImage(){
-    let image = '../../public/assets/images/meteor2.svg';
-    const randomNum = Math.floor((Math.random() * 2) + 1 );
-    switch(randomNum){
-      case 1:
-        image = '../../public/assets/images/meteor.svg';
-        break;
-      case 2:
-        image = '../../public/assets/images/meteor2.svg';
-        break;
-    }
-    return image;
-  }
+
 
   togglePopUp() {
     this.setState({ showPopUP: !this.state.showPopUP });
@@ -43,7 +31,6 @@ class Neo extends Component {
     const mass = Math.floor(2000 * volume);
     const ke = 0.5 * mass * Math.pow(speed, 2);
     const mt = +(ke * 0.00000000023901).toFixed(2);
-
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
@@ -70,8 +57,6 @@ class Neo extends Component {
         height: 80px;
         left: 660px;
         top: 660px;
-        cursor: pointer;
-        padding: 20px;
         animation-name: ${name};
         animation-duration: 4s;
         transform-origin: 40px 40px;
@@ -80,26 +65,26 @@ class Neo extends Component {
         // animation-fill-mode: forwards;
 
     // set size of the NEO based of average diameter
-    let width = '10px';
-    let height = '10px';
-    if (avgDiameter <= 50){
-      width = "40px";
-      height ="40px";
-    } else if (avgDiameter > 50 && avgDiameter < 300){
-      width = "60px";
-      height ="60px";
-    } else if (avgDiameter > 300 && avgDiameter < 700){
-      width = "80px";
-      height ="80px";
-    } else {
-      width = "100px";
-      height ="100px";
+    function setSize(){
+      let width = '10px';
+      let height = '10px';
+
+      let sizeString = 'height: 80px; width: 80px;'
+      if (avgDiameter <= 50){
+        sizeString = 'height: 50px; width: 50px;'
+      } else if (avgDiameter > 50 && avgDiameter < 300){
+        sizeString = 'height: 65px; width: 65px;'
+      } else if (avgDiameter > 300 && avgDiameter < 700){
+        sizeString = 'height: 80px; width: 80px;'
+      } else {
+        sizeString = 'height: 100px; width: 100px;'
+      }
+      return sizeString;
     }
 
     const imgClass = `.${name+1} {
-      transform: rotate(${-randomDeg}deg) rotateY(57deg);
-      width: ${width};
-      height: ${height};
+      transform: rotate(${-randomDeg}deg) rotateY(57deg) rotate(${randomDeg}deg);
+      ${setSize()}
       cursor: pointer;
     }`;
 
@@ -110,10 +95,31 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 4px #7E004E",
+      border: "dashed 4px #6D2957FF",
       marginLeft: "auto",
       marginRight: "auto",
       zIndex: "-40",
+    }
+
+    // create image scale to base images on
+    function randomImage(){
+      let image = '../../public/assets/images/meteor2.svg'
+      const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
+      switch(Math.floor(imageScale(speed))){
+        case 1:
+          image = '../../public/assets/images/meteor2.svg';
+          break;
+        case 2:
+          image = '../../public/assets/images/meteor3.svg';
+          break;
+        case 3:
+          image = '../../public/assets/images/meteor4.svg';
+          break;
+        case 4:
+          image = '../../public/assets/images/meteor5.svg';
+          break;
+      }
+      return image;
     }
 
 
@@ -121,8 +127,8 @@ class Neo extends Component {
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
-        <div className={name} onClick={e => this.togglePopUp()}>
-        <img src={this.randomImage()}  className={name+1}/>
+        <div className={name}>
+        <img src={randomImage()} onClick={(e) => this.togglePopUp()} className={name+1}/>
         </div>
       </Fragment>
       )

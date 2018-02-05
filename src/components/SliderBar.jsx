@@ -9,6 +9,7 @@ import FireballNotification from './FireballNotification.jsx';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
 import * as MdIconPack from 'react-icons/lib/md'
+import uuid from 'uuid/v1';
 
 const momentRange = extendMoment(moment);
 
@@ -17,7 +18,6 @@ class SliderBar extends Component {
     super(props);
 
     this.state={
-      size: 1,
       showSelector: false,
       selectorClassName: 'range-hidden'
     }
@@ -72,9 +72,9 @@ class SliderBar extends Component {
     let options = [];
     for(let i =startYear; i <= endYear; i++){
       if(i + 1 === this.getCurrentYear()){
-        options.push(<div value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+        options.push(<div key={uuid()} value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
       } else {
-        options.push(<div value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+        options.push(<div key={uuid()} value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
       }
     }
     return(<Fragment>{options}</Fragment>);
@@ -87,8 +87,8 @@ class SliderBar extends Component {
 
   render() {
 
-    const startYear = 2000;
-    const endYear   = 2020;
+    const startYear = 1900;
+    const endYear   = 2100;
 
     const makeSlider = () => {
       return (
@@ -106,13 +106,9 @@ class SliderBar extends Component {
                   {this.getCurrentYear()}
                 </a>
               </div>
-              
-              <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
-                <div
-                  onChange={e => this.changeYear(e)}
 
-                  defaultValue={this.getCurrentYear()}
-                  >
+              <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
+                <div onChange={e => this.changeYear(e)} defaultValue={this.getCurrentYear()}>
                   {this.renderDates(startYear, endYear)}
                 </div>
 

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
 import moment from 'moment';
 import * as d3 from 'd3';
+import uuid from 'uuid/v1';
 
 class FireballNotification extends Component {
 
@@ -20,14 +21,13 @@ class FireballNotification extends Component {
       }
     }
 
-
-    var color = d3.scaleOrdinal(d3['schemeCategory20'])
+    const color = d3.scaleOrdinal(d3['schemeCategory20'])
 
     const xScale = d3.scaleLinear().domain([0,365]).range([0,1200])
 
     const sliderAlert = (
       fbPosition.map(position => (
-        <circle cx={xScale(position)} cy={0} r={2} key={Math.floor(Math.random() * 800)} stroke={'#d1170a'} fill={'#d1170a'} fillOpacity={0.7} />
+        <circle cx={xScale(position)} cy={0} r={2} key={uuid()} stroke={'#d1170a'} fill={'#d1170a'} fillOpacity={0.7} />
       ))
     )
 
@@ -55,5 +55,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(FireballNotification);
-
-

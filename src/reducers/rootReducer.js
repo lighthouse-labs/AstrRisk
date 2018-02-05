@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer, togglePopUpReducer, annualDataReducer } from './reducers';
+import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer, togglePopUpReducer, toggleFireballReducer, annualDataReducer } from './reducers';
 
 const rootReducer = combineReducers({
   neoData: neoDataReducer,
@@ -7,7 +7,8 @@ const rootReducer = combineReducers({
   currentDate: dateReducer,
   sliderData: getSliderReducer,
   showPopUp: togglePopUpReducer,
-  annualData: annualDataReducer
+  annualData: annualDataReducer,
+  showFireball: toggleFireballReducer,
 })
 
 export default rootReducer;
