@@ -137,8 +137,8 @@ class Neo extends Component {
       return (
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
           <div className="infoPopup-infoHolder">
-            <BarChart/>
-            {/* <div className="infoText">
+            {/* <BarChart/> */}
+            <div className="infoText">
               <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated diameter:</span> <span>{avgDiameter} m</span></div>
               <div className="infoText-line-item"><span>Mass:</span> <span>{mass} kg</span></div>
@@ -146,7 +146,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
               <div className="infoText-line-item"><span>Relative velocity:</span> <span>{Math.floor(speed * 1000)} m/s</span></div>
               <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
-            </div> */}
+            </div>
             <div className="infoImage-container">
               <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" />
             </div>
