@@ -15,14 +15,23 @@ class Neo extends Component {
   }
 
   randomImage(){
-    let image = '../../public/assets/images/meteor2.svg';
-    const randomNum = Math.floor((Math.random() * 2) + 1 );
+    let image = '../../public/assets/images/meteor2.svg'
+    const randomNum = Math.floor((Math.random() * 5) + 1 );
     switch(randomNum){
       case 1:
-        image = '../../public/assets/images/meteor.svg';
+        image = '../../public/assets/images/meteor3-diff.svg';
         break;
       case 2:
         image = '../../public/assets/images/meteor2.svg';
+        break;
+      case 3:
+        image = '../../public/assets/images/meteor3.svg';
+        break;
+      case 4:
+        image = '../../public/assets/images/meteor4.svg';
+        break;
+      case 5:
+        image = '../../public/assets/images/meteor4-diff.svg';
         break;
     }
     return image;
