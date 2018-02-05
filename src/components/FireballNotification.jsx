@@ -20,7 +20,6 @@ class FireballNotification extends Component {
       }
     }
 
-
     var color = d3.scaleOrdinal(d3['schemeCategory20'])
 
     const xScale = d3.scaleLinear().domain([0,365]).range([0,1200])
@@ -55,5 +54,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(FireballNotification);
-
-

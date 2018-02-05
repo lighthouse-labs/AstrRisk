@@ -17,7 +17,6 @@ class SliderBar extends Component {
     super(props);
 
     this.state={
-      size: 1,
       showSelector: false,
       selectorClassName: 'range-hidden'
     }
@@ -108,11 +107,7 @@ class SliderBar extends Component {
               </div>
 
               <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
-                <div
-                  onChange={e => this.changeYear(e)}
-
-                  defaultValue={this.getCurrentYear()}
-                  >
+                <div onChange={e => this.changeYear(e)} defaultValue={this.getCurrentYear()}>
                   {this.renderDates(startYear, endYear)}
                 </div>
 
