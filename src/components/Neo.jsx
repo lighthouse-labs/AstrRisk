@@ -128,7 +128,7 @@ class Neo extends Component {
       return (<Fragment>
         <div style={orbitStyle}></div>
         <div className={name}>
-        <img src={this.randomImage()} onClick={e => this.togglePopUp()} className={name+1}/>
+        <img src={randomImage()} onClick={(e) => this.togglePopUp()} className={name+1}/>
         </div>
       </Fragment>
       )
