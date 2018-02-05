@@ -56,7 +56,8 @@
     "react-motion": "^0.5.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.2.1"
   },
   "main": "server.js"
 }

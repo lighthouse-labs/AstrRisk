@@ -9,6 +9,7 @@ import FireballNotification from './FireballNotification.jsx';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
 import * as MdIconPack from 'react-icons/lib/md'
+import uuid from 'uuid/v1';
 
 const momentRange = extendMoment(moment);
 
@@ -71,9 +72,9 @@ class SliderBar extends Component {
     let options = [];
     for(let i =startYear; i <= endYear; i++){
       if(i + 1 === this.getCurrentYear()){
-        options.push(<div value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+        options.push(<div key={uuid()} value={i} id='current' onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
       } else {
-        options.push(<div value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
+        options.push(<div key={uuid()} value={i} onClick={e => {this.classChanger(); this.changeYear(e)}}>{i}</div>);
       }
     }
     return(<Fragment>{options}</Fragment>);
