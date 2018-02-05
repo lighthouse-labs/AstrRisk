@@ -4,6 +4,8 @@ import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData, changeSlider} from '../actions/actions.js';
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
+import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
+import FireballNotification from './FireballNotification.jsx';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
 import * as MdIconPack from 'react-icons/lib/md'
@@ -104,6 +106,7 @@ class SliderBar extends Component {
                   {this.getCurrentYear()}
                 </a>
               </div>
+              
               <div className={this.state.showSelector ? 'range-year-picker' : 'range-hidden'}>
                 <div
                   onChange={e => this.changeYear(e)}
@@ -116,7 +119,13 @@ class SliderBar extends Component {
               </div>
               <TiIconPack.TiArrowUnsorted className="dropdown-icon" size={'30px'}/>
               <div className="range-text">
-                {moment(this.props.neoData[0].close_approach_data[0].close_approach_date).format("dddd, MMMM Do")}
+                <Motion
+                  defaultStyle={{ date: moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf() }}
+                  style={{ date: spring(moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf(), { stiffness: 300, damping: 70 }) }}>
+                    {value => <div className="range-text">
+                      {moment(Math.floor(value.date)).format("dddd, MMMM Do")}
+                    </div>
+                  }</Motion>
               </div>
               <div className="range-button">
                 <MdIconPack.MdArrowForward size={70} onClick={e => this.goForwardOneDay()}/>
@@ -157,6 +166,7 @@ class SliderBar extends Component {
     return (
       <Fragment>
         {rangeSlider}
+        <FireballNotification/>
       </Fragment>
     )
   }

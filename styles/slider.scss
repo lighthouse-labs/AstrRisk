@@ -206,3 +206,10 @@ input[type=range]:focus::-ms-fill-upper {
 .select:focus {
   outline: none;
 }
+
+.fireball-slider-notification {
+  position: absolute;
+  bottom: -548px;
+  left: 240px;
+  z-index: 9000;
+}
