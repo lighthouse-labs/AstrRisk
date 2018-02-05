@@ -18,7 +18,7 @@ class Neo extends Component {
 
   randomImage(){
     let image = '../../public/assets/images/meteor2.svg'
-    const randomNum = Math.floor((Math.random() * 5) + 1 );
+    const randomNum = Math.floor((Math.random() * 6) + 1 );
     switch(randomNum){
       case 1:
         image = '../../public/assets/images/meteor3-diff.svg';
@@ -34,6 +34,9 @@ class Neo extends Component {
         break;
       case 5:
         image = '../../public/assets/images/meteor4-diff.svg';
+        break;
+      case 6:
+        image = '../../public/assets/images/meteor5.svg';
         break;
     }
     return image;
