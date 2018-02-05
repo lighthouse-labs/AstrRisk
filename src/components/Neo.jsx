@@ -149,7 +149,7 @@ class Neo extends Component {
             </div>
             <div className="infoImage-container">
               {/* <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" /> */}
-              <RadarChart />
+              <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />
             </div>
           </div>
         </div>

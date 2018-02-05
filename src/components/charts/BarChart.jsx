@@ -54,36 +54,14 @@ class BarChart extends Component {
     // }
     // console.log(dailyNeoCount);
   }
-  // // }
 
   render() {
-    console.log('annual data: ', this.props.annualData);
     const { annualData } = this.props;
+
     // Margin for the graph
     const margin = { top: 30, right: 30, bottom: 30, left: 30 },
       width = 1600 - margin.left - margin.right,
       height = 100 - margin.top - margin.bottom;
-
-    // Creates array for d3 to generate data from
-    // let dailyNeoCount = [];
-    // for (let date in this.props.annualData) {
-    //   const dayOfYr = moment(date).dayOfYear();
-    //   console.log('date of year :', dayOfYr);
-    //   // if (dayOfYear % 30 !== 0) {
-    //     const length = this.props.annualData[date].length
-    //     dailyNeoCount.push({length: length, dayOfYear: dayOfYr });
-    //   // }
-    // }
-    
-    // // Sorts array based on day of year
-    // dailyNeoCount.sort((a, b) => {
-    //   const keyA = a.dayOfYear,
-    //         keyB = b.dayOfYear;
-    //   // Compare the 2 dates
-    //   if (keyA < keyB) return -1;
-    //   if (keyA > keyB) return 1;
-    //   return 0;
-    // });
 
     var color = d3.scaleOrdinal(d3['schemeCategory20'])
 
@@ -97,27 +75,21 @@ class BarChart extends Component {
       ))
     )
 
-    // Generates single chart line
+    // Generates connected chart line 
     const chartLine = d3.line()
                         .y(d => { return (barScale(d.length) * -1) })
                         .x((d, i) => { return horizontalScale(d.dayOfYear)})
-    //                     .x((d,i) => { return i + 105})
                         .curve(d3.curveBasis)
 
+    // Generates area chart path
     const chartArea = d3.area()
                         .y1(d => { return (barScale(d.length) * -1) })
                         .y0(d => { return height / 50})
                         .x((d, i) => { return horizontalScale(d.dayOfYear) })
                         .curve(d3.curveBasis)
 
-                        
-
-    // console.log('dailyneocount', dailyNeoCount);
-
     // const lineGraphPath = chartLine(annualData);
     const areaGraphPath = chartArea(annualData);
-
-
 
     return (
       <Fragment>
