@@ -19,7 +19,7 @@ class BarChart extends Component {
   makeAxis() {
     // Margin for the graph
     const margin = { top: 30, right: 30, bottom: 30, left: 30 },
-      width = 1200 - margin.left - margin.right,
+      width = 1600 - margin.left - margin.right,
       height = 900 - margin.top - margin.bottom;
 
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -33,7 +33,7 @@ class BarChart extends Component {
 
     const xAxis = d3.select(xNode)
       .attr('stroke', '#42f498')
-      .call(d3.axisBottom(xScale).ticks(12).tickFormat(d3.timeFormat('%b')))
+      .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat('%b')))
       .selectAll("text")
       .attr('transform', 'translate(50, 0)');
 
@@ -45,42 +45,45 @@ class BarChart extends Component {
 
   printData() {
     console.log('result: ', moment('2015-03-03').dayOfYear());
-    let dailyNeoCount = [];
-    for (let date in this.props.annualData) {
-      const length = this.props.annualData[date].length
+    // let dailyNeoCount = [];
+    // for (let date in this.props.annualData) {
+    //   const length = this.props.annualData[date].length
       // const theDate = date;
-      dailyNeoCount.push({[date]: length});
+      // dailyNeoCount.push({[date]: length});
       // console.log(`date is: ${theDate}, count is: ${length}`);
-    }
-    console.log(dailyNeoCount);
+    // }
+    // console.log(dailyNeoCount);
   }
   // // }
 
   render() {
+    console.log('annual data: ', this.props.annualData);
+    const { annualData } = this.props;
     // Margin for the graph
     const margin = { top: 30, right: 30, bottom: 30, left: 30 },
-      width = 1200 - margin.left - margin.right,
-      height = 900 - margin.top - margin.bottom;
+      width = 1600 - margin.left - margin.right,
+      height = 100 - margin.top - margin.bottom;
 
     // Creates array for d3 to generate data from
-    let dailyNeoCount = [];
-    for (let date in this.props.annualData) {
-      const dayOfYear = moment(date).dayOfYear();
-      if (dayOfYear % 2 !== 0) {
-        const length = this.props.annualData[date].length
-        dailyNeoCount.push({length: length, dayOfYear: dayOfYear });
-      }
-    }
+    // let dailyNeoCount = [];
+    // for (let date in this.props.annualData) {
+    //   const dayOfYr = moment(date).dayOfYear();
+    //   console.log('date of year :', dayOfYr);
+    //   // if (dayOfYear % 30 !== 0) {
+    //     const length = this.props.annualData[date].length
+    //     dailyNeoCount.push({length: length, dayOfYear: dayOfYr });
+    //   // }
+    // }
     
-    // Sorts array based on day of year
-    dailyNeoCount.sort((a, b) => {
-      const keyA = a.dayOfYear,
-            keyB = b.dayOfYear;
-      // Compare the 2 dates
-      if (keyA < keyB) return -1;
-      if (keyA > keyB) return 1;
-      return 0;
-    });
+    // // Sorts array based on day of year
+    // dailyNeoCount.sort((a, b) => {
+    //   const keyA = a.dayOfYear,
+    //         keyB = b.dayOfYear;
+    //   // Compare the 2 dates
+    //   if (keyA < keyB) return -1;
+    //   if (keyA > keyB) return 1;
+    //   return 0;
+    // });
 
     var color = d3.scaleOrdinal(d3['schemeCategory20'])
 
@@ -89,22 +92,30 @@ class BarChart extends Component {
     // Scales points along the x-axis
     const horizontalScale = d3.scaleLinear().domain([1,365]).range([0, width])
     const bars = (
-        dailyNeoCount.map((day, i) => (
+        annualData.map((day, i) => (
         <rect width={1} height={barScale(day.length)} y={10 - barScale(day.length)} x={horizontalScale(day.dayOfYear)} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
       ))
     )
 
     // Generates single chart line
     const chartLine = d3.line()
-                        .y(d => { console.log('y', barScale(d.length)); return (barScale(d.length) * -1) })
-                        .x((d, i) => { console.log('x', horizontalScale(d.dayOfYear)); return horizontalScale(d.dayOfYear)})
+                        .y(d => { return (barScale(d.length) * -1) })
+                        .x((d, i) => { return horizontalScale(d.dayOfYear)})
     //                     .x((d,i) => { return i + 105})
-    //                     // .curve(d3.curveBasis)
+                        .curve(d3.curveBasis)
 
-    console.log(dailyNeoCount);
+    const chartArea = d3.area()
+                        .y1(d => { return (barScale(d.length) * -1) })
+                        .y0(d => { return height / 50})
+                        .x((d, i) => { return horizontalScale(d.dayOfYear) })
+                        .curve(d3.curveBasis)
 
-    const generatedLine = chartLine(dailyNeoCount);
-    // const generatedLine = chartLine(barNeoData[0]);
+                        
+
+    // console.log('dailyneocount', dailyNeoCount);
+
+    // const lineGraphPath = chartLine(annualData);
+    const areaGraphPath = chartArea(annualData);
 
 
 
@@ -112,8 +123,9 @@ class BarChart extends Component {
       <Fragment>
         <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
           <g transform={"translate(" + (margin.left + 1) + "," + (height - 10) + ")"}>
-            <path transform={"translate(" + 0 + "," + -300 + ")"} stroke={'#f4e842'} fill={'none'} key={24219} d={generatedLine} strokeOpacity={0.9}/>
-            {bars}
+            <path transform={"translate(" + 0 + "," + 0 + ")"} stroke={'#f4e842'} fill={'#f4e842'} key={24219} d={areaGraphPath} strokeOpacity={0.9}/>
+            {/* <path transform={"translate(" + 0 + "," + -300 + ")"} stroke={'#f4e842'} fill={'none'} key={24219} d={lineGraphPath} strokeOpacity={0.9}/> */}
+            {/* {bars} */}
           </g>
           <g className="x-axis" ref="xAxis" transform={"translate(" + margin.left + "," + height + ")"}></g>
           <g className="y-axis" ref="yAxis" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
