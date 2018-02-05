@@ -16,6 +16,7 @@ export const getNeoData = (date) => {
         console.log('Received data from server');
         dispatch(loadNeoData(result));
         dispatch(getDate(date));
+        dispatch(offFireball());
       },
       (error) => {
         console.log('Error getting data from server: ', error);
@@ -40,6 +41,14 @@ export const getFireballData = () => {
       )
   }
 }
+
+export const toggleFireball = () => ({
+  type: types.TOGGLEFIREBALL,
+});
+
+export const offFireball = () => ({
+  type: types.OFFFIREBALL,
+});
 
 export const togglePopUp = () => ({
   type: types.TOGGLEPOPUP

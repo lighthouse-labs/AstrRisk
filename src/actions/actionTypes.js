@@ -5,3 +5,5 @@ export const TEST = 'TEST';
 export const GETDATE = 'GETDATE';
 export const SLIDERCHANGE = 'SLIDERCHANGE';
 export const TOGGLEPOPUP = 'TOGGLEPOPUP';
+export const TOGGLEFIREBALL = 'TOGGLEFIREBALL';
+export const OFFFIREBALL = 'OFFFIREBALL';

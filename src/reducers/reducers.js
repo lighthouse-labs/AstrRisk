@@ -179,6 +179,18 @@ export const togglePopUpReducer = (state = false, action) => {
       return state
   }
 }
+  
+  export const toggleFireballReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'OFFFIREBALL':
+      return false;
+    case 'TOGGLEFIREBALL':
+      const bool = !state;
+      return bool;
+    default:
+      return state
+  }
+}
 
 
 
