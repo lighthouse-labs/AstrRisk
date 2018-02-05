@@ -5,6 +5,7 @@ import {testButton, getNeoData, getFireballData, changeSlider} from '../actions/
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
+import FireballNotification from './FireballNotification.jsx';
 import * as FontAwesome from 'react-icons/lib/fa'
 import * as TiIconPack from 'react-icons/lib/ti'
 import * as MdIconPack from 'react-icons/lib/md'
@@ -24,7 +25,6 @@ class SliderBar extends Component {
 
   componentDidMount() {
     this.props.getNeoData(this.props.currentDate);
-    console.log('Current unix number is:: ', moment(this.props.currentDate).valueOf());
   }
 
   // updates the slider range max value
@@ -166,6 +166,7 @@ class SliderBar extends Component {
     return (
       <Fragment>
         {rangeSlider}
+        <FireballNotification/>
       </Fragment>
     )
   }

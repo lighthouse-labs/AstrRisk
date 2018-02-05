@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Orbit from './Orbit.jsx';
 import Earth from './Earth.jsx';
-import FireballAlert from './FireballAlert.jsx';
+
 
 
 
@@ -13,7 +13,6 @@ class EarthSystem extends Component{
         <Orbit/>
         <Earth/>
         {/* <div className="blur-filter"></div> */}
-        <FireballAlert/>
       </div>
     )
   }

@@ -51,11 +51,17 @@ class BarChart extends Component {
   // // }
 
   render() {
+    if (!this.props.annualData.length) {
+      console.log('empty!');
+    } else {
+      console.log('not empty!')
+    }
+
     let dailyNeoCount = [];
     for (let date in this.props.annualData) {
       let length = this.props.annualData[date].length
       // console.log('length: ', length,)
-      dailyNeoCount.push({length: length, day: moment(date).dayOfYear() });
+      dailyNeoCount.push({length: length, dayOfYear: moment(date).dayOfYear() });
     }
     
     const margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -73,14 +79,14 @@ class BarChart extends Component {
       // barNeoData[0].map((neo, i) => (
         dailyNeoCount.map((day, i) => (
       //   console.log()
-        <rect width={2} height={barScale(day.length)} y={10 - barScale(day.length)} x={day.day * 4} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
+        <rect width={2} height={barScale(day.length)} y={10 - barScale(day.length)} x={day.dayOfYear * 4} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
         // <rect width={2} height={barScale(neo.x)} y={50 - barScale(neo.x)} x={i} stroke={'#42f498'} fill={'#42f498'} fillOpacity={0.4} />
       ))
     )
 
     const chartLine = d3.line()
                         .y(d => { return d.x })
-                        .x((d,i) => { return d.day * 40 })
+                        .x((d,i) => { return d.dayOfYear })
                         // .curve(d3.curveBasis)
 
     const generatedLine = chartLine(dailyNeoCount);
@@ -91,7 +97,7 @@ class BarChart extends Component {
       <Fragment>
         <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
           <g transform={"translate(" + -180 + "," + 740 + ")"}>
-            <path transform={"translate(" + (margin.left + 20) + "," + -50 + ")"} fill={'#42f498'} key={24219} d={generatedLine} fillOpacity={1} />
+            <path transform={"translate(" + (margin.left + 20) + "," + -50 + ")"} fill={'#42f498'} key={24219} d={generatedLine} fillOpacity={1}/>
             {bars}
           </g>
           <g className="x-axis" ref="xAxis" transform={"translate(" + (margin.left + 20) + "," + height + ")"}></g>

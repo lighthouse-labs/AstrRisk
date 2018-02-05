@@ -1,10 +1,5 @@
 import * as types from './actionTypes';
 
-export const testButton = (data) => ({
-  type: types.TEST,
-  payload: data
-})
-
 export const getNeoData = (date) => {
   return (dispatch, getState) => {
     console.log('Attempting to retrieve data...');
@@ -57,8 +52,6 @@ export const getAnnualNeoData = (year) => {
       )
   }
 }
-
-
 
 export const togglePopUp = () => ({
   type: types.TOGGLEPOPUP

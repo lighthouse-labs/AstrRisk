@@ -2,35 +2,56 @@
   position: absolute;
   top: -130px;
   left: -130px;
-  animation: pulsate 6s linear infinite,
-  fireball 10s cubic-bezier(0.690, 0.340, 0.870, 0.600);
-  // animation-fill-mode: forwards;
-  // -webkit-animation-fill-mode: forwards;
+  animation: impact 11s ease forwards;
+  z-index: 9000;
 }
 
 .fireball {
   height: 50px;
+  animation: grow-shrink 3s ease forwards;
 }
 
-
-@keyframes fireball{
+// should fly from behind camera at earth
+@keyframes impact {
   0% {
-    transform: translateX(-30px) translateY(-30px)
-    
+    transform: translateX(-500px) translateY(-500px) rotateX(-57deg);
+    opacity: 1; border-radius: 50%; box-shadow: 0px 0px 0px 0px white;
+    z-index: 9000;
   }
-  100% {
-    transform: translateX(735px) translateY(735px);
+  30% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 1;border-radius: 50%; box-shadow: 0px 0px 0px 0px white;
+    z-index: 9000;
   }
-}
-
-@keyframes pulsate {
-  0% {
-    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+  40% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    box-shadow: 0px 0px 30px 50px white; border-radius: 50%;
+    z-index: 9000;
   }
   50% {
-    transform: translateX(715px) translateY(715px) scaleX(1.1) scaleY(1.1);
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 0.5; box-shadow: 0px 0px 40px 30px white; border-radius: 50%;
+    z-index: 9000;
+  }
+  65% {
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 0.5; box-shadow: 0px 0px 40px 20px white; border-radius: 50%;
+    z-index: 9000;
   }
   100% {
-    transform: translateX(715px) translateY(715px) scaleX(1) scaleY(1);
+    transform: translateX(800px) translateY(770px) rotateX(-57deg);
+    opacity: 1; box-shadow: 0px 0px 40px 30px #FF2922; border-radius: 50%;
+    z-index: 9000;
+  }
+}
+
+@keyframes grow-shrink {
+  0% {
+    height: 300px;
+    z-index: 9000;
+  }
+  100% {
+    height: 0px;
+    z-index: 9000;
   }
 }

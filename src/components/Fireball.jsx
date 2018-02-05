@@ -7,8 +7,6 @@ import moment from 'moment';
 
 
 class Fireball extends Component {
-  //Fields: 0-Date, 1-Energy, 2-impact-energy,
-  //fireBallData.ta
 
   render() {
     const { fireBallData, currentDate } = this.props;
@@ -16,13 +14,12 @@ class Fireball extends Component {
 
     return (
       <Fragment>
-          <div>
-            {fireBallData[currentDate] && <img src='../../public/assets/images/neo.svg' className="fireball"/>}
+          <div className='fireball-path'>
+            <img src='../../public/assets/images/neo.svg' className="fireball"/>
           </div>
       </Fragment>
     )
   }
-
 }
 
 function mapStateToProps(state) {
@@ -36,8 +33,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    testButton, //Usage: test('string to display');
-    getNeoData,  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
+    getNeoData,
     getFireballData
   }, dispatch)
 }

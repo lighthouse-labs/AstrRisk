@@ -16,6 +16,20 @@ class Neo extends Component {
   componentDidMount() {
   }
 
+  randomImage(){
+    let image = '../../public/assets/images/meteor2.svg';
+    const randomNum = Math.floor((Math.random() * 2) + 1 );
+    switch(randomNum){
+      case 1:
+        image = '../../public/assets/images/meteor.svg';
+        break;
+      case 2:
+        image = '../../public/assets/images/meteor2.svg';
+        break;
+    }
+    return image;
+  }
+
   togglePopUp() {
     this.setState({ showPopUP: !this.state.showPopUP });
   }
@@ -36,18 +50,18 @@ class Neo extends Component {
     const dScale = d3.scaleLinear().domain([6371, 54600000]).range([280, 1400]);
     const sizeScale = d3.scaleLinear().domain([])
     const scaledDistance = Math.floor(dScale(distance));
-    const randomDeg = Math.floor(Math.random() * 360);
+    const randomDeg = Math.pow(avgDiameter, 2);
     var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(${600 * plusOrMinus}px);
             opacity: 0;
-            
+
         }
         100% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(0px);
             opacity: 1;
-        }    
+        }
       }`;
 
     const newclass = `.${name} {
@@ -61,14 +75,33 @@ class Neo extends Component {
         animation-name: ${name};
         animation-duration: 4s;
         transform-origin: 40px 40px;
-        animation-fill-mode: forwards;
+        transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(0px);
       }`;
+        // animation-fill-mode: forwards;
+
+    // set size of the NEO based of average diameter
+    let width = '10px';
+    let height = '10px';
+    if (avgDiameter <= 50){
+      width = "40px";
+      height ="40px";
+    } else if (avgDiameter > 50 && avgDiameter < 300){
+      width = "60px";
+      height ="60px";
+    } else if (avgDiameter > 300 && avgDiameter < 700){
+      width = "80px";
+      height ="80px";
+    } else {
+      width = "100px";
+      height ="100px";
+    }
 
     const imgClass = `.${name+1} {
-        transform: rotate(${-randomDeg}deg) rotateY(57deg);
-        width: 40px;
-        height: 40px;
-      }`;
+      transform: rotate(${-randomDeg}deg) rotateY(57deg);
+      width: ${width};
+      height: ${height};
+      cursor: pointer;
+    }`;
 
     const orbitStyle = {
       borderRadius: "50%",
@@ -83,11 +116,13 @@ class Neo extends Component {
       zIndex: "-40",
     }
 
+
+
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
-        <div className={name}>
-        <img src='../../public/assets/images/meteor.svg' onClick={e => this.togglePopUp()} className={name+1}/>
+        <div className={name} onClick={e => this.togglePopUp()}>
+        <img src={this.randomImage()}  className={name+1}/>
         </div>
       </Fragment>
       )
@@ -102,7 +137,7 @@ class Neo extends Component {
       return (
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
           <div className="infoPopup-infoHolder">
-            <BarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass} />
+            <BarChart/>
             {/* <div className="infoText">
               <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated diameter:</span> <span>{avgDiameter} m</span></div>
@@ -113,10 +148,7 @@ class Neo extends Component {
               <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
             </div> */}
             <div className="infoImage-container">
-              {/* <img src='../../public/assets/images/meteor.svg' className="infoPopup-image" /> */}
-              {/* <RadarChart speed={speed} distance={distance} diameter={avgDiameter} mt={mt} mass={mass}/> */}
-            </div>
-            <div className="neo-radar-chart">
+              <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" />
             </div>
           </div>
         </div>
@@ -148,5 +180,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Neo);
-
-

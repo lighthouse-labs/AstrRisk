@@ -139,7 +139,7 @@ export const neoDataReducer = (state = initialState, action) => {
   }
 }
 
-export const annualDataReducer = (state = initialState, action) => {
+export const annualDataReducer = (state = [], action) => {
   switch (action.type) {
     case 'LOADANNUALDATA':
       return action.payload;
