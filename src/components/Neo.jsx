@@ -14,6 +14,20 @@ class Neo extends Component {
   componentDidMount() {
   }
 
+  randomImage(){
+    let image = '../../public/assets/images/meteor2.svg';
+    const randomNum = Math.floor((Math.random() * 2) + 1 );
+    switch(randomNum){
+      case 1:
+        image = '../../public/assets/images/meteor.svg';
+        break;
+      case 2:
+        image = '../../public/assets/images/meteor2.svg';
+        break;
+    }
+    return image;
+  }
+
   togglePopUp() {
     this.setState({ showPopUP: !this.state.showPopUP });
   }
@@ -95,25 +109,13 @@ class Neo extends Component {
       zIndex: "-40",
     }
 
-    function randomImage(){
-      let image = '../../public/assets/images/meteor2.svg';
-      const randomNum = Math.floor((Math.random() * 2) + 1 );
-      switch(randomNum){
-        case 1:
-          image = '../../public/assets/images/meteor.svg';
-          break;
-        case 2:
-          image = '../../public/assets/images/meteor2.svg';
-          break;
-      }
-      return image;
-    }
+
 
     const createNeo = () => {
       return (<Fragment>
         <div style={orbitStyle}></div>
         <div className={name} onClick={e => this.togglePopUp()}>
-        <img src={randomImage()}  className={name+1}/>
+        <img src={this.randomImage()}  className={name+1}/>
         </div>
       </Fragment>
       )
