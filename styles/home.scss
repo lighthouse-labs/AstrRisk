@@ -88,19 +88,31 @@ body {
   position: fixed;
   background: rgba(0, 0, 0, 0.8);
   top: 0;
-  bottom: -300px;
+  bottom: 0px;
   left: -300px;
   right: -300px;
   z-index: 9000;
-  transform: rotateX(-57deg);
 }
 
 .infoPopup-infoHolder {
   display: flex;
   top: 40%;
-  left: 24%;
+  left: 18%;
   width: 100%;
   position: absolute;
+}
+
+.x-button {
+  position: absolute;
+  left: 1202px;
+  top: -57px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.x-button:hover {
+  color: yellow;
 }
 
 html .infoText {

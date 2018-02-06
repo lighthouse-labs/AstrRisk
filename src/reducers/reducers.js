@@ -130,10 +130,31 @@ export const fireBallDataReducer = (state = initialState, action) => {
   }
 }
 
+
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
       return action.payload;
+    default:
+      return state;
+  }
+}
+
+export const singleNeoDataReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SHOWPOPUP':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+export const showPopUpReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'SHOWPOPUP':
+      return true
+    case 'CLOSEPOPUP':
+      return false
     default:
       return state;
   }
@@ -159,7 +180,7 @@ export const dateReducer = (state = '2015-01-01', action) => {
 }
 
 export const getSliderReducer = (state = 1, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'SLIDERCHANGE':
       return action.payload;
     default:
@@ -177,12 +198,22 @@ export const togglePopUpReducer = (state = false, action) => {
       return state
   }
 }
-  
-  export const toggleFireballReducer = (state = false, action) => {
+
+export const toggleFireballReducer = (state = false, action) => {
   switch (action.type) {
     case 'OFFFIREBALL':
       return false;
     case 'TOGGLEFIREBALL':
+      const bool = !state;
+      return bool;
+    default:
+      return state
+  }
+}
+
+export const toggleGraphReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLEGRAPH':
       const bool = !state;
       return bool;
     default:

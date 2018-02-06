@@ -27,7 +27,7 @@ class FireballNotification extends Component {
 
     const sliderAlert = (
       fbPosition.map(position => (
-        <circle cx={xScale(position)} cy={0} r={2} key={uuid()} stroke={'#d1170a'} fill={'#d1170a'} fillOpacity={0.7} />
+        <circle cx={xScale(position)} cy={0} r={4} key={uuid()} stroke={'#d1170a'} fill={'#d1170a'} fillOpacity={0.7} />
       ))
     )
 

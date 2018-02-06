@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData, getAnnualNeoData } from './actions/actions.js';
 import BarChart from './components/charts/BarChart.jsx';
 import PieChart from './components/PieChart.jsx';
-
+import PopUp from './components/PopUp.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -23,9 +23,10 @@ class App extends Component {
   render() {
 
     return (<Fragment>
-        <EarthSystem neodata={this.state}/>
+        <EarthSystem />
         <SliderBar />
-        <BarChart data={this.props.annualData}/>
+        {this.props.showPopUp && <PopUp />}
+        {/* <BarChart data={this.props.annualData}/> */}
         {/* <PieChart/> */}
         <img src={"../../public/assets/images/logo.svg"} className={"logo"}/>
       </Fragment>
@@ -34,7 +35,7 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-  return {neoData: state.neoData, testState: state.testReducer, fireBallData: state.fireBallData, currentDate: state.currentDate, annualData: state.annualData}
+  return {neoData: state.neoData, testState: state.testReducer, fireBallData: state.fireBallData, currentDate: state.currentDate, annualData: state.annualData, showPopUp: state.showPopUp}
 }
 
 function mapDispatchToProps(dispatch) {

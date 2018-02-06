@@ -41,7 +41,6 @@ class RadarChart extends Component {
       ]
       
     ]
-
     
     function valueParser (value) {
       if (value > 1) return 1
@@ -124,7 +123,7 @@ class RadarChart extends Component {
               <path stroke={'#CDCDCD'} key={19090} d={graphAxis} strokeOpacity={0.5} fillOpacity={0.2} />
 
               <path fill={color(16)} key={299933} stroke={'#CDCDCD'} d={radarDataPath} fillOpacity={0.7} fill={'none'} filter={'url(#blurMe)'} />
-              <path fill={color(16)} key={267229} d={radarDataPath} fillOpacity={0.6} />
+              <path className="radar-data-blob-fill" fill={color(16)} key={267229} d={radarDataPath} fillOpacity={0.7} />
 
               {/* <path fill={color(2)} key={2991239} stroke={'#CDCDCD'} d={tsarBomba} fillOpacity={0.1} fill={'none'} filter={'url(#blurMe)'} />
               <path fill={color(2)} key={2155339} d={tsarBomba} fillOpacity={0.1} />

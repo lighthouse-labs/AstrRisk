@@ -44,7 +44,6 @@ module.exports = (API) => {
           // Creates array for d3 to generate data from
           let dailyNeoCount = [];
           for (let dataDate in annualData) {
-            console.log('dataDate', dataDate);
             const dayOfYear = moment(dataDate).dayOfYear();
             // if (dayOfYear % 30 !== 0) {
               const length = annualData[dataDate].length
@@ -63,8 +62,6 @@ module.exports = (API) => {
           });
 
           res.json(dailyNeoCount);
-
-
 
         } else {
           res.status(404).send(`Error retrieving records for ${year}`);

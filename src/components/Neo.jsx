@@ -4,26 +4,18 @@ import { connect } from 'react-redux';
 import * as d3 from 'd3';
 import RadarChart from './charts/RadarChart.jsx';
 import BarChart from './charts/BarChart.jsx';
+import * as MdIconPack from 'react-icons/lib/md'
+import { showPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
   constructor() {
     super();
-    this.state = {
-      showPopUP: false
-    }
   }
 
   componentDidMount() {
   }
 
-
-
-  togglePopUp() {
-    this.setState({ showPopUP: !this.state.showPopUP });
-  }
-
   render() {
-
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
     const neoName = name;
@@ -122,13 +114,15 @@ class Neo extends Component {
     }
 
     const createNeo = () => {
+      const singleNeoData = { distance, avgDiameter, speed, hazard, mt, mass, neoName, hazard };
+      console.log(singleNeoData);
       const classNames = `${name +1}`
       return (
       <Fragment>
         <div style={orbitStyle}></div>
           <div className={name}>
             <div className="neo">
-              <img src={randomImage()} onClick={(e) => this.togglePopUp()} className={classNames}/>
+              <img src={randomImage()} onClick={(e) => this.props.showPopUp(singleNeoData)} className={classNames}/>
             </div>
           </div>
       </Fragment>
@@ -144,6 +138,9 @@ class Neo extends Component {
       return (
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
           <div className="infoPopup-infoHolder">
+            <div className="x-button">
+              <MdIconPack.MdClear size={80} onClick={e => this.togglePopUp()}/>
+            </div>
             {/* <BarChart/> */}
             <div className="infoText">
               <div className="infoText-name">{neoName}</div>
@@ -163,12 +160,14 @@ class Neo extends Component {
       )
     }
 
+    
+
     const popUp = createPopUp();
 
     return (
       <Fragment>
         {nearEarthObject}
-        {this.state.showPopUP && popUp}
+        {/* {this.state.showPopUP && popUp} */}
         {/* {this.state.showPopUP && <BarChart/> } */}
       </Fragment>
     )
@@ -183,7 +182,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
+  return bindActionCreators({ showPopUp
   }, dispatch)
 }
 
