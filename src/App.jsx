@@ -26,8 +26,8 @@ class App extends Component {
     return (<Fragment>
         <EarthSystem />
         <SliderBar />
-        {/* <HeatMap /> */}
         {this.props.showPopUp && <PopUp />}
+        {/* <HeatMap /> */}
         {/* <BarChart data={this.props.annualData}/> */}
         {/* <PieChart/> */}
         <img src={"../../public/assets/images/logo.svg"} className={"logo"}/>
