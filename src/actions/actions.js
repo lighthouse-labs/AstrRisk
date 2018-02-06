@@ -63,6 +63,14 @@ export const offFireball = () => ({
   type: types.OFFFIREBALL,
 });
 
+export const showPopUp = (data) => ({
+  type: types.SHOWPOPUP,
+  payload: data
+})
+
+export const closePopUp = () => ({
+  type: types.CLOSEPOPUP,
+})
 
 
 export const togglePopUp = () => ({

@@ -130,10 +130,31 @@ export const fireBallDataReducer = (state = initialState, action) => {
   }
 }
 
+
 export const neoDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOADNEODATA':
       return action.payload;
+    default:
+      return state;
+  }
+}
+
+export const singleNeoDataReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SHOWPOPUP':
+      return action.payload;
+    default:
+      return state;
+  }
+}
+
+export const showPopUpReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'SHOWPOPUP':
+      return true
+    case 'CLOSEPOPUP':
+      return false
     default:
       return state;
   }
