@@ -1,1 +1,34 @@
 
+.neo {
+  pointer-events: auto;
+  cursor: pointer;
+  animation-duration: 1s;
+  animation-name: wobble;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  img{
+    border-radius: 30%;
+    &:hover{
+      transition: .7s ease;
+      border: 5px solid #FFF;
+      background: rgba(255,255,255, .5);
+      border-radius: 50%;
+
+    }
+  }
+}
+
+
+@keyframes wobble {
+  from {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  to {
+    margin-right: -10px;
+    margin-top: -10px;
+  }
+}

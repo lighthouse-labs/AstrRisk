@@ -34,6 +34,7 @@ $yearPickerValue: 550px;
 }
 
 .range-button {
+  pointer-events: auto;
   margin-top: 85px;
   cursor: pointer;
   transition: width 2s;
@@ -49,11 +50,14 @@ $yearPickerValue: 550px;
 }
 
 .range-text-link {
+  pointer-events: auto;
   position: absolute;
   padding-left: $yearPickerValue;
   user-select: none;
 
   a {
+    pointer-events: auto;
+
     color: #FFF;
     text-decoration: none;
   }
@@ -69,6 +73,7 @@ $yearPickerValue: 550px;
 }
 
 .range-year-picker {
+  pointer-events: auto;
   position: absolute;
   height: 150px;
   bottom: 175px;
@@ -76,6 +81,7 @@ $yearPickerValue: 550px;
   padding-left: $yearPickerValue;
 
   div {
+    pointer-events: auto;
     cursor: pointer;
     font-family: 'Rubik', sans-serif;
     font-size: 1em;
@@ -97,9 +103,14 @@ $yearPickerValue: 550px;
     float: left;
     padding: 0 35px;
   }
+  input {
+    pointer-events: auto;
+
+  }
 }
 
 input[type=range] {
+  pointer-events: auto;
   -webkit-appearance: none;
   width: 100%;
   margin: 17.8px 0;
