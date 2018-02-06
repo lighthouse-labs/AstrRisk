@@ -66,18 +66,16 @@ class Neo extends Component {
 
     // set size of the NEO based of average diameter
     function setSize(){
-      let width = '10px';
-      let height = '10px';
-
       let sizeString = 'height: 80px; width: 80px;'
+
       if (avgDiameter <= 50){
-        sizeString = 'height: 50px; width: 50px;'
+        sizeString = 'height: 70px; width: 70px;'
       } else if (avgDiameter > 50 && avgDiameter < 300){
-        sizeString = 'height: 65px; width: 65px;'
-      } else if (avgDiameter > 300 && avgDiameter < 700){
         sizeString = 'height: 80px; width: 80px;'
-      } else {
+      } else if (avgDiameter > 300 && avgDiameter < 700){
         sizeString = 'height: 100px; width: 100px;'
+      } else {
+        sizeString = 'height: 120px; width: 120px;'
       }
       return sizeString;
     }
@@ -122,14 +120,16 @@ class Neo extends Component {
       return image;
     }
 
-
-
     const createNeo = () => {
-      return (<Fragment>
+      const classNames = `${name +1}`
+      return (
+      <Fragment>
         <div style={orbitStyle}></div>
-        <div className={name}>
-        <img src={randomImage()} onClick={(e) => this.togglePopUp()} className={name+1}/>
-        </div>
+          <div className={name}>
+            <div className="neo">
+              <img src={randomImage()} onClick={(e) => this.togglePopUp()} className={classNames}/>
+            </div>
+          </div>
       </Fragment>
       )
     }
