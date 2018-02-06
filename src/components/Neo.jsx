@@ -8,13 +8,6 @@ import * as MdIconPack from 'react-icons/lib/md'
 import { showPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-  }
-
   render() {
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
@@ -113,7 +106,6 @@ class Neo extends Component {
 
     const createNeo = () => {
       const singleNeoData = { distance, avgDiameter, speed, hazard, mt, mass, neoName, hazard };
-      console.log(singleNeoData);
       const classNames = `${name +1}`
       return (
       <Fragment>
@@ -132,6 +124,7 @@ class Neo extends Component {
     document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
     document.styleSheets[0].insertRule(imgClass, document.styleSheets[0].cssRules.length)
 
+<<<<<<< HEAD
     const createPopUp = () => {
       return (
         <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
@@ -162,11 +155,11 @@ class Neo extends Component {
 
     const popUp = createPopUp();
 
+=======
+>>>>>>> 49543d8d9ce37163a4e2acef4ae18d3391e1ea5d
     return (
       <Fragment>
         {nearEarthObject}
-        {/* {this.state.showPopUP && popUp} */}
-        {/* {this.state.showPopUP && <BarChart/> } */}
       </Fragment>
     )
   }

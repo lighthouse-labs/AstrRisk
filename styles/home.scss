@@ -18,7 +18,7 @@ body {
   box-sizing: border-box;
   background-color: #12414E;
   font-family: 'Rubik', sans-serif;
-  box-shadow: inset 0px -764px 447px -227px rgba(15,96,88,0.1); 
+  box-shadow: inset 0 -764px 447px -227px rgba(15,96,88,0.1);
   color: #d4d1d1;
   background: url("../public/assets/images/star-tile.png");
 }
@@ -88,7 +88,7 @@ body {
   position: fixed;
   background: rgba(0, 0, 0, 0.8);
   top: 0;
-  bottom: 0px;
+  bottom: 0;
   left: -300px;
   right: -300px;
   z-index: 9000;
@@ -199,8 +199,12 @@ html .infoText {
 }
 
 .logo {
-    top: 30px;
-    position: fixed;
-    left: 30px;
-    width: 320px;
+  top: 30px;
+  position: fixed;
+  left: 30px;
+  width: 320px;
+}
+
+.test-button {
+  pointer-events: all;
 }
