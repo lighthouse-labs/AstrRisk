@@ -42,7 +42,7 @@ export const getAnnualNeoData = (year) => {
       .then(res => res.json())
       .then(
       (result) => {
-        console.log(`Received annual data for ${year}`);
+        // console.log(`Received annual data for ${year}`);
         dispatch(getAnnualData(result));
       },
       (error) => {

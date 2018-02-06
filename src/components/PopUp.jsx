@@ -6,6 +6,7 @@ import RadarChart from './charts/RadarChart.jsx';
 import BarChart from './charts/BarChart.jsx';
 import * as MdIconPack from 'react-icons/lib/md'
 import { closePopUp } from '../actions/actions.js'
+import HeatMap from './charts/HeatMap.jsx';
 
 class PopUp extends Component {
 

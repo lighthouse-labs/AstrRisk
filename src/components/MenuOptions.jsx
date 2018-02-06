@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
 import { getAnnualNeoData, toggleGraph } from '../actions/actions';
 import BarChart from './charts/BarChart.jsx';
+import HeatMap from './charts/HeatMap.jsx';
 import * as d3 from 'd3';
 import moment from 'moment';
 
@@ -17,7 +18,8 @@ class MenuOptions extends Component {
         <div className="chart-icon">
           <img src='../../public/assets/images/graph-icon.svg' onClick={e => this.props.toggleGraph()} className="chart graph-icon" />
         </div>
-        {showGraph && <BarChart />}
+        {/* {showGraph && <BarChart />} */}
+        {showGraph && <HeatMap />}
       </Fragment>
     )
 

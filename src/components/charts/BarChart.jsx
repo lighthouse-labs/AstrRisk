@@ -67,7 +67,7 @@ class BarChart extends Component {
     const horizontalScale = d3.scaleLinear().domain([1,365]).range([0, width])
     const bars = (
         annualData.map((day, i) => (
-        <rect width={1} height={barScale(day.length)} y={10 - barScale(day.length)} x={horizontalScale(day.dayOfYear)} stroke={'#fff'} fill={'#fff'} fillOpacity={0.5} strokeOpacity={1} />
+        <rect onClick={e => console.log('hello')} width={1} height={barScale(day.length)} y={10 - barScale(day.length)} x={horizontalScale(day.dayOfYear)} stroke={'#fff'} fill={'#fff'} fillOpacity={0.5} strokeOpacity={1} />
       ))
     )
 

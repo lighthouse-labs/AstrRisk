@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData, getAnnualNeoData } from './actions/actions.js';
 import BarChart from './components/charts/BarChart.jsx';
+import HeatMap from './components/charts/HeatMap.jsx';
 import PieChart from './components/PieChart.jsx';
 import PopUp from './components/PopUp.jsx';
 
@@ -25,6 +26,7 @@ class App extends Component {
     return (<Fragment>
         <EarthSystem />
         <SliderBar />
+        {/* <HeatMap /> */}
         {this.props.showPopUp && <PopUp />}
         {/* <BarChart data={this.props.annualData}/> */}
         {/* <PieChart/> */}
