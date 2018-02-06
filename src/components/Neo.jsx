@@ -96,20 +96,18 @@ class Neo extends Component {
     function randomImage(){
       let image = '../../public/assets/images/meteor2.svg'
       const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
-      switch(Math.floor(imageScale(speed))){
-        case 1:
-          image = '../../public/assets/images/meteor2.svg';
-          break;
-        case 2:
-          image = '../../public/assets/images/meteor3.svg';
-          break;
-        case 3:
-          image = '../../public/assets/images/meteor4.svg';
-          break;
-        case 4:
-          image = '../../public/assets/images/meteor5.svg';
-          break;
+      if(speed <= 3){
+        image = '../../public/assets/images/meteor.svg';
+      } else if (speed > 3 && speed < 6) {
+        image = '../../public/assets/images/meteor2.svg';
+      } else if (speed > 6 && speed < 10){
+        image = '../../public/assets/images/meteor3.svg';
+      } else if (speed > 10 && speed < 14){
+        image = '../../public/assets/images/meteor4.svg';
+      } else if (speed > 14 && speed < 18){
+        image = '../../public/assets/images/meteor5.svg';
       }
+
       return image;
     }
 
@@ -160,7 +158,7 @@ class Neo extends Component {
       )
     }
 
-    
+
 
     const popUp = createPopUp();
 

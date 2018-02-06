@@ -88,7 +88,7 @@ class SliderBar extends Component {
   render() {
 
     const startYear = 1900;
-    const endYear   = 2100;
+    const endYear   = 2200;
 
     const makeSlider = () => {
       return (
@@ -113,7 +113,7 @@ class SliderBar extends Component {
                 </div>
 
               </div>
-              <TiIconPack.TiArrowUnsorted className="dropdown-icon" size={'30px'}/>
+              <FontAwesome.FaExpand className={this.state.showSelector ? 'dropdown-icon' : 'range-hidden'} size={'30px'}/>
               <div className="range-text">
                 <Motion
                   defaultStyle={{ date: moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf() }}

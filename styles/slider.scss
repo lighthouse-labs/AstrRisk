@@ -63,6 +63,8 @@ $yearPickerValue: 550px;
   }
   a:hover {
     color: rgb(255, 255, 0);
+    transition: .5s ease-in-out;
+    text-shadow: 3px 3px #000;
   }
 }
 
@@ -70,6 +72,7 @@ $yearPickerValue: 550px;
   position: absolute;
   left: 683px;
   top: 10px;
+  transform: rotate(-45deg);
 }
 
 .range-year-picker {
@@ -90,6 +93,8 @@ $yearPickerValue: 550px;
 
     &:hover {
       color: rgb(255, 255, 0);
+      transition: .5s ease-in-out;
+      text-shadow: 3px 3px #000;
     }
   }
 }
