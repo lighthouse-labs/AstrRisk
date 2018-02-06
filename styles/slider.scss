@@ -52,7 +52,7 @@ $yearPickerValue: 550px;
 .range-text-link {
   pointer-events: auto;
   position: absolute;
-  padding-left: $yearPickerValue;
+  margin-left: $yearPickerValue;
   user-select: none;
 
   a {
@@ -226,5 +226,6 @@ input[type=range]:focus::-ms-fill-upper {
 .fireball-slider-notification {
   position: absolute;
   bottom: 63px;
-  left: 360px;
+  left: 50%;
+  margin-left: -600px;
 }
