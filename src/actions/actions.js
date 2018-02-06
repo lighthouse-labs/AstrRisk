@@ -52,10 +52,6 @@ export const getAnnualNeoData = (year) => {
   }
 }
 
-export const toggleGraph = () => ({
-  type: types.TOGGLEGRAPH
-})
-
 export const toggleFireball = () => ({
   type: types.TOGGLEFIREBALL,
 });
@@ -64,9 +60,17 @@ export const offFireball = () => ({
   type: types.OFFFIREBALL,
 });
 
-export const showPopUp = (data) => ({
+// Pop Up Actions
+export const showPopUp = () => ({
   type: types.SHOWPOPUP,
+})
+
+export const showNeoPopUp = (data) => ({
+  type: types.SHOWNEOPOPUP,
   payload: data
+})
+export const showHeatMapPopUp = () => ({
+  type: types.SHOWHEATMAP,
 })
 
 export const closePopUp = () => ({

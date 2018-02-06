@@ -5,8 +5,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {testButton, getNeoData, getFireballData, getAnnualNeoData } from './actions/actions.js';
 import BarChart from './components/charts/BarChart.jsx';
-import HeatMap from './components/charts/HeatMap.jsx';
-import PieChart from './components/PieChart.jsx';
 import PopUp from './components/PopUp.jsx';
 
 class App extends Component {
@@ -27,10 +25,6 @@ class App extends Component {
         <EarthSystem />
         <SliderBar />
         {this.props.showPopUp && <PopUp />}
-        {/* <HeatMap /> */}
-        {/* <BarChart data={this.props.annualData}/> */}
-        {/* <PieChart/> */}
-        <img src={"../../public/assets/images/logo.svg"} className={"logo"}/>
       </Fragment>
     );
   }

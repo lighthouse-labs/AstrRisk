@@ -140,17 +140,43 @@ export const neoDataReducer = (state = initialState, action) => {
   }
 }
 
+// Reducer for neo pop up info
 export const singleNeoDataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SHOWPOPUP':
+    case 'SHOWNEOPOPUP':
       return action.payload;
     default:
       return state;
   }
 }
 
-export const showPopUpReducer = (state = false, action) => {
+export const toggleNeoPopUpReducer = (state = false, action) => {
   switch (action.type) {
+    case 'CLOSEPOPUP':
+      return false;
+    case 'SHOWNEOPOPUP':
+      return true;
+    default:
+      return state;
+  }
+}
+export const toggleHeatMapReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'CLOSEPOPUP':
+      return false;
+    case 'SHOWHEATMAP':
+      return true;
+    default:
+      return state;
+  }
+}
+
+export const togglePopUpReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'SHOWNEOPOPUP':
+      return true
+    case 'SHOWHEATMAP':
+      return true
     case 'SHOWPOPUP':
       return true
     case 'CLOSEPOPUP':
@@ -159,6 +185,7 @@ export const showPopUpReducer = (state = false, action) => {
       return state;
   }
 }
+
 
 export const annualDataReducer = (state = [], action) => {
   switch (action.type) {
@@ -188,17 +215,6 @@ export const getSliderReducer = (state = 1, action) => {
   }
 }
 
-export const togglePopUpReducer = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLEPOPUP':
-      console.log('hello');
-      const bool = !state;
-      return bool;
-    default:
-      return state
-  }
-}
-
 export const toggleFireballReducer = (state = false, action) => {
   switch (action.type) {
     case 'OFFFIREBALL':
@@ -210,25 +226,3 @@ export const toggleFireballReducer = (state = false, action) => {
       return state
   }
 }
-
-export const toggleGraphReducer = (state = false, action) => {
-  switch (action.type) {
-    case 'TOGGLEGRAPH':
-      const bool = !state;
-      return bool;
-    default:
-      return state
-  }
-}
-
-
-
-// export const yearReducer = (state = 'NO CURRENT YEAR', action) => {
-//   switch (action.type) {
-//     case 'YEAR':
-//       // console.log('New Year set: ', action.payload)
-//       return action.payload
-//     default:
-//       return state
-//   }
-// }
