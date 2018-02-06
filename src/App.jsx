@@ -25,15 +25,9 @@ class App extends Component {
   render() {
 
     return (<Fragment>
-<<<<<<< HEAD
         <EarthSystem />
         <SliderBar />
         {/* <BarChart data={this.props.annualData}/> */}
-=======
-        <EarthSystem neodata={this.state}/>
-        <SliderBar />
-        <BarChart data={this.props.annualData}/>
->>>>>>> c7b6ac1b047406eeef50f0ea0a32cab69759564e
         {/* <PieChart/> */}
       </Fragment>
     );

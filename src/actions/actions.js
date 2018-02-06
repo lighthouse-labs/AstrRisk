@@ -50,6 +50,11 @@ export const getAnnualNeoData = (year) => {
       )
   }
 }
+
+export const toggleGraph = () => ({
+  type: types.TOGGLEGRAPH
+})
+
 export const toggleFireball = () => ({
   type: types.TOGGLEFIREBALL,
 });

@@ -41,7 +41,6 @@ class RadarChart extends Component {
       ]
       
     ]
-
     
     function valueParser (value) {
       if (value > 1) return 1

@@ -5,6 +5,7 @@ import Fireball from './Fireball.jsx'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import FireballAlert from './FireballAlert.jsx';
+import MenuOptions from './MenuOptions.jsx';
 
 class Orbit extends Component {
   constructor(props) {
@@ -47,13 +48,14 @@ class Orbit extends Component {
           })
         }
       
+        <MenuOptions/>
 
     </Fragment>)
   }
 }
 
 function mapStateToProps(state) {
-  return {neoData: state.neoData, testState: state.testReducer}
+  return { neoData: state.neoData }
 }
 
 function mapDispatchToProps(dispatch) {

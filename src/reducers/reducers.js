@@ -159,7 +159,7 @@ export const dateReducer = (state = '2015-01-01', action) => {
 }
 
 export const getSliderReducer = (state = 1, action) => {
-  switch(action.type){
+  switch (action.type) {
     case 'SLIDERCHANGE':
       return action.payload;
     default:
@@ -177,12 +177,22 @@ export const togglePopUpReducer = (state = false, action) => {
       return state
   }
 }
-  
-  export const toggleFireballReducer = (state = false, action) => {
+
+export const toggleFireballReducer = (state = false, action) => {
   switch (action.type) {
     case 'OFFFIREBALL':
       return false;
     case 'TOGGLEFIREBALL':
+      const bool = !state;
+      return bool;
+    default:
+      return state
+  }
+}
+
+export const toggleGraphReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLEGRAPH':
       const bool = !state;
       return bool;
     default:
