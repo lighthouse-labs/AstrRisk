@@ -95,7 +95,7 @@ body {
 
 .infoPopup-infoHolder {
   display: flex;
-  top: 40%;
+//   top: 40%;
   left: 18%;
   width: 100%;
   position: absolute;
@@ -103,14 +103,27 @@ body {
 
 .x-button {
   position: absolute;
-  left: 1202px;
-  top: -57px;
+//   left: 1202px;
+//   top: -57px;
   pointer-events: auto;
   cursor: pointer;
   transition: 200ms;
 }
 
 .x-button:hover {
+  color: yellow;
+}
+.x-button-heatmap {
+  transform: rotateX(-57deg);
+  position: absolute;
+  left: 1202px;
+  top: 50px;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: 200ms;
+}
+
+.x-button-heatmap:hover {
   color: yellow;
 }
 

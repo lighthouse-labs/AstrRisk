@@ -228,9 +228,6 @@ class HeatMap extends Component {
               <g className="heat-map" ref="heatMap" transform={"translate(" + margin.left + "," + 200 + ")"}></g>
             </svg>
         </div>
-        <div>
-          <button className="test-button" onClick={e => this.changeDataSet()}>Change Dataset</button>
-        </div>
       </Fragment>
     )
 
