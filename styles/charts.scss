@@ -13,7 +13,10 @@
 }
 
 .graph-icon {
-  width: 100px;
+  padding: 30px;
+  width: 200px;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .radar-chart {

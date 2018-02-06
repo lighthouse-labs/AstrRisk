@@ -117,7 +117,7 @@ class SliderBar extends Component {
               <div className="range-text">
                 <Motion
                   defaultStyle={{ date: moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf() }}
-                  style={{ date: spring(moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf(), { stiffness: 300, damping: 70 }) }}>
+                  style={{ date: spring(moment(this.props.neoData[0].close_approach_data[0].close_approach_date).valueOf(), { stiffness: 230, damping: 70, precision: 1000000000 }) }}>
                     {value => <div className="range-text">
                       {moment(Math.floor(value.date)).format("dddd, MMMM Do")}
                     </div>
