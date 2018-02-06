@@ -27,6 +27,7 @@ class App extends Component {
         <SliderBar />
         <BarChart data={this.props.annualData}/>
         {/* <PieChart/> */}
+        <img src={"../../public/assets/images/logo.svg"} className={"logo"}/>
       </Fragment>
     );
   }
