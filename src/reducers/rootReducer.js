@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
-import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer, togglePopUpReducer, toggleFireballReducer, annualDataReducer, toggleGraphReducer, singleNeoDataReducer, showPopUpReducer } from './reducers';
+import { testReducer, neoDataReducer, fireBallDataReducer, dateReducer, getSliderReducer, togglePopUpReducer, toggleFireballReducer, annualDataReducer, singleNeoDataReducer, showPopUpReducer, toggleHeatMapReducer, toggleNeoPopUpReducer } from './reducers';
 
 const rootReducer = combineReducers({
   neoData: neoDataReducer,
   fireBallData: fireBallDataReducer,
   currentDate: dateReducer,
   sliderData: getSliderReducer,
-  showPopUp: togglePopUpReducer,
   annualData: annualDataReducer,
   showFireball: toggleFireballReducer,
-  showGraph: toggleGraphReducer,
   singleNeoData: singleNeoDataReducer,
-  showPopUp: showPopUpReducer
+  showPopUp: togglePopUpReducer,
+  showHeatMap: toggleHeatMapReducer,
+  showNeoPopUp: toggleNeoPopUpReducer
 })
 
 export default rootReducer;

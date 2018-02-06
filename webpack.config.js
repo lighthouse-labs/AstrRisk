@@ -13,10 +13,11 @@ module.exports = {
     publicPath: '/build/'
   },
   devServer: {
+    host: '0.0.0.0',
     port: 3000,
+    historyApiFallback: true,
     proxy: {
       "/api": "http://localhost:3001",
-      secure: false
     }
   },
   module: {

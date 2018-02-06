@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import RadarChart from './charts/RadarChart.jsx';
 import BarChart from './charts/BarChart.jsx';
 import * as MdIconPack from 'react-icons/lib/md'
-import { showPopUp } from '../actions/actions.js'
+import { showPopUp, showNeoPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
   render() {
@@ -13,9 +13,9 @@ class Neo extends Component {
     let { name } = this.props;
     const neoName = name;
     const volume = (4/3) * Math.PI * Math.pow((avgDiameter / 2), 3);
-    const mass = Math.floor(2000 * volume);
+    const mass = Math.floor(2 * volume);
     const ke = 0.5 * mass * Math.pow(speed, 2);
-    const mt = +(ke * 0.00000000023901).toFixed(2);
+    const mt = +(ke * 0.00000000023901).toFixed(3);
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
@@ -23,7 +23,7 @@ class Neo extends Component {
     const sizeScale = d3.scaleLinear().domain([])
     const scaledDistance = Math.floor(dScale(distance));
     const randomDeg = Math.pow(avgDiameter, 2);
-    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(${600 * plusOrMinus}px);
@@ -112,7 +112,7 @@ class Neo extends Component {
         <div style={orbitStyle}></div>
           <div className={name}>
             <div className="neo">
-              <img src={randomImage()} onClick={(e) => this.props.showPopUp(singleNeoData)} className={classNames}/>
+              <img src={randomImage()} onClick={e => {this.props.showNeoPopUp(singleNeoData)}} className={classNames}/>
             </div>
           </div>
       </Fragment>
@@ -140,7 +140,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ showPopUp
+  return bindActionCreators({ showNeoPopUp
   }, dispatch)
 }
 
