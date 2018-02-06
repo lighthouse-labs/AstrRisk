@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 
 export const getNeoData = (date) => {
   return (dispatch, getState) => {
-    console.log('Attempting to retrieve data...');
+    // console.log('Attempting to retrieve data...');
     //Usage: year = '1990-02-14' for sample
     fetch(`http://localhost:3001/api/neo/${date}`)
       .then(res => res.json())
@@ -21,7 +21,7 @@ export const getNeoData = (date) => {
 
 export const getFireballData = () => {
   return (dispatch, getState) => {
-    console.log('Attempting to retrieve fireball data...');
+    // console.log('Attempting to retrieve fireball data...');
     fetch('http://localhost:3001/api/fireball')
       .then(res => res.json())
       .then(
@@ -37,11 +37,12 @@ export const getFireballData = () => {
 
 export const getAnnualNeoData = (year) => {
   return (dispatch, getState) => {
-    console.log('Attempting to retrieve annual data...');
+    // console.log(`Attempting to retrieve annual data for ${year}...`);
     fetch(`http://localhost:3001/api/annual/${year}`)
       .then(res => res.json())
       .then(
       (result) => {
+        // console.log(`Received annual data for ${year}`);
         dispatch(getAnnualData(result));
       },
       (error) => {

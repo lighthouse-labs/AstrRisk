@@ -39,3 +39,21 @@
   transition: 200ms;
   transition-timing-function: ease-in;
 }
+
+.heatmap {
+  transform: rotateX(-57deg);
+}
+
+.heatmap-axis {
+  font-family: "Roboto Mono", monospace;
+  fill: white;
+  text-anchor: end;
+}
+
+.heatmap-xAxis {
+  text-anchor: middle;
+}
+
+.heatmap-squares:hover {
+  fill: red;
+}

@@ -14,10 +14,12 @@ class FireballNotification extends Component {
 
     const fbPosition = [];
 
-    for(let date in fireBallData) {
-      const fbYear = moment(date).format("YYYY");
-      if (fbYear === year) {
-        fbPosition.push(moment(date).dayOfYear());
+    for (let date in fireBallData) {
+      if (date != 0 && date != 1 && date !=2) {
+        const fbYear = moment(date).format("YYYY");
+        if (fbYear === year) {
+          fbPosition.push(moment(date).dayOfYear());
+        }
       }
     }
 
