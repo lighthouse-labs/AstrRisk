@@ -93,9 +93,10 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 4px #6D2957FF",
+      border: "solid 0px rgba(222, 222, 222, 0.0)",
       marginLeft: "auto",
       marginRight: "auto",
+      boxShadow: "inset 0px 3px 0px 2px #734172FF",
       zIndex: "-40",
     }
 
