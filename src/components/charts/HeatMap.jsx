@@ -122,40 +122,30 @@ class HeatMap extends Component {
         .on('click', d => { this.props.getNeoData(d.date) })
         .attr('class', d => { return `heatmap-squares S${d.date}`})
         .on('mouseover', d => {
-
-          const target = d3.select('.S2015-01-02')
-
+          const target = d3.select(`.S${d.date}`)
             target
               .transition()
-              .duration(1000)
-              .attr('width', 200)
-              .attr('fill', colors[0]);
-
-          // console.log('d3 this: ', d3.select(this))
-          // console.log('d3 tiles: ', d3.select(tiles))
-          // console.log('d3 day: ', d3.select('.S2015-01-02'))
-          // console.log('d3 rect: ', d3.select(this.refs.rect));
-          // d3.select(tiles)
-          //   .transition()
-          //   .easeCubicInOut(0.5)
-          //   .duration(1000)
-          //   .attr('fill', colors[2]);
-
-          // tiles
-          //   .transition()
-          //   .duration(1000)
-          //   .attr('width', d => {
-          //     return 100
-          //   })
+              .duration(300)
+              .attr('width', (gridSize * 0.95))
+              .attr('height', (gridSize * 0.95))
+              .attr('stroke-width', 20)
+              .style('fill', 'green')
+        })
+        .on('mouseout', d => {
+          const target = d3.select(`.S${d.date}`)
+            target
+              .transition()
+              .duration(1200)
+              .attr('width', gridSize)
+              .attr('height', gridSize)
+              .style('fill', d => { return colorScale(d.value) });
         })
         .transition()
           .duration(1250)
           .ease(d3.easeCubic)
           .style('fill', d => { return colorScale(d.value) });
 
-      function transition() {
-        console.log('hi');
-      }  
+
 
       // tiles.transition().duration(1000)
       //   .style('fill', d => { return colorScale(d.value) });
