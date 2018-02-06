@@ -13,14 +13,12 @@ class App extends Component {
     super(props);
   }
 
-
   componentDidMount() {
     this.props.getFireballData();
     this.props.getNeoData(this.props.currentDate);
     this.props.getAnnualNeoData(this.props.currentDate);
     document.getElementById("loader").className += " hidden";
   }
-
 
   render() {
 
