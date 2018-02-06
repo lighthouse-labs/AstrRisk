@@ -124,39 +124,6 @@ class Neo extends Component {
     document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
     document.styleSheets[0].insertRule(imgClass, document.styleSheets[0].cssRules.length)
 
-<<<<<<< HEAD
-    const createPopUp = () => {
-      return (
-        <div className="infoPopupContainer" onClick={e => this.togglePopUp()}>
-          <div className="infoPopup-infoHolder">
-            <div className="x-button">
-              <MdIconPack.MdClear size={80} onClick={e => this.togglePopUp()}/>
-            </div>
-            {/* <BarChart/> */}
-            <div className="infoText">
-              <div className="infoText-name">{neoName}</div>
-              <div className="infoText-line-item"><span>Estimated diameter:</span> <span>{avgDiameter} m</span></div>
-              <div className="infoText-line-item"><span>Mass:</span> <span>{mass} kg</span></div>
-              <div className="infoText-line-item"><span>Is potentially hazardous:</span> <span>{hazard}</span></div>
-              <div className="infoText-line-item"><span>Miss distance:</span> <span>{distance} km</span></div>
-              <div className="infoText-line-item"><span>Relative velocity:</span> <span>{Math.floor(speed * 1000)} m/s</span></div>
-              <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
-            </div>
-            <div className="infoImage-container">
-              {/* <img src='../../public/assets/images/meteor2-face.svg' className="infoPopup-image" /> */}
-              <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />
-            </div>
-          </div>
-        </div>
-      )
-    }
-
-
-
-    const popUp = createPopUp();
-
-=======
->>>>>>> 49543d8d9ce37163a4e2acef4ae18d3391e1ea5d
     return (
       <Fragment>
         {nearEarthObject}
