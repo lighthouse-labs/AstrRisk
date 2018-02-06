@@ -26,7 +26,9 @@ module.exports = (API) => {
   // Retrieves annual data for specified year
   router.get("/api/annual/:date", (req, res) => {
     const date = req.params.date;
+    console.log('moment year is: ', moment(date).format('YYYY'));
     const year = moment(date).format('YYYY');
+    console.log('year is: ', year);
     // API.getAnnualData(year)
     //   .then(result => {
     //     console.log('result is: ', result);
@@ -40,8 +42,9 @@ module.exports = (API) => {
           console.log(`Annual data access request for ${year}`);
           // res.json(JSON.parse(data));
           const annualData = JSON.parse(data);
+          // console.log('annual data: ', annualData);
 
-          // Creates array for d3 to generate data from
+          // Creates array for d3 to generate graphs from
           let dailyNeoCount = [];
           for (let dataDate in annualData) {
             const dayOfYear = moment(dataDate).dayOfYear();

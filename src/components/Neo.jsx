@@ -8,13 +8,6 @@ import * as MdIconPack from 'react-icons/lib/md'
 import { showPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-  }
-
   render() {
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
@@ -114,7 +107,6 @@ class Neo extends Component {
 
     const createNeo = () => {
       const singleNeoData = { distance, avgDiameter, speed, hazard, mt, mass, neoName, hazard };
-      console.log(singleNeoData);
       const classNames = `${name +1}`
       return (
       <Fragment>

@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {testButton, getNeoData, getFireballData, changeSlider} from '../actions/actions.js';
+import { getNeoData, getFireballData, changeSlider, getAnnualNeoData } from '../actions/actions.js';
 import moment from 'moment';
 import {extendMoment} from 'moment-range';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
@@ -65,6 +65,7 @@ class SliderBar extends Component {
     const date = `${e.currentTarget.textContent}-01-01`;
     this.props.getNeoData(date);
     this.props.changeSlider(1);
+    this.props.getAnnualNeoData(e.currentTarget.textContent);
   }
 
   // renders the datepicker
@@ -177,6 +178,7 @@ function mapDispatchToProps(dispatch) {
     getNeoData, //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
     getFireballData,
     changeSlider,
+    getAnnualNeoData
   }, dispatch)
 }
 
