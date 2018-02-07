@@ -11,7 +11,6 @@
   img{
     border-radius: 30%;
     &:hover{
-      animation-play-state: paused;
       transition: .7s ease;
       border: 5px solid #FFF;
       background: rgba(255,255,255, .5);
@@ -21,6 +20,9 @@
   }
 }
 
+.neo:hover {
+  animation-play-state: paused;
+}
 
 @keyframes wobble {
   from {

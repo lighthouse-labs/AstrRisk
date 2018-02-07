@@ -85,6 +85,7 @@ body {
   top: 1041px;
   transform: rotateX(-57deg);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .mars:hover {
@@ -132,4 +133,48 @@ body {
 
 .test-button {
   pointer-events: all;
+}
+
+
+#marspopup {
+  color: white;
+  position: absolute;
+  left: 43px;
+  top: 34%;
+  width: 200px;
+  margin-left: -100px;
+  transform: rotateX(-57deg);
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#mars.hidden {
+  opacity: 0;
+  transition: all 1s linear;
+}
+
+#moonpopup {
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#moon.hidden {
+  opacity: 0;
+  transition: all 1s linear;
+}
+
+.moonimage {
+ transition: 0.5s;
+}
+
+.moonimage:hover {
+  transform: scale(1.2) rotateX(-34deg);
 }
