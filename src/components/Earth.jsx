@@ -18,7 +18,6 @@ class Earth extends Component {
 function mapStateToProps(state) {
   return {
     neoData: state.neoData,
-    testState: state.testReducer,
     fireBallData: state.fireBallData,
     currentYear: state.currentYear
   }
@@ -26,7 +25,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    testButton, //Usage: test('string to display');
     getNeoData,  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
     getFireballData
   }, dispatch)
