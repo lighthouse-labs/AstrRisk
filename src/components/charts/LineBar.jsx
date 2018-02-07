@@ -7,36 +7,37 @@ import { closePopUp, showNeoPopUp  } from '../../actions/actions.js'
 
 class LineBar extends Component {
   render(){
+    const marginAll = 30;
+    const margin = { top: marginAll, bottom: marginAll, left: marginAll, right: marginAll },
+          height = 300 - margin.top - margin.bottom,
+          width = 700 - margin.left - margin.right;
+
+
     const mt             = this.props.singleNeoData.mt;
     const dinosaurKiller = 23900573613766.73;
     const tsarBomba      = 50.19120458891013;
     const littleBoy      = 0.017925430210325048;
     const fatMan         = 0.02198852772466539
-    const energyScale    = d3.scaleLinear().domain([0, dinosaurKiller]).range([0, 50]);
-
-    console.log(mt);
-
-    const lineGraph = d3.select(".line")
-     .append("svg:svg")
-     .attr("width", 500)
-     .attr("height", 200);
-
-     const myLine = lineGraph.append("svg:line")
-     .attr("x1", 40)
-     .attr("x2", 400)
-     .style("stroke", "rgb(255,0,0)");
-
-     myLine.style("stroke-width", 24);
-
-     const mtScale = lineGraph.append("svg:line")
-     .attr("x1", 40)
-     .attr("x2", {mt})
-     .style("stroke", "rgb(255,255,255)");
-     mtScale.style("stroke-width", 24);
+    const dinosaurEnergyScale     = d3.scaleLog().domain([0.001, dinosaurKiller]).range([1, width]);
 
      return(
        <Fragment>
-         <div className="line"></div>
+         <div className="line-bar-container">
+           <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
+             <rect className="line-bar-initial" width="900" height="40"/>
+             <g>
+               <svg src="../public/assets/images/meteor.svg" x={dinosaurEnergyScale(mt)} width={10} height={10}></svg>
+             </g>
+             <rect y={"10"} className="line-bar-mt" x={dinosaurEnergyScale(mt)} width={10} height={10}/>
+             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={10} height={10}/>
+             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={10} height={10}/>
+             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(littleBoy)} width={10} height={10}/>
+             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={10} height={10}/>
+           </svg>
+           <svg src="../public/assets/images/meteor.svg" x={dinosaurEnergyScale(mt)} width={10} height={10}></svg>
+           <div className="line-dtext">Dinosaurs</div>
+
+         </div>
        </Fragment>
      )
   }
