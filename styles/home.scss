@@ -72,6 +72,10 @@ body {
   cursor: pointer;
 }
 
+.moon:hover {
+  animation-play-state: paused;
+}
+
 .mars {
   pointer-events: auto;
   position: absolute;
