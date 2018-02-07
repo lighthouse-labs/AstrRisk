@@ -10,9 +10,9 @@ class RadarChart extends Component {
 
     const distanceScale = d3.scaleLinear().domain([0, 55000000]).range([1, 0]);
     const diameterScale = d3.scaleLinear().domain([0, 800]).range([0, 1]);
-    const massScale = d3.scaleLinear().domain([0, 9100000000]).range([0, 1]);
+    const massScale = d3.scaleLinear().domain([0, 1100000000]).range([0, 1]);
     const velocityScale = d3.scaleLinear().domain([0, 17000]).range([0, 1]);
-    const energyScale = d3.scaleLinear().domain([0, 100]).range([0, 1]);
+    const energyScale = d3.scaleLinear().domain([0, 50]).range([0, 1]);
 
     const data = [
       [
@@ -39,9 +39,9 @@ class RadarChart extends Component {
         { axis: 'Null', value: 0.1},
         { axis: 'Little Boy', value: valueParser(energyScale(18))}
       ]
-      
+
     ]
-    
+
     function valueParser (value) {
       if (value > 1) return 1
       if (value < 0.1) return 0.1
@@ -65,7 +65,7 @@ class RadarChart extends Component {
     const ly = (value, i) => { return rScale(value) * Math.sin(angleSlice * i * 2 - Math.PI / 2) };
 
     // Renders data blob
-    var radarLine = d3.lineRadial()
+    const radarLine = d3.lineRadial()
       .curve(d3.curveCardinalClosed)
       .radius(d => { return rScale(d.value) })
       .angle((d, i) => { return i * angleSlice });
@@ -97,13 +97,13 @@ class RadarChart extends Component {
       .curve(d3.curveCardinalClosed)
       .radius(d => { return rScale(d.value) })
       .angle((d, i) => { return i * angleSlice });
-      
+
 
     // Axis line generator
     const axisLines = d3.line()
     .x(d => { return d.x })
     .y(d => { return d.y })
-    
+
     // Generates axis path
     const graphAxis = (
       [1, 2, 3, 4, 5].map((item, i) => (
@@ -160,5 +160,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RadarChart);
-
-

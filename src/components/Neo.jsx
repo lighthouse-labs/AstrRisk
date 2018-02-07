@@ -8,14 +8,27 @@ import * as MdIconPack from 'react-icons/lib/md'
 import { showPopUp, showNeoPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
+  constructor(props){
+    super(props);
+
+    this.state ={
+      highlighted: false
+    };
+  }
+
+  highlightOrbit(){
+    console.log(this.state.highlighted);
+    this.setState({highlighted: !this.state.highlighted});
+  }
+
   render() {
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
     const neoName = name;
     const volume = (4/3) * Math.PI * Math.pow((avgDiameter / 2), 3);
-    const mass = Math.floor(2000 * volume);
+    const mass = Math.floor(2 * volume);
     const ke = 0.5 * mass * Math.pow(speed, 2);
-    const mt = +(ke * 0.00000000023901).toFixed(2);
+    const mt = +(ke * 0.00000000023901).toFixed(3);
     const tScale = d3.scaleLinear().domain([0, 20000]).range([50, 8]);
     const time = tScale(speed);
     name = "A" + name.replace(/\s/g, '').replace(/[{()}]/g, '');
@@ -23,7 +36,7 @@ class Neo extends Component {
     const sizeScale = d3.scaleLinear().domain([])
     const scaledDistance = Math.floor(dScale(distance));
     const randomDeg = Math.pow(avgDiameter, 2);
-    var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+    const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
             transform: rotate(${randomDeg}deg) translateX(${scaledDistance / 2}px) translateY(${600 * plusOrMinus}px);
@@ -78,9 +91,10 @@ class Neo extends Component {
       top: `${700 - (scaledDistance / 2)}px`,
       width: `${scaledDistance}px`,
       height: `${scaledDistance}px`,
-      border: "dashed 4px #6D2957FF",
+      border: "solid 0px rgba(222, 222, 222, 0.0)",
       marginLeft: "auto",
       marginRight: "auto",
+      boxShadow: "inset 0px 3px 0px 2px #734172FF",
       zIndex: "-40",
     }
 
@@ -88,32 +102,32 @@ class Neo extends Component {
     function randomImage(){
       let image = '../../public/assets/images/meteor2.svg'
       const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
-      switch(Math.floor(imageScale(speed))){
-        case 1:
-          image = '../../public/assets/images/meteor2.svg';
-          break;
-        case 2:
-          image = '../../public/assets/images/meteor3.svg';
-          break;
-        case 3:
-          image = '../../public/assets/images/meteor4.svg';
-          break;
-        case 4:
-          image = '../../public/assets/images/meteor5.svg';
-          break;
+      if(speed <= 5){
+        image = '../../public/assets/images/meteor2.svg';
+      } else if (speed > 5 && speed < 8) {
+        image = '../../public/assets/images/meteor.svg';
+      } else if (speed > 8 && speed < 11){
+        image = '../../public/assets/images/meteor3.svg';
+      } else if (speed > 11 && speed < 14){
+        image = '../../public/assets/images/meteor4.svg';
+      } else if (speed > 14 && speed < 18){
+        image = '../../public/assets/images/meteor5.svg';
       }
+
       return image;
     }
+
+
 
     const createNeo = () => {
       const singleNeoData = { distance, avgDiameter, speed, hazard, mt, mass, neoName, hazard };
       const classNames = `${name +1}`
       return (
       <Fragment>
-        <div style={orbitStyle}></div>
+        <div style={orbitStyle} className={this.state.highlighted ? 'orbit-highlight' : ''}></div>
           <div className={name}>
             <div className="neo">
-              <img src={randomImage()} onClick={e => {this.props.showNeoPopUp(singleNeoData)}} className={classNames}/>
+              <img src={randomImage()} onClick={e => {this.props.showNeoPopUp(singleNeoData)}} className={classNames}  onMouseOver={e => {this.highlightOrbit()}} onMouseOut={e =>{this.highlightOrbit()}}/>
             </div>
           </div>
       </Fragment>

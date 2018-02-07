@@ -52,7 +52,7 @@ $yearPickerValue: 550px;
 .range-text-link {
   pointer-events: auto;
   position: absolute;
-  padding-left: $yearPickerValue;
+  margin-left: $yearPickerValue;
   user-select: none;
 
   a {
@@ -63,6 +63,8 @@ $yearPickerValue: 550px;
   }
   a:hover {
     color: rgb(255, 255, 0);
+    transition: .5s ease-in-out;
+    text-shadow: 3px 3px #000;
   }
 }
 
@@ -70,6 +72,7 @@ $yearPickerValue: 550px;
   position: absolute;
   left: 683px;
   top: 10px;
+  transform: rotate(-45deg);
 }
 
 .range-year-picker {
@@ -90,6 +93,8 @@ $yearPickerValue: 550px;
 
     &:hover {
       color: rgb(255, 255, 0);
+      transition: .5s ease-in-out;
+      text-shadow: 3px 3px #000;
     }
   }
 }
@@ -221,5 +226,6 @@ input[type=range]:focus::-ms-fill-upper {
 .fireball-slider-notification {
   position: absolute;
   bottom: 63px;
-  left: 360px;
+  left: 50%;
+  margin-left: -600px;
 }
