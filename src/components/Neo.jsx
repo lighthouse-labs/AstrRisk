@@ -8,6 +8,19 @@ import * as MdIconPack from 'react-icons/lib/md'
 import { showPopUp, showNeoPopUp } from '../actions/actions.js'
 
 class Neo extends Component {
+  constructor(props){
+    super(props);
+
+    this.state ={
+      highlighted: false
+    };
+  }
+
+  highlightOrbit(){
+    console.log(this.state.highlighted);
+    this.setState({highlighted: !this.state.highlighted});
+  }
+
   render() {
     const { distance, avgDiameter, speed, hazard } = this.props;
     let { name } = this.props;
@@ -89,13 +102,13 @@ class Neo extends Component {
     function randomImage(){
       let image = '../../public/assets/images/meteor2.svg'
       const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
-      if(speed <= 3){
-        image = '../../public/assets/images/meteor.svg';
-      } else if (speed > 3 && speed < 6) {
+      if(speed <= 5){
         image = '../../public/assets/images/meteor2.svg';
-      } else if (speed > 6 && speed < 10){
+      } else if (speed > 5 && speed < 8) {
+        image = '../../public/assets/images/meteor.svg';
+      } else if (speed > 8 && speed < 11){
         image = '../../public/assets/images/meteor3.svg';
-      } else if (speed > 10 && speed < 14){
+      } else if (speed > 11 && speed < 14){
         image = '../../public/assets/images/meteor4.svg';
       } else if (speed > 14 && speed < 18){
         image = '../../public/assets/images/meteor5.svg';
@@ -104,15 +117,17 @@ class Neo extends Component {
       return image;
     }
 
+
+
     const createNeo = () => {
       const singleNeoData = { distance, avgDiameter, speed, hazard, mt, mass, neoName, hazard };
       const classNames = `${name +1}`
       return (
       <Fragment>
-        <div style={orbitStyle}></div>
+        <div style={orbitStyle} className={this.state.highlighted ? 'orbit-highlight' : ''}></div>
           <div className={name}>
             <div className="neo">
-              <img src={randomImage()} onClick={e => {this.props.showNeoPopUp(singleNeoData)}} className={classNames}/>
+              <img src={randomImage()} onClick={e => {this.props.showNeoPopUp(singleNeoData)}} className={classNames}  onMouseOver={e => {this.highlightOrbit()}} onMouseOut={e =>{this.highlightOrbit()}}/>
             </div>
           </div>
       </Fragment>
