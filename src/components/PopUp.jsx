@@ -7,6 +7,8 @@ import BarChart from './charts/BarChart.jsx';
 import * as MdIconPack from 'react-icons/lib/md'
 import { closePopUp, showNeoPopUp  } from '../actions/actions.js'
 import HeatMap from './charts/HeatMap.jsx';
+import LineBar from './charts/LineBar.jsx';
+
 
 class PopUp extends Component {
 
@@ -17,6 +19,7 @@ class PopUp extends Component {
 
       return (
           <div className="infoPopup-infoHolder">
+            <LineBar />
             <div className="infoText">
               <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated Diameter:</span> <span>{avgDiameter.toLocaleString('en')} m</span></div>
@@ -25,6 +28,8 @@ class PopUp extends Component {
               <div className="infoText-line-item"><span>Miss Distance:</span> <span>{Number(distance).toLocaleString('en')} km</span></div>
               <div className="infoText-line-item"><span>Relative Velocity:</span> <span>{Math.floor(speed * 1000).toLocaleString('en')} m/s</span></div>
               <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
+              <br />
+              <div className="infoText-line-item"><span>DANGER LEVEL:</span></div>
             </div>
             <div className="infoImage-container">
               <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />

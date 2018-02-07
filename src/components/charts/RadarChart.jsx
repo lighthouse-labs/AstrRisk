@@ -139,7 +139,6 @@ class RadarChart extends Component {
             </g>
           </svg>
         </div>
-        <button onClick={e => this.changeDataSet()}>Change dataset</button>
       </Fragment>
     )
 
