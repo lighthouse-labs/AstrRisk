@@ -102,6 +102,8 @@ class HeatMap extends Component {
         .attr('width', gridSize *2 )
         .attr('height', gridSize / 2)
         .style('fill', d => { return d })
+        .attr('class', 'heatmap-legend-bar')
+
 
     const heatMapChart = (data) => {
 
@@ -113,7 +115,10 @@ class HeatMap extends Component {
       const tiles = g.selectAll('.day')
         .data(data, (d) => { return d.month + ':' + d.day });
 
-      const tooltip = g.append('div')
+      const tooltip = d3.select('.heatmap-tooltip-node')
+        .append('div')
+        .style('opacity', 0)
+        .attr('class', 'heatmap-tooltip')
 
       tiles.enter().append('rect')
         .attr('x', d => { return (d.day - 1) * (gridSize + 3) })
@@ -134,11 +139,16 @@ class HeatMap extends Component {
             .duration(1500)
             .ease(d3.easeCubic)
             .style('fill', 'black')
+          d3.selectAll(`.heatmap-legend-bar`)
+            .transition()
+            .duration(1500)
+            .ease(d3.easeCubic)
+            .style('fill', 'black')
           setTimeout(() => {
             this.props.getNeoData(d.date); 
             this.props.closePopUp(); 
             this.props.changeSlider(moment(d.date).dayOfYear()); 
-          }, 1600);
+          }, 1400);
         })
         .attr('class', d => { return `heatmap-squares S${d.date}`})
         .on('mouseover', d => {
@@ -148,7 +158,13 @@ class HeatMap extends Component {
               .duration(300)
               .attr('width', (gridSize * 0.9))
               .attr('height', (gridSize * 0.9))
-              .style('fill', 'white')
+              .style('fill', 'white');
+          tooltip.transition()
+            .duration(200)
+            .style('opacity', 1);
+          tooltip.html(`${d.value}`)
+            .style('left', (d.day) * (gridSize + 3) + -4 + "px")
+            .style('top', (d.month + 4) * (gridSize + 3) + 4 + "px")
         })
         .on('mouseout', d => {
           const target = d3.select(`.S${d.date}`)
@@ -158,6 +174,10 @@ class HeatMap extends Component {
               .attr('width', gridSize)
               .attr('height', gridSize)
               .style('fill', d => { return colorScale(d.value) });
+          tooltip
+            .transition()
+            .duration(300)
+            .style('opacity', 0);
         })
         .transition()
           .duration(1300)
@@ -179,10 +199,10 @@ class HeatMap extends Component {
     return (
       <Fragment>
         <div className="test-button heatmap">
-            <svg className="test-button" width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-              <g className="heat-map" ref="heatMap" transform={"translate(" + margin.left + "," + 200 + ")"}></g>
+            <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
+              <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 200 + ")"}></g>
             </svg>
-            <div className="heat-map-tooltip"/>
+            <div className="heatmap-tooltip-node"/>
             <div/>
         </div>
       </Fragment>

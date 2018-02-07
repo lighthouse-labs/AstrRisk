@@ -3,9 +3,10 @@ import Earth from './Earth.jsx'
 import Neo from './Neo.jsx'
 import Fireball from './Fireball.jsx'
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import FireballAlert from './FireballAlert.jsx';
 import MenuOptions from './MenuOptions.jsx';
+import { showHeatMapPopUp } from '../actions/actions.js';
 
 class Orbit extends Component {
   constructor(props) {
@@ -21,35 +22,28 @@ class Orbit extends Component {
 
 
     return (<Fragment>
-
       <div className="moon-orbit">
         <img src='../../public/assets/images/moon.svg' className="moon"/>
       </div>
-
       <div className="orbit">
         <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
       </div>
-
-      
-        <FireballAlert/>
-
-        {
-          this.props.neoData.map(function(neo, i) {
-            const distance = neo.close_approach_data[0].miss_distance.kilometers;
-            const avgDiameter = Math.floor((neo.estimated_diameter.meters.estimated_diameter_min + neo.estimated_diameter.meters.estimated_diameter_max) / 2);
-            const speed = neo.close_approach_data[0].relative_velocity.kilometers_per_second;
-            const name = neo.name;
-            const hazard = neo.is_potentially_hazardous_asteroid ? 'Yes' : 'No';
-            
-            return (
-              <Neo key={i} name={name} distance={distance} avgDiameter={avgDiameter} speed={speed} hazard={hazard}></Neo>
-            )
-              
-          })
-        }
-      
-        <MenuOptions/>
-
+      <FireballAlert/>
+      { this.props.neoData.map((neo, i) => {
+          const distance = neo.close_approach_data[0].miss_distance.kilometers;
+          const avgDiameter = Math.floor((neo.estimated_diameter.meters.estimated_diameter_min + neo.estimated_diameter.meters.estimated_diameter_max) / 2);
+          const speed = neo.close_approach_data[0].relative_velocity.kilometers_per_second;
+          const name = neo.name;
+          const hazard = neo.is_potentially_hazardous_asteroid ? 'Yes' : 'No';
+          return (
+            <Neo key={i} name={name} distance={distance} avgDiameter={avgDiameter} speed={speed} hazard={hazard}></Neo>
+          )
+        })
+      }
+      <div className="chart-icon">
+        <img src='../../public/assets/images/graph-icon.svg' onClick={e => this.props.showHeatMapPopUp()} className="chart graph-icon" />
+      </div>
+        {/* <MenuOptions/> */}
     </Fragment>)
   }
 }
@@ -59,7 +53,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({}, dispatch)
+  return bindActionCreators({
+    showHeatMapPopUp
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orbit);
