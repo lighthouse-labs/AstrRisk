@@ -7,6 +7,8 @@ import BarChart from './charts/BarChart.jsx';
 import * as MdIconPack from 'react-icons/lib/md'
 import { closePopUp, showNeoPopUp  } from '../actions/actions.js'
 import HeatMap from './charts/HeatMap.jsx';
+import LineBar from './charts/LineBar.jsx';
+
 
 class PopUp extends Component {
 
@@ -17,6 +19,7 @@ class PopUp extends Component {
 
       return (
           <div className="infoPopup-infoHolder">
+            <LineBar />
             <div className="infoText">
               <div className="infoText-name">{neoName}</div>
               <div className="infoText-line-item"><span>Estimated Diameter:</span> <span>{avgDiameter.toLocaleString('en')} m</span></div>
