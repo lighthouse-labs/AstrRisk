@@ -129,3 +129,27 @@ body {
 .test-button {
   pointer-events: all;
 }
+
+svg {
+  #path10 {
+    fill: none;
+    stroke-dasharray: 911.6107177734375;
+    stroke-dashoffset: 911.6107177734375;
+    animation: draw 5s linear forwards infinite; 
+  }
+
+  #path111 {
+    fill: none;
+    stroke-dasharray: 911.6107177734375;
+    stroke-dashoffset: 911.6107177734375;
+    animation: draw 3s linear forwards infinite; 
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+   }
+}
+
+// 911.6107177734375

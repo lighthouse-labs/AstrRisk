@@ -21,6 +21,11 @@ class App extends Component {
 
   render() {
 
+    const margin = { top: 100, bottom: 100, left: 100, right: 100 },
+      width = 600 - margin.left - margin.right,
+      height = 600 - margin.top - margin.bottom,
+      radius = Math.min(width, height) / 2;
+
     return (<Fragment>
         <EarthSystem />
         <SliderBar />

@@ -40,6 +40,10 @@
   transition-timing-function: ease-in;
 }
 
+.heatmap {
+  pointer-events: all;
+}
+
 .heatmap-axis {
   font-family: "Roboto Mono", monospace;
   fill: white;

@@ -42,9 +42,12 @@ class HeatMap extends Component {
       bucket = 8,
       // colors = ['#fff7f3',' #fde0dd','#fcc5c0',' #fa9fb5', '#f768a1', "#dd3497", "#ae017e", "#7a0177"], // dark purple
       // colors = ["#ffffd9", "#edf8b1", "#c7e9b4", "#7fcdbb", "#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"], // blue
-      colors = [ "#f7f4f9", "#e7e1ef", "#d4b9da", "#c994c7", "#df65b0", "#e7298a", "#ce1256", "#91003f"], // light purple
+      // colors = [ "#f7f4f9", "#e7e1ef", "#d4b9da", "#c994c7", "#df65b0", "#e7298a", "#ce1256", "#91003f"], // light purple
       // colors = ["#fff7fb", "#ece7f2", "#d0d1e6", "#a6bddb", "#74a9cf", "#3690c0", "#0570b0", "#034e7b"],
       // colors = ["#ffffd9", "#edf8b1", "#c7e9b4", "#7fcdbb", "#41b6c4", "#1d91c0", "#225ea8", "#0c2c84"],
+      // colors = ['#fcfbfd','#efedf5', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#4a1486'], // dark purple
+      colors = ['#3288bd', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'], // red green and blue
+      
       months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
       legendLabels = ['0-3', '4-6', '7-9', '10-12', '13-15', '16-19', '20-23', '24+'];
@@ -83,13 +86,14 @@ class HeatMap extends Component {
       .text(d => { return d })
       .attr('x', (d, i) => { return (gridSize * 2 * i) })
       .attr('y', 0)
-      .attr('transform', 'translate(' + 38 + "," + (height - 20) + ")")
+      // .attr('transform', 'translate(' + 38 + "," + (height - 20) + ")")
+      .attr('transform', 'translate(' + 38 + "," + (height) + ")")
       .attr('class', 'heatmap-legend-text')
 
     const legendTitle = d3.select(heatMapNode)
         .append('text')
         .text('Number of NEOs near Earth')
-        .attr('transform', 'translate(' + 120 + "," + (height - 70) + ")")
+        .attr('transform', 'translate(' + 120 + "," + (height - 50) + ")")
         .attr('class', 'heatmap-legend-text')
 
     const legendBars = d3.select(heatMapNode)
@@ -98,7 +102,7 @@ class HeatMap extends Component {
         .enter()
         .append('rect')
         .attr('x', (d,i) => { return gridSize * 2 * i })
-        .attr('y', (height - 60))
+        .attr('y', (height - 40))
         .attr('width', gridSize *2 )
         .attr('height', gridSize / 2)
         .style('fill', d => { return d })
@@ -148,7 +152,7 @@ class HeatMap extends Component {
             this.props.getNeoData(d.date); 
             this.props.closePopUp(); 
             this.props.changeSlider(moment(d.date).dayOfYear()); 
-          }, 1400);
+          }, 1175);
         })
         .attr('class', d => { return `heatmap-squares S${d.date}`})
         .on('mouseover', d => {
@@ -198,9 +202,9 @@ class HeatMap extends Component {
 
     return (
       <Fragment>
-        <div className="test-button heatmap">
+        <div className="heatmap">
             <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-              <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 200 + ")"}></g>
+              <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
             </svg>
             <div className="heatmap-tooltip-node"/>
             <div/>
