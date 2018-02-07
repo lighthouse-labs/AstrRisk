@@ -12,9 +12,9 @@
   pointer-events: none;
   top: 25%;
   left: 50%;
-  width: 1200px;
+  width: 1350px;
   position: absolute;
-  margin-left: -600px;
+  margin-left: -625px;
 }
 
 .infoPopup-infoHolder {
@@ -23,8 +23,8 @@
 
 .x-button {
   position: absolute;
-  left: 1202px;
-  top: -57px;
+  left: 1350px;
+  top: -55px;
   pointer-events: auto;
   cursor: pointer;
   transition: 200ms;
@@ -35,10 +35,11 @@
   transform: scale(1.1);
 }
 
-html .infoText {
+.infoText {
   position: absolute;
   opacity: 1;
-  text-shadow: 5px 5px black;
+  width: 800px;
+  text-shadow: 3px 3px black;
 }
 
 .infoText ul {
