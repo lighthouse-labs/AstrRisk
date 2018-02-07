@@ -170,7 +170,10 @@ class SliderBar extends Component {
 }
 
 function mapStateToProps(state) {
-  return {neoData: state.neoData, testState: state.testReducer, fireBallData: state.fireBallData, currentDate: state.currentDate,sliderData: state.sliderData }
+  return {neoData: state.neoData, 
+    fireBallData: state.fireBallData, 
+    currentDate: state.currentDate, 
+    sliderData: state.sliderData }
 }
 
 function mapDispatchToProps(dispatch) {

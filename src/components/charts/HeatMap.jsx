@@ -29,8 +29,8 @@ class HeatMap extends Component {
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     // Scales x-axis & y-axis to the width and height
-    const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, width]);
-    const yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
+    // const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, width]);
+    // const yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
 
     const heatMapNode = this.refs.heatMap;
 
@@ -50,7 +50,7 @@ class HeatMap extends Component {
       
       months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-      legendLabels = ['0-3', '4-6', '7-9', '10-12', '13-15', '16-19', '20-23', '24+'];
+      legendLabels = ['0-2', '3-4', '5-7', '8-10', '11-13', '14-16', '17-19', '20+'];
 
     const spectral = d3.scaleOrdinal(d3.schemeBlue);
 
@@ -111,7 +111,7 @@ class HeatMap extends Component {
 
     const heatMapChart = (data) => {
 
-      const colorScale = d3.scaleQuantile().domain([0, 24]).range(colors);
+      const colorScale = d3.scaleQuantile().domain([0, 20]).range(colors);
       // const colorScale = d3.scaleOrdinal().domain(this.props.annualData).range(d3.schemeBlue);
 
       // console.log(colorScale(10));
@@ -119,10 +119,23 @@ class HeatMap extends Component {
       const tiles = g.selectAll('.day')
         .data(data, (d) => { return d.month + ':' + d.day });
 
+      // Heatmap tooltip
       const tooltip = d3.select('.heatmap-tooltip-node')
         .append('div')
         .style('opacity', 0)
         .attr('class', 'heatmap-tooltip')
+
+      // Heatmap Date div
+      const heatMapDate = d3.select('.heatmap-date')
+        .append('div')
+        .style('opacity', 0)
+        .attr('class', 'heatmap-date-text')
+
+      // Heatmap neo count div
+      const heatMapNeoCount = d3.select('.heatmap-neo-count')
+        .append('div')
+        .attr('class', 'heatmap-neo-count-text')
+        .html(0);
 
       tiles.enter().append('rect')
         .attr('x', d => { return (d.day - 1) * (gridSize + 3) })
@@ -168,7 +181,14 @@ class HeatMap extends Component {
             .style('opacity', 1);
           tooltip.html(`${d.value}`)
             .style('left', (d.day) * (gridSize + 3) + -4 + "px")
-            .style('top', (d.month + 4) * (gridSize + 3) + 4 + "px")
+            .style('top', (d.month - 1) * (gridSize + 3) + 10 + "px")
+          heatMapDate.transition()
+            .duration(200)
+            .style('opacity', 1);
+          heatMapDate.html(moment(d.date).format("dddd, MMMM Do YYYY"))
+            .style('left', (width / 2) + "px")
+            .style('top', (-gridSize * 2) + "px")
+          heatMapNeoCount.html(`${d.value}`)
         })
         .on('mouseout', d => {
           const target = d3.select(`.S${d.date}`)
@@ -181,6 +201,9 @@ class HeatMap extends Component {
           tooltip
             .transition()
             .duration(300)
+            .style('opacity', 0);
+          heatMapDate.transition()
+            .duration(2000)
             .style('opacity', 0);
         })
         .transition()
@@ -203,11 +226,14 @@ class HeatMap extends Component {
     return (
       <Fragment>
         <div className="heatmap">
+            <div className="heatmap-date"></div>
             <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
               <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
             </svg>
-            <div className="heatmap-tooltip-node"/>
-            <div/>
+            <div className="heatmap-tooltip-node"></div>
+            <div className="heatmap-neo-count">
+              <div className="heatmap-neo-count-title">Neo count:</div>
+            </div>
         </div>
       </Fragment>
     )
@@ -218,7 +244,8 @@ class HeatMap extends Component {
 function mapStateToProps(state) {
   return {
     neoData: state.neoData,
-    annualData: state.annualData
+    annualData: state.annualData,
+    currentDate: state.currentDate
   }
 }
 

@@ -3,13 +3,13 @@
 }
 
 .axis {
- font-family: 'Roboto Mono', monospace;
- font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
 }
 
 .y-axis {
- font-family: 'Roboto Mono', monospace;
- font-size: 20px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
 }
 
 .graph-icon {
@@ -41,6 +41,8 @@
 }
 
 .heatmap {
+  position: relative;
+  left: -4%;
   pointer-events: all;
 }
 
@@ -54,6 +56,10 @@
   text-anchor: middle;
 }
 
+.heatmap-squares {
+  cursor: pointer;
+}
+
 .heatmap-legend-text {
   text-anchor: middle;
   font-family: "Roboto Mono", monospace;
@@ -64,9 +70,52 @@
   text-align: center;
   width: 60px;
   height: 60px;
-  border-radius: 4px; 
+  border-radius: 4px;
   position: absolute;
   pointer-events: none;
   font-family: "Roboto Mono", monospace;
   color: black;
+}
+
+.heatmap-date {
+  position: absolute;
+  left: -79%;
+  top: -4%
+}
+
+.heatmap-date-text {
+  position: absolute;
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 68px;
+  width: 2300px;
+  left: -10%;
+}
+
+.heatmap-neo-count {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  font-size: 50px;
+  top: 68%;
+  right: 3%;
+  display: flex;
+}
+
+.heatmap-neo-count-title {
+  color: #999999;
+}
+
+.heatmap-neo-count-text .heatmap-neo-count-text {
+  font-family: "Roboto Mono", monospace;
+  font-size: 68px;
+  color: white;
+    text-align: right;
+  position: relative;
+  text-align: right;
+}
+
+.heatmap-neo-count-text {
+  text-align: right;
+  width: 80px;
 }

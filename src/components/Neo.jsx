@@ -17,7 +17,6 @@ class Neo extends Component {
   }
 
   highlightOrbit(){
-    console.log(this.state.highlighted);
     this.setState({highlighted: !this.state.highlighted});
   }
 

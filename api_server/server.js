@@ -6,7 +6,7 @@ const cors = require('cors');
 const api = require('./lib/api.js');
 
 app.use(express.static("public"));
-app.use(cors());
+// app.use(cors());
 
 app.use(routes(api));
 
