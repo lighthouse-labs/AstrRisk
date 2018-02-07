@@ -36,10 +36,12 @@ body {
 .hidden {
   display: none;
 }
+
 .orbit-highlight{
   transition: .5s ease;
-  box-shadow: rgb(255, 255, 114) 0px 3px 0px 2px inset!important;
+  box-shadow: rgb(255, 255, 114) 0px 2px 0px 3px inset!important;
 }
+
 .orbit {
   position: absolute;
   border-radius: 50%;
