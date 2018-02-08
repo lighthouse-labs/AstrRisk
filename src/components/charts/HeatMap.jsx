@@ -36,17 +36,13 @@ class HeatMap extends Component {
 
     const gridSize = Math.floor(width / 31),
       bucket = 8,
-      // colors = ['#fff7f3',' #fde0dd','#fcc5c0',' #fa9fb5', '#f768a1', "#dd3497", "#ae017e", "#7a0177"], // dark purple
-      // colors = ["#ffffd9", "#edf8b1", "#c7e9b4", "#7fcdbb", "#41b6c4", "#1d91c0", "#225ea8", "#253494", "#081d58"], // blue
-      // colors = [ "#f7f4f9", "#e7e1ef", "#d4b9da", "#c994c7", "#df65b0", "#e7298a", "#ce1256", "#91003f"], // light purple
-      // colors = ["#fff7fb", "#ece7f2", "#d0d1e6", "#a6bddb", "#74a9cf", "#3690c0", "#0570b0", "#034e7b"],
-      // colors = ["#ffffd9", "#edf8b1", "#c7e9b4", "#7fcdbb", "#41b6c4", "#1d91c0", "#225ea8", "#0c2c84"],
-      // colors = ['#fcfbfd','#efedf5', '#dadaeb', '#bcbddc', '#9e9ac8', '#807dba', '#6a51a3', '#4a1486'], // dark purple
       colors = ['#3288bd', '#66c2a5', '#abdda4', '#e6f598', '#fee08b', '#fdae61', '#f46d43', '#d53e4f'], // red green and blue
-      
       months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
       legendLabels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10-11', '12-13', '14+'];
+
+    // Scaler for assigning values to a color
+    const colorScale = d3.scaleQuantile().domain([0, 14]).range(colors);
 
     // Y-Axis
     const yAxis = g.selectAll('.heatmap-yAxis')
@@ -73,6 +69,8 @@ class HeatMap extends Component {
     // Legend
 
     const legendNode = d3.select(heatMapNode)
+
+    // Generates legend labels
     const legends = legendNode.selectAll('.heatmap-legend')
       .data(legendLabels)
       .enter()
@@ -80,16 +78,17 @@ class HeatMap extends Component {
       .text(d => { return d })
       .attr('x', (d, i) => { return (gridSize * 2 * i) })
       .attr('y', 0)
-      // .attr('transform', 'translate(' + 38 + "," + (height - 20) + ")")
       .attr('transform', 'translate(' + 38 + "," + (height) + ")")
       .attr('class', 'heatmap-legend-text')
 
+    // Generates the legend description
     const legendTitle = d3.select(heatMapNode)
         .append('text')
         .text('Number of NEOs near Earth')
         .attr('transform', 'translate(' + 120 + "," + (height - 50) + ")")
         .attr('class', 'heatmap-legend-text')
 
+    // Generates the legend bars
     const legendBars = d3.select(heatMapNode)
       legendBars.selectAll('.heatmap-legend-bar')
         .data(colors)
@@ -102,11 +101,9 @@ class HeatMap extends Component {
         .style('fill', d => { return d })
         .attr('class', 'heatmap-legend-bar')
 
+    // Generates a heat map
     const heatMapChart = (data) => {
-
-      // Scaler for assigning values to a color
-      const colorScale = d3.scaleQuantile().domain([0, 14]).range(colors);
-
+    // Heatmap tiles
       const tiles = g.selectAll('.day')
         .data(data, (d) => { return d.month + ':' + d.day });
 
@@ -136,7 +133,7 @@ class HeatMap extends Component {
         .attr('class', 'grid-border')
         .attr('width', gridSize)
         .attr('height', gridSize)
-        .style('fill', d => { colors[0] })//return colorScale(d.value) })//colors[0]);
+        .style('fill', d => { colors[0] })
         .on('click', d => { 
           const target = d3.select(`.S${d.date}`)
           target
@@ -188,7 +185,7 @@ class HeatMap extends Component {
           const target = d3.select(`.S${d.date}`)
             target
               .transition()
-              .duration(1200)
+              .duration(1400)
               .attr('width', gridSize)
               .attr('height', gridSize)
               .style('fill', d => { return colorScale(d.value) });
@@ -234,7 +231,6 @@ class HeatMap extends Component {
         </div>
       </Fragment>
     )
-
   }
 }
 

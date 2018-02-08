@@ -21,12 +21,19 @@
 #radar-chart-data-blob {
   pointer-events: all;
   fill: #4fd4fd;
-  fill-opacity: 0.6;
-  transition: fill-opacity 1.2s;
+  animation: pulsate 4s infinite ease-in-out;
 }
 
-#radar-chart-data-blob:hover {
-  fill-opacity: 0.8;
+@keyframes pulsate {
+  0% {
+    fill-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0.7;
+  }
+  100% {
+    fill-opacity: 0.5;
+  }
 }
 
 .barchart-annual-data {

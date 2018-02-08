@@ -81,7 +81,7 @@ class RadarChart extends Component {
     // Datablob discrete points
     const dataDots = (
       data[0].map((item, i) => (
-        <circle cx={cx(item.value, i)} cy={cy(item.value, i)} r={3} key={Math.floor(Math.random() * 800)} stroke={color(16)} fill={color(16)} />
+        <circle cx={cx(item.value, i)} cy={cy(item.value, i)} r={4} key={Math.floor(Math.random() * 800)} stroke={color(16)} fill={color(16)} />
       ))
     )
 
