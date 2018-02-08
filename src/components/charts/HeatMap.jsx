@@ -46,9 +46,7 @@ class HeatMap extends Component {
       
       months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
-      legendLabels = ['0-2', '3-4', '5-7', '8-10', '11-13', '14-16', '17-19', '20+'];
-
-    const spectral = d3.scaleOrdinal(d3.schemeBlue);
+      legendLabels = ['0-1', '2-3', '4-5', '6-7', '8-9', '10-11', '12-13', '14+'];
 
     // Y-Axis
     const yAxis = g.selectAll('.heatmap-yAxis')
@@ -104,10 +102,10 @@ class HeatMap extends Component {
         .style('fill', d => { return d })
         .attr('class', 'heatmap-legend-bar')
 
-
     const heatMapChart = (data) => {
 
-      const colorScale = d3.scaleQuantile().domain([0, 20]).range(colors);
+      // Scaler for assigning values to a color
+      const colorScale = d3.scaleQuantile().domain([0, 14]).range(colors);
 
       const tiles = g.selectAll('.day')
         .data(data, (d) => { return d.month + ':' + d.day });

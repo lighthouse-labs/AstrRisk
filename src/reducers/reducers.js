@@ -196,7 +196,7 @@ export const annualDataReducer = (state = [], action) => {
   }
 }
 
-export const dateReducer = (state = '2015-01-01', action) => {
+export const dateReducer = (state = '2018-02-08', action) => {
   switch (action.type) {
     case 'GETDATE':
       // console.log('New NEO Data: ', action.payload)
@@ -206,7 +206,7 @@ export const dateReducer = (state = '2015-01-01', action) => {
   }
 }
 
-export const getSliderReducer = (state = 1, action) => {
+export const getSliderReducer = (state = 40, action) => {
   switch (action.type) {
     case 'SLIDERCHANGE':
       return action.payload;
