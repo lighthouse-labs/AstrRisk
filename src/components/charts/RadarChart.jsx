@@ -122,13 +122,15 @@ class RadarChart extends Component {
               {graphGrid}
               <path stroke={'#CDCDCD'} key={19090} d={graphAxis} strokeOpacity={0.5} fillOpacity={0.2} />
               <path fill={color(16)} key={299933} stroke={'#CDCDCD'} d={radarDataPath} fillOpacity={0.7} fill={'none'} filter={'url(#blurMe)'} />
-              <path className="radar-data-blob-fill" fill={"#4fd4fd"} key={267229} d={radarDataPath} fillOpacity={0.6} />
               {dataDots}
               <text x={-40} y={-(radius + 20)} fill="white" fontFamily="Roboto Mono" fontSize="16">Proximity</text>
               <text x={lx(1.1, 1) - 5} y={ly(1.1, 1) + 10} fill="white" fontFamily="Roboto Mono" fontSize="16">Mass</text>
               <text x={lx(1.40, 2)} y={ly(1.40, 2) + 20} fill="white" fontFamily="Roboto Mono" fontSize="16">Energy</text>
               <text x={lx(1.1, 3)} y={ly(1.1, 3)} fill="white" fontFamily="Roboto Mono" fontSize="16">Diameter</text>
               <text x={lx(1.2, 4) - 40} y={ly(1.2, 4)} fill="white" fontFamily="Roboto Mono" fontSize="16">Velocity</text>
+              <g id="radar-chart-data-blob">
+                <path className="radar-data-blob-fill" key={267229} d={radarDataPath} fillOpacity={0.6} />
+              </g>
             </g>
           </svg>
         </div>

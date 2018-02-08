@@ -12,17 +12,20 @@
   font-size: 20px;
 }
 
-.graph-icon {
-  padding: 30px;
-  width: 200px;
-  pointer-events: auto;
-  cursor: pointer;
-}
-
 .radar-chart {
   position: relative;
   top: -55px;
   left: 170px;
+  pointer-events: all;
+}
+
+#radar-chart-data-blob {
+  fill: #4fd4fd;
+  fill-opacity: 0.6;
+}
+
+#radar-chart-data-blob:hover {
+  fill-opacity: 1;
 }
 
 .barchart-annual-data {
