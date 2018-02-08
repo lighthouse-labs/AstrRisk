@@ -23,6 +23,9 @@
   }
 }
 
+.neo:hover {
+  animation-play-state: paused;
+}
 
 @keyframes wobble {
   from {

@@ -17,9 +17,7 @@ class MenuOptions extends Component {
 
     return (
       <Fragment>
-        <div className="chart-icon">
-          <img src='../../public/assets/images/graph-icon.svg' onClick={e => this.props.showHeatMapPopUp()} className="chart graph-icon" />
-        </div>
+
         <div className="x-button-heatmap">
           {/* {showHeatMap && <MdIconPack.MdClear size={80} onClick={e => this.props.closePopUp()} />} */}
         </div>

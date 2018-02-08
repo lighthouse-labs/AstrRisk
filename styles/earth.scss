@@ -30,16 +30,15 @@
 }
 
 #earthpopup {
+  color: white;
   position: absolute;
   left: 50%;
   top: 30%;
-  // background-color: black;
   width: 200px;
   margin-left: -100px;
   transform: rotateX(-57deg);
   text-align: center;
   font-size: 60px;
-  text-decoration: underline;
   font-family: 'Roboto Mono', monospace;
 }
 
