@@ -28,10 +28,6 @@ class HeatMap extends Component {
 
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-    // Scales x-axis & y-axis to the width and height
-    // const xScale = d3.scaleTime().domain([new Date('2018-01-01'), new Date('2018-12-31')]).range([0, width]);
-    // const yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
-
     const heatMapNode = this.refs.heatMap;
 
     const g = d3.select(heatMapNode);
@@ -112,9 +108,6 @@ class HeatMap extends Component {
     const heatMapChart = (data) => {
 
       const colorScale = d3.scaleQuantile().domain([0, 20]).range(colors);
-      // const colorScale = d3.scaleOrdinal().domain(this.props.annualData).range(d3.schemeBlue);
-
-      // console.log(colorScale(10));
 
       const tiles = g.selectAll('.day')
         .data(data, (d) => { return d.month + ':' + d.day });
@@ -181,7 +174,7 @@ class HeatMap extends Component {
             .style('opacity', 1);
           tooltip.html(`${d.value}`)
             .style('left', (d.day) * (gridSize + 3) + -4 + "px")
-            .style('top', (d.month - 1) * (gridSize + 3) + 10 + "px")
+            .style('top', (d.month - 1) * (gridSize + 3) + 40 + "px")
           heatMapDate.transition()
             .duration(200)
             .style('opacity', 1);

@@ -50,9 +50,6 @@ class Orbit extends Component {
           )
         })
       }
-      <div className="chart-icon">
-        <img src='../../public/assets/images/graph-icon.svg' onClick={e => this.props.showHeatMapPopUp()} className="chart graph-icon" />
-      </div>
     </Fragment>)
   }
 }

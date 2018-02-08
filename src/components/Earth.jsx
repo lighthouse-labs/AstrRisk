@@ -20,7 +20,6 @@ class Earth extends Component {
     return (
       <Fragment>
         <img src='../../public/assets/images/earth.svg' className="earth" onMouseEnter={e => {this.tagSwitcher()}} onMouseLeave={e => {this.tagSwitcher()}} onClick={e => this.props.showHeatMapPopUp()} />
-        <img src='../../public/assets/images/info-icon.svg' className="info-icon"/> 
         <div className={this.state.tagOn ? "" : "hidden"} id={"earthpopup"}>Earth</div>
       </Fragment>
     )
