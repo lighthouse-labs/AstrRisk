@@ -15,33 +15,33 @@ class LineBar extends Component {
     const {mt}                = this.props.singleNeoData;
     const dinosaurKiller      = 23900573613766.73;
     const tsarBomba           = 50.19120458891013;
-    const littleBoy           = 0.013;
     const fatMan              = 0.02198852772466539;
     const dinosaurEnergyScale = d3.scaleLog().domain([0.001, dinosaurKiller]).range([1, width]);
-
+    const dinoFormat = (dinosaurKiller).toLocaleString('en');
     return(
       <Fragment>
         <div className="infoText-line-bar"><span>DANGER LEVEL:</span></div>
         <div className="line-bar-container">
-          <img className='line-bar-asteroid' src="../public/assets/images/meteor.svg" style={{marginLeft: dinosaurEnergyScale(mt)}} width={50} height={50}/>
+          <img className='line-bar-asteroid' src="../public/assets/images/meteor.svg" style={{marginLeft: dinosaurEnergyScale(mt)}} width={60} height={60}/>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(tsarBomba)}}>
             <img  src="../public/assets/images/tsar.svg" width={70} height={50}/>
-            <p>Tsar Bomba Nuke</p>
+            <p>Tsar Bomba Nuke</p><p>(50 Mt)</p>
           </div>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(fatMan)}}>
             <img src="../public/assets/images/fman.svg" width={50} height={50}/>
-            <p>Fat Man Atomic Bomb</p>
+            <p>Fat Man Atomic Bomb</p><p>(0.021 Mt)</p>
           </div>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(dinosaurKiller)}}>
             <img src="../public/assets/images/extinction.svg" width={50} height={50}/>
-            <p>Dinosaur Extinction Event</p>
+            <p>Dinosaur Extinction Event</p><p className="dino-text">({dinoFormat} Mt)</p>
           </div>
 
          <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-           <rect className="line-bar-initial" width="900" y="70" height="5"/>
-           <rect y={"75"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={5} height={15}/>
-           <rect y={"75"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={5} height={15}/>
-           <rect y={"75"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={5} height={15}/>
+           <rect className="line-bar-initial" width="645" y="75" height="5"/>
+           <rect y={"35"} className="asteroid-line" width={(dinosaurEnergyScale(mt))+10} height={15} style={{fill:"red"}}/>
+           <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={5} height={15}/>
+           <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={5} height={15}/>
+           <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={5} height={15}/>
          </svg>
        </div>
        </Fragment>
