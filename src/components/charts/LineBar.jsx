@@ -25,10 +25,18 @@ class LineBar extends Component {
         <div className="infoText-line-bar"><span>DANGER LEVEL:</span></div>
         <div className="line-bar-container">
           <img className='line-bar-asteroid' src="../public/assets/images/meteor.svg" style={{marginLeft: dinosaurEnergyScale(mt)}} width={50} height={50}/>
-          <img className='line-bar-image' src="../public/assets/images/tsar.svg" style={{marginLeft: dinosaurEnergyScale(tsarBomba)}} width={50} height={50}/>
-          <img className='line-bar-image' src="../public/assets/images/lboy.svg" style={{marginLeft: dinosaurEnergyScale(littleBoy)}} width={50} height={50}/>
-          <img className='line-bar-image' src="../public/assets/images/fman.svg" style={{marginLeft: dinosaurEnergyScale(fatMan)}} width={50} height={50}/>
-          <img className='line-bar-image' src="../public/assets/images/extinction.svg" style={{marginLeft: dinosaurEnergyScale(dinosaurKiller)}} width={50} height={50}/>
+          <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(tsarBomba)}}>
+            <img  src="../public/assets/images/tsar.svg" width={70} height={50}/>
+            <p>TSAR BOMBA</p>
+          </div>
+          <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(fatMan)}}>
+            <img src="../public/assets/images/fman.svg" width={50} height={50}/>
+            <p>FAT MAN</p>
+          </div>
+          <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(dinosaurKiller)}}>
+            <img src="../public/assets/images/extinction.svg" width={50} height={50}/>
+            <p>DINOSAUR EXTINCTION</p>
+          </div>
 
          <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
            <rect className="line-bar-initial" width="900" y="70" height="5"/>
