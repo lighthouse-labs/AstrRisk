@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { testButton, getNeoData, getFireballData, showNeoData } from '../actions/actions.js';
+import { testButton, getNeoData, getFireballData, showNeoData, showHeatMapPopUp } from '../actions/actions.js';
 import * as d3 from 'd3';
 import moment from 'moment';
 
@@ -19,7 +19,7 @@ class Earth extends Component {
   render() {
     return (
       <Fragment>
-        <img src='../../public/assets/images/earth.svg' className="earth" onMouseEnter={e => {this.tagSwitcher()}} onMouseLeave={e => {this.tagSwitcher()}} />
+        <img src='../../public/assets/images/earth.svg' className="earth" onMouseEnter={e => {this.tagSwitcher()}} onMouseLeave={e => {this.tagSwitcher()}} onClick={e => this.props.showHeatMapPopUp()} />
         <div className={this.state.tagOn ? "" : "hidden"} id={"earthpopup"}>Earth</div>
       </Fragment>
     )
@@ -37,7 +37,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     getNeoData,  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
-    getFireballData
+    getFireballData,
+    showHeatMapPopUp
   }, dispatch)
 }
 
