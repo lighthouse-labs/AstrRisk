@@ -19,7 +19,7 @@ class LineBar extends Component {
     const littleBoy      = 0.017925430210325048;
     const fatMan         = 0.02198852772466539
     const dinosaurEnergyScale     = d3.scaleLog().domain([0.001, dinosaurKiller]).range([1, width]);
-
+    console.log(mt);
      return(
        <Fragment>
          <div className="line-bar-container">
