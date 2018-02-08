@@ -26,9 +26,6 @@ class NeoPopUp extends Component {
             <div className="infoText-line-item"><span>Miss Distance:</span> <span>{Number(distance).toLocaleString('en')} km</span></div>
             <div className="infoText-line-item"><span>Relative Velocity:</span> <span>{Math.floor(speed * 1000).toLocaleString('en')} m/s</span></div>
             <div className="infoText-line-item"><span>Energy (Megatons):</span> <span>{mt} Mt</span></div>
-            <br />
-            <div className="infoText-line-item"><span>DANGER LEVEL:</span></div>
-
           </div>
           <div className="infoImage-container">
             <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />

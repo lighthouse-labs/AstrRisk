@@ -1,7 +1,14 @@
 .line-bar-container {
   position: absolute;
-  top: 410px;
-  left: 20px;
+  top: 180px;
+  left: -112px;
+}
+
+.infoText-line-bar {
+  font-size: 2.3em;
+  position: absolute;
+  top: 100px;
+  left: -135px;
 }
 
 .line-bar-initial {
@@ -9,15 +16,14 @@
 }
 
 .line-bar-dino {
-  fill: #F00;
+  fill: #FFF;
 }
-.line-bar-large {
-  fill: #F00;
-}
-.line-bar-mt {
-  fill: blue;
+
+.line-bar-asteroid {
+  position: absolute;
+  top: 15px;
 }
 .line-bar-image {
-  top: 9px;
   position: absolute;
+  top: 100px;
 }
