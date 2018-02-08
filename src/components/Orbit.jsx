@@ -11,11 +11,18 @@ import { showHeatMapPopUp } from '../actions/actions.js';
 class Orbit extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {marsmars: false, moon: false}
   }
 
   componentDidMount() {
+  }
 
+   marsSwitcher() {
+    this.setState({marsmars: !this.state.marsmars});
+  }
+
+   moonSwitcher() {
+    this.setState({moon: !this.state.moon});
   }
 
   render() {
@@ -23,10 +30,14 @@ class Orbit extends Component {
 
     return (<Fragment>
       <div className="moon-orbit">
-        <img src='../../public/assets/images/moon.svg' className="moon"/>
+        <div className="moon">
+        <img src='../../public/assets/images/moon.svg' className="moonimage" onMouseEnter={e => {this.moonSwitcher()}} onMouseLeave={e => {this.moonSwitcher()}}/>
+        <div className={this.state.moon ? "" : "hidden"} id={"moonpopup"}>Moon</div>
+        </div>
       </div>
       <div className="orbit">
-        <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick}/>
+        <img src='../../public/assets/images/mars.svg' className="mars" onClick={this.handleClick} onMouseEnter={e => {this.marsSwitcher()}} onMouseLeave={e => {this.marsSwitcher()}}/>
+        <div className={this.state.marsmars ? "" : "hidden"} id={"marspopup"}>Mars</div>
       </div>
       <FireballAlert/>
       { this.props.neoData.map((neo, i) => {

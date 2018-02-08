@@ -28,3 +28,21 @@
     margin-top: -5px;
   }
 }
+
+#earthpopup {
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  width: 200px;
+  margin-left: -100px;
+  transform: rotateX(-57deg);
+  text-align: center;
+  font-size: 60px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#earthpopup.hidden {
+  opacity: 0;
+  transition: all 1s linear;
+}

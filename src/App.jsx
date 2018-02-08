@@ -7,6 +7,7 @@ import {testButton, getNeoData, getFireballData, getAnnualNeoData } from './acti
 import BarChart from './components/charts/BarChart.jsx';
 import PopUp from './components/PopUp.jsx';
 
+
 class App extends Component {
   constructor(props) {
     super(props);

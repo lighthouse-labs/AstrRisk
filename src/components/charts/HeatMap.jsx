@@ -134,8 +134,8 @@ class HeatMap extends Component {
       // Heatmap neo count div
       const heatMapNeoCount = d3.select('.heatmap-neo-count')
         .append('div')
+        .style('opacity', 0)
         .attr('class', 'heatmap-neo-count-text')
-        .html(0);
 
       tiles.enter().append('rect')
         .attr('x', d => { return (d.day - 1) * (gridSize + 3) })
@@ -188,6 +188,9 @@ class HeatMap extends Component {
           heatMapDate.html(moment(d.date).format("dddd, MMMM Do YYYY"))
             .style('left', (width / 2) + "px")
             .style('top', (-gridSize * 2) + "px")
+          heatMapNeoCount.transition()
+            .duration(200)
+            .style('opacity', 1)
           heatMapNeoCount.html(`${d.value}`)
         })
         .on('mouseout', d => {
@@ -205,6 +208,9 @@ class HeatMap extends Component {
           heatMapDate.transition()
             .duration(2000)
             .style('opacity', 0);
+          heatMapNeoCount.transition()
+            .duration(2000)
+            .style('opacity', 0)
         })
         .transition()
           .duration(1300)
@@ -228,7 +234,7 @@ class HeatMap extends Component {
         <div className="heatmap">
             <div className="heatmap-date"></div>
             <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-              <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 0 + ")"}></g>
+              <g className="heatmap" ref="heatMap" transform={"translate(" + margin.left + "," + 30 + ")"}></g>
             </svg>
             <div className="heatmap-tooltip-node"></div>
             <div className="heatmap-neo-count">

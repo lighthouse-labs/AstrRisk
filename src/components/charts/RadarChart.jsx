@@ -121,19 +121,12 @@ class RadarChart extends Component {
               </filter>
               {graphGrid}
               <path stroke={'#CDCDCD'} key={19090} d={graphAxis} strokeOpacity={0.5} fillOpacity={0.2} />
-
               <path fill={color(16)} key={299933} stroke={'#CDCDCD'} d={radarDataPath} fillOpacity={0.7} fill={'none'} filter={'url(#blurMe)'} />
               <path className="radar-data-blob-fill" fill={"#4fd4fd"} key={267229} d={radarDataPath} fillOpacity={0.6} />
-
-              {/* <path fill={color(2)} key={2991239} stroke={'#CDCDCD'} d={tsarBomba} fillOpacity={0.1} fill={'none'} filter={'url(#blurMe)'} />
-              <path fill={color(2)} key={2155339} d={tsarBomba} fillOpacity={0.1} />
-
-              <path fill={color(6)} key={2994219} stroke={'#CDCDCD'} d={littleBoy} fillOpacity={0.1} fill={'none'} filter={'url(#blurMe)'} />
-              <path fill={color(6)} key={255339} d={littleBoy} fillOpacity={0.1} /> */}
               {dataDots}
               <text x={-40} y={-(radius + 20)} fill="white" fontFamily="Roboto Mono" fontSize="16">Proximity</text>
-              <text x={lx(1.15, 1) - 5} y={ly(1.15, 1) + 10} fill="white" fontFamily="Roboto Mono" fontSize="16">Mass</text>
-              <text x={lx(1.45, 2)} y={ly(1.45, 2) + 20} fill="white" fontFamily="Roboto Mono" fontSize="16">Energy</text>
+              <text x={lx(1.1, 1) - 5} y={ly(1.1, 1) + 10} fill="white" fontFamily="Roboto Mono" fontSize="16">Mass</text>
+              <text x={lx(1.40, 2)} y={ly(1.40, 2) + 20} fill="white" fontFamily="Roboto Mono" fontSize="16">Energy</text>
               <text x={lx(1.1, 3)} y={ly(1.1, 3)} fill="white" fontFamily="Roboto Mono" fontSize="16">Diameter</text>
               <text x={lx(1.2, 4) - 40} y={ly(1.2, 4)} fill="white" fontFamily="Roboto Mono" fontSize="16">Velocity</text>
             </g>

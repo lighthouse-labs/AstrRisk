@@ -8,6 +8,8 @@ import * as MdIconPack from 'react-icons/lib/md'
 import { closePopUp, showNeoPopUp  } from '../actions/actions.js'
 import HeatMap from './charts/HeatMap.jsx';
 import NeoPopUp from './NeoPopUp.jsx';
+import LineBar from './charts/LineBar.jsx';
+
 
 class PopUp extends Component {
 

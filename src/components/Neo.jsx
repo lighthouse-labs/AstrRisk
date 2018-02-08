@@ -93,7 +93,8 @@ class Neo extends Component {
       border: "solid 0px rgba(222, 222, 222, 0.0)",
       marginLeft: "auto",
       marginRight: "auto",
-      boxShadow: "inset 0px 3px 0px 2px #734172FF",
+      boxShadow: "inset 0px 2px 0px 3px #734172FF",
+      transition: ".5s ease", 
       zIndex: "-40",
     }
 

@@ -36,10 +36,12 @@ body {
 .hidden {
   display: none;
 }
+
 .orbit-highlight{
   transition: .5s ease;
-  box-shadow: rgb(255, 255, 114) 0px 3px 0px 2px inset!important;
+  box-shadow: rgb(255, 255, 114) 0px 2px 0px 3px inset!important;
 }
+
 .orbit {
   position: absolute;
   border-radius: 50%;
@@ -72,6 +74,10 @@ body {
   cursor: pointer;
 }
 
+.moon:hover {
+  animation-play-state: paused;
+}
+
 .mars {
   pointer-events: auto;
   position: absolute;
@@ -81,6 +87,7 @@ body {
   top: 1041px;
   transform: rotateX(-57deg);
   cursor: pointer;
+  transition: 0.5s;
 }
 
 .mars:hover {
@@ -130,26 +137,45 @@ body {
   pointer-events: all;
 }
 
-svg {
-  #path10 {
-    fill: none;
-    stroke-dasharray: 911.6107177734375;
-    stroke-dashoffset: 911.6107177734375;
-    animation: draw 5s linear forwards infinite; 
-  }
-
-  #path111 {
-    fill: none;
-    stroke-dasharray: 911.6107177734375;
-    stroke-dashoffset: 911.6107177734375;
-    animation: draw 3s linear forwards infinite; 
-  }
+#marspopup {
+  color: white;
+  position: absolute;
+  left: 43px;
+  top: 34%;
+  width: 200px;
+  margin-left: -100px;
+  transform: rotateX(-57deg);
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
 }
 
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-   }
+#mars.hidden {
+  opacity: 0;
+  transition: all 1s linear;
 }
 
-// 911.6107177734375
+#moonpopup {
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  width: 200px;
+  margin-left: -100px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+#moon.hidden {
+  opacity: 0;
+  transition: all 1s linear;
+}
+
+.moonimage {
+ transition: 0.5s;
+}
+
+.moonimage:hover {
+  transform: scale(1.2) rotateX(-34deg);
+}

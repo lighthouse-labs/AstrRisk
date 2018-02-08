@@ -6,11 +6,22 @@ import * as d3 from 'd3';
 import moment from 'moment';
 
 class Earth extends Component {
+  constructor(){
+    super();
+    this.state = {tagOn: false}
+  }
 
+  tagSwitcher() {
+
+    this.setState({tagOn: !this.state.tagOn});
+  }
 
   render() {
     return (
-        <img src='../../public/assets/images/earth.svg' className={"earth"}/>
+      <Fragment>
+        <img src='../../public/assets/images/earth.svg' className="earth" onMouseEnter={e => {this.tagSwitcher()}} onMouseLeave={e => {this.tagSwitcher()}} />
+        <div className={this.state.tagOn ? "" : "hidden"} id={"earthpopup"}>Earth</div>
+      </Fragment>
     )
   }
 }
