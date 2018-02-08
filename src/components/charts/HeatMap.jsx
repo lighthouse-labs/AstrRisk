@@ -28,11 +28,9 @@ class HeatMap extends Component {
 
     const axisTicks = ["", 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+    // Provides node for D3 to hook onto
     const heatMapNode = this.refs.heatMap;
-
     const g = d3.select(heatMapNode);
-
-    ////////////////////////////////////////////////////////////////////////////
 
     const gridSize = Math.floor(width / 31),
       bucket = 8,
@@ -66,8 +64,7 @@ class HeatMap extends Component {
       .attr('transform', 'translate(' + 20 + "," + -8 + ")")
       .attr('class', 'heatmap-axis heatmap-xAxis');
 
-    // Legend
-
+    // Legend node for d3
     const legendNode = d3.select(heatMapNode)
 
     // Generates legend labels
@@ -125,6 +122,7 @@ class HeatMap extends Component {
         .style('opacity', 0)
         .attr('class', 'heatmap-neo-count-text')
 
+      // Creates heat map tiles based on data
       tiles.enter().append('rect')
         .attr('x', d => { return (d.day - 1) * (gridSize + 3) })
         .attr('y', d => { return (d.month - 1) * (gridSize + 3) })
@@ -134,6 +132,8 @@ class HeatMap extends Component {
         .attr('width', gridSize)
         .attr('height', gridSize)
         .style('fill', d => { colors[0] })
+
+        // click handler that selects the new date
         .on('click', d => { 
           const target = d3.select(`.S${d.date}`)
           target
@@ -156,6 +156,8 @@ class HeatMap extends Component {
           }, 1175);
         })
         .attr('class', d => { return `heatmap-squares S${d.date}`})
+
+        // Transition effects for mouseover that adds a tooltip popup with current date
         .on('mouseover', d => {
           const target = d3.select(`.S${d.date}`)
             target

@@ -55,7 +55,9 @@ class Orbit extends Component {
 }
 
 function mapStateToProps(state) {
-  return { neoData: state.neoData }
+  return { 
+    neoData: state.neoData 
+  }
 }
 
 function mapDispatchToProps(dispatch) {

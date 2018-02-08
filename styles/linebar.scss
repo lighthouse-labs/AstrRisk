@@ -2,9 +2,15 @@
   position: absolute;
   top: 180px;
   left: -112px;
+  font-family: "Roboto Mono", monospace;
+}
+
+.line-bar-container p {
+  width: 100px;
 }
 
 .infoText-line-bar {
+  font-family: "Roboto Mono", monospace;
   font-size: 2.3em;
   position: absolute;
   top: 100px;

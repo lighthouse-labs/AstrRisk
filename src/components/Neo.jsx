@@ -150,7 +150,6 @@ class Neo extends Component {
 function mapStateToProps(state) {
   return {
     neoData: state.neoData,
-    testState: state.testReducer
   }
 }
 

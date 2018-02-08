@@ -12,7 +12,6 @@ class LineBar extends Component {
           height = 300 - margin.top - margin.bottom,
           width = 700 - margin.left - margin.right;
 
-
     const {mt}                = this.props.singleNeoData;
     const dinosaurKiller      = 23900573613766.73;
     const tsarBomba           = 50.19120458891013;
@@ -27,15 +26,15 @@ class LineBar extends Component {
           <img className='line-bar-asteroid' src="../public/assets/images/meteor.svg" style={{marginLeft: dinosaurEnergyScale(mt)}} width={50} height={50}/>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(tsarBomba)}}>
             <img  src="../public/assets/images/tsar.svg" width={70} height={50}/>
-            <p>TSAR BOMBA</p>
+            <p>Tsar Bomba Nuke</p>
           </div>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(fatMan)}}>
             <img src="../public/assets/images/fman.svg" width={50} height={50}/>
-            <p>FAT MAN</p>
+            <p>Fat Man Atomic Bomb</p>
           </div>
           <div className='line-bar-image' style={{marginLeft: dinosaurEnergyScale(dinosaurKiller)}}>
             <img src="../public/assets/images/extinction.svg" width={50} height={50}/>
-            <p>DINOSAUR EXTINCTION</p>
+            <p>Dinosaur Extinction Event</p>
           </div>
 
          <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
@@ -54,7 +53,6 @@ function mapStateToProps(state) {
   return {
     neoData: state.neoData,
     singleNeoData: state.singleNeoData,
-    testState: state.testReducer
   }
 }
 

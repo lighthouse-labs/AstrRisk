@@ -29,7 +29,6 @@ function mapStateToProps(state) {
   return {
     neoData: state.neoData,
     fireBallData: state.fireBallData,
-    testState: state.testReducer,
     currentDate: state.currentDate,
     showFireball: state.showFireball,
   }
@@ -37,7 +36,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    testButton,
     getNeoData,
     getFireballData,
     toggleFireball,

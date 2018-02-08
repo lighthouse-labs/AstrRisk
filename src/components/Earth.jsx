@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getNeoData,  //Usage: getNeoData(YYYY-MM-DD) use 1990-01-01 to 1990-03-05
+    getNeoData,
     getFireballData,
     showHeatMapPopUp
   }, dispatch)
