@@ -110,3 +110,7 @@ export const changeSlider = (data) => ({
   type: types.SLIDERCHANGE,
   payload: data
 });
+
+export const toggleDangerBar = () => ({
+  type: types.TOGGLEDANGERBAR
+});

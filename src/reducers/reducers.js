@@ -226,3 +226,13 @@ export const toggleFireballReducer = (state = false, action) => {
       return state
   }
 }
+
+export const toggleDangerBarReducer = (state = false, action) => {
+  switch (action.type) {
+    case 'TOGGLEDANGERBAR': 
+      const bool = state;
+      return !bool;
+    default:
+      return false;
+  }
+}
