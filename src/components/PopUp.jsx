@@ -23,7 +23,9 @@ class PopUp extends Component {
               <div className="x-button">
                 <MdIconPack.MdClear size={80} onClick={e => this.props.closePopUp()} />
               </div>
-              {showNeoPopUp && <NeoPopUp />}
+              <div className="neo-popup-container">
+                {showNeoPopUp && <NeoPopUp />}
+              </div>
               {showHeatMap && <HeatMap />}
             </div>
           </div>

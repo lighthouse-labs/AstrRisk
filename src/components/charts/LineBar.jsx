@@ -37,8 +37,11 @@ class LineBar extends Component {
           </div>
 
          <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
+            <filter id="blurMe">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" />
+            </filter>
            <rect className="line-bar-initial" width="645" y="75" height="5"/>
-           <rect y={"35"} className="asteroid-line" width={(dinosaurEnergyScale(mt))+10} height={15} style={{fill:"red"}}/>
+            <rect y={"35"} className="asteroid-line" width={(dinosaurEnergyScale(mt)) + 10} height={15} style={{ fill: "red" }} fillOpacity={0.6} filter={'url(#blurMe)'}/>
            <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={5} height={15}/>
            <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={5} height={15}/>
            <rect y={"80"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={5} height={15}/>
