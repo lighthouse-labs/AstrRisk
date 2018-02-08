@@ -5,7 +5,6 @@ import Fireball from './Fireball.jsx'
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import FireballAlert from './FireballAlert.jsx';
-import MenuOptions from './MenuOptions.jsx';
 import { showHeatMapPopUp } from '../actions/actions.js';
 
 class Orbit extends Component {
@@ -54,7 +53,6 @@ class Orbit extends Component {
       <div className="chart-icon">
         <img src='../../public/assets/images/graph-icon.svg' onClick={e => this.props.showHeatMapPopUp()} className="chart graph-icon" />
       </div>
-        {/* <MenuOptions/> */}
     </Fragment>)
   }
 }

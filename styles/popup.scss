@@ -10,7 +10,7 @@
 
 .infoPopupContainer {
   pointer-events: none;
-  top: 23%;
+  top: 22%;
   left: 50%;
   width: 1350px;
   position: absolute;
@@ -18,8 +18,7 @@
 }
 
 .infoPopup-infoHolder {
-  position: absolute;
-  left: -5%;
+  position: relative;
 }
 
 .x-button {
