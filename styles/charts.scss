@@ -23,10 +23,29 @@
   left: 170px;
 }
 
+.radar-chart-toggle-danger-bar {
+  font-family: "Roboto Mono", monospace;
+  position: absolute;
+  top: 83%;
+  left: 27%;
+  animation: dangerPulse 0.75s linear alternate infinite;
+}
+
+@keyframes dangerPulse {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 #radar-chart-data-blob {
   pointer-events: all;
   fill: #4fd4fd;
   animation: pulsate 4s infinite ease-in-out;
+  cursor: pointer;
 }
 
 @keyframes pulsate {

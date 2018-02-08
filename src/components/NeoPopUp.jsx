@@ -32,7 +32,6 @@ class NeoPopUp extends Component {
           </div>
           <div className="infoImage-container">
             <RadarChart speed={speed} distance={distance} mt={mt} diameter={avgDiameter} mass={mass} />
-            <button className="toggle-danger-bar-button" onClick={e => toggleDangerBar()}>Toggle Danger Bar</button>
           </div>
         </div>
       )

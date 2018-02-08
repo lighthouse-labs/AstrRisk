@@ -2,9 +2,18 @@ import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { spring, Motion, StaggeredMotion, TransitionMotion, presets } from 'react-motion';
+import { toggleDangerBar } from '../../actions/actions';
 import * as d3 from 'd3';
 
 class RadarChart extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      showDangerPrompt: false
+    }
+  }
+
   render() {
     const { speed, distance, diameter, mt, mass } = this.props;
 
@@ -127,12 +136,15 @@ class RadarChart extends Component {
               <text x={lx(1.40, 2)} y={ly(1.40, 2) + 20} fill="white" fontFamily="Roboto Mono" fontSize="16">Energy</text>
               <text x={lx(1.1, 3)} y={ly(1.1, 3)} fill="white" fontFamily="Roboto Mono" fontSize="16">Diameter</text>
               <text x={lx(1.2, 4) - 40} y={ly(1.2, 4)} fill="white" fontFamily="Roboto Mono" fontSize="16">Velocity</text>
-              <g id="radar-chart-data-blob">
+              <g id="radar-chart-data-blob" onClick={e => this.props.toggleDangerBar()} onMouseEnter={e => this.setState({ showDangerPrompt: true })} onMouseLeave={e => this.setState({ showDangerPrompt: false })}>
                 <path key={267229} d={radarDataPath} />
-                <path id={"radar-blob-outline"} key={299933} stroke={'#4fd4fd'} d={radarDataPath} stroke-width={"3px"} fill={'none'} filter={'url(#blurMe)'} />
               </g>
+              <path id={"radar-blob-outline"} key={299933} stroke={'#4fd4fd'} d={radarDataPath} strokeWidth={"3px"} fill={'none'} filter={'url(#blurMe)'} />
             </g>
           </svg>
+          <div className="radar-chart-toggle-danger-bar"> 
+            {this.state.showDangerPrompt && <span>Click to show danger level</span>}
+          </div>
         </div>
       </Fragment>
     )
@@ -147,6 +159,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
+    toggleDangerBar,  
   }, dispatch)
 }
 
