@@ -24,16 +24,13 @@ class Fireball extends Component {
 
 function mapStateToProps(state) {
   return {
-    neoData: state.neoData,
     fireBallData: state.fireBallData,
-    testState: state.testReducer,
     currentDate: state.currentDate
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    getNeoData,
     getFireballData
   }, dispatch)
 }
