@@ -16,16 +16,17 @@
   position: relative;
   top: -55px;
   left: 170px;
-  pointer-events: all;
 }
 
 #radar-chart-data-blob {
+  pointer-events: all;
   fill: #4fd4fd;
   fill-opacity: 0.6;
+  transition: fill-opacity 1.2s;
 }
 
 #radar-chart-data-blob:hover {
-  fill-opacity: 1;
+  fill-opacity: 0.8;
 }
 
 .barchart-annual-data {
