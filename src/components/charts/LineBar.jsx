@@ -13,7 +13,7 @@ class LineBar extends Component {
           width = 700 - margin.left - margin.right;
 
 
-    const mt             = this.props.singleNeoData.mt;
+    const {mt}           = this.props.singleNeoData;
     const dinosaurKiller = 23900573613766.73;
     const tsarBomba      = 50.19120458891013;
     const littleBoy      = 0.017925430210325048;
@@ -23,18 +23,16 @@ class LineBar extends Component {
      return(
        <Fragment>
          <div className="line-bar-container">
-           <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
-             <rect className="line-bar-initial" width="900" height="40"/>
-             <g>
-               <svg src="../public/assets/images/meteor.svg" x={dinosaurEnergyScale(mt)} width={10} height={10}></svg>
-             </g>
-             <rect y={"10"} className="line-bar-mt" x={dinosaurEnergyScale(mt)} width={10} height={10}/>
-             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={10} height={10}/>
-             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={10} height={10}/>
-             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(littleBoy)} width={10} height={10}/>
-             <rect y={"10"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={10} height={10}/>
+           <img className='line-bar-image' src="../public/assets/images/meteor.svg" style={{marginLeft: dinosaurEnergyScale(mt)}} width={30} height={30}/>
+
+
+       <svg width={width + margin.left + margin.right} height={height + margin.top + margin.bottom}>
+             <rect className="line-bar-initial" width="900" height="5"/>
+             <rect y={"3"} className="line-bar-dino" x={dinosaurEnergyScale(tsarBomba)} width={10} height={10}/>
+             <rect y={"3"} className="line-bar-dino" x={dinosaurEnergyScale(fatMan)} width={10} height={10}/>
+             <rect y={"3"} className="line-bar-dino" x={dinosaurEnergyScale(littleBoy)} width={10} height={10}/>
+             <rect y={"3"} className="line-bar-dino" x={dinosaurEnergyScale(dinosaurKiller)} width={10} height={10}/>
            </svg>
-           <svg src="../public/assets/images/meteor.svg" x={dinosaurEnergyScale(mt)} width={10} height={10}></svg>
            <div className="line-dtext">Dinosaurs</div>
 
          </div>
