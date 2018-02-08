@@ -35,6 +35,7 @@ class Neo extends Component {
     const sizeScale = d3.scaleLinear().domain([])
     const scaledDistance = Math.floor(dScale(distance));
     const randomDeg = Math.pow(avgDiameter, 2);
+    // const plusOrMinus = avgDiameter < 200 ? -1 : 1;
     const plusOrMinus = Math.random() < 0.5 ? -1 : 1;
     const keyframes = `@keyframes ${name} {
         0% {
@@ -64,7 +65,7 @@ class Neo extends Component {
     // set size of the NEO based of average diameter
     function setSize(){
       let sizeString = 'height: 80px; width: 80px;'
-
+      if (name === 'ATesla') return 'height: 240px; width: 240px;';
       if (avgDiameter <= 50){
         sizeString = 'height: 70px; width: 70px;'
       } else if (avgDiameter > 50 && avgDiameter < 300){
@@ -100,6 +101,8 @@ class Neo extends Component {
 
     // create image scale to base images on
     function randomImage(){
+      console.log(name);
+      if (name === 'ATesla') return '../../public/assets/images/tesla.svg';
       let image = '../../public/assets/images/meteor2.svg'
       const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
       if(speed <= 5){
