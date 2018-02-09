@@ -1,7 +1,7 @@
 Contributors
 =====================
- [Blake Sadoway](https://github.com/Bsadoway)
- [Clayton Savage](https://github.com/claytonsavage)
+ [Blake Sadoway](https://github.com/Bsadoway) |
+ [Clayton Savage](https://github.com/claytonsavage) |
  [Frank Lam](https://github.com/typeF)
 
 AstrRisk
