@@ -95,13 +95,12 @@ class Neo extends Component {
       marginLeft: "auto",
       marginRight: "auto",
       boxShadow: "inset 0px 2px 0px 3px #734172FF",
-      transition: ".5s ease", 
+      transition: ".5s ease",
       zIndex: "-40",
     }
 
     // create image scale to base images on
     function randomImage(){
-      console.log(name);
       if (name === 'ATesla') return '../../public/assets/images/tesla.svg';
       let image = '../../public/assets/images/meteor2.svg'
       const imageScale = d3.scaleLinear().domain([3, 35]).range([1,5]);
@@ -138,10 +137,18 @@ class Neo extends Component {
     }
 
     const nearEarthObject = createNeo();
-    document.styleSheets[0].insertRule(keyframes, document.styleSheets[0].cssRules.length)
-    document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
-    document.styleSheets[0].insertRule(imgClass, document.styleSheets[0].cssRules.length)
 
+    function insertStyles(){
+      try {
+        document.styleSheets[0].insertRule(keyframes, document.styleSheets[0].cssRules.length)
+        document.styleSheets[0].insertRule(newclass, document.styleSheets[0].cssRules.length)
+        document.styleSheets[0].insertRule(imgClass, document.styleSheets[0].cssRules.length)
+      }
+      catch(e){
+        console.log(e.message);
+      }
+    }
+    insertStyles();
     return (
       <Fragment>
         {nearEarthObject}
