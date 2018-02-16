@@ -2,32 +2,34 @@ const fs = require('fs');
 const moment = require('moment');
 
 module.exports = {
-  getAnnualData: (year) => {
-    // return module.exports.findData(year);      
-    let findData = new Promise((resolve, reject) => {
-      return resolve(module.exports.getData(year))
+
+  getNeoData: (date) => {
+    const year = moment(date).format('YYYY');
+    return new Promise((resolve, reject) => {
+      fs.readFile(`./json/${year}/${date}.json`, (err, data) => {
+        if (data !== undefined) {
+          console.log(`Data access request for ${date}`);
+          resolve(data);
+        } else {
+          reject(err);
+        }
+      });
     });
-
-    return findData
-
-
   },
 
-  getData: (year) => {
-    try {
+  getAnnualData: (year) => {
+    return new Promise((resolve, reject) => {
       fs.readFile(`./json/${year}/${year}.json`, (err, data) => {
         if (data !== undefined) {
           console.log(`Annual data access request for ${year}`);
           const annualData = JSON.parse(data);
 
-          // Creates array for d3 to generate data from
+          // Creates array for d3 to generate graphs from
           let dailyNeoCount = [];
-          for (let date in annualData) {
-            const dayOfYear = moment(date).dayOfYear();
-            if (dayOfYear % 30 !== 0) {
-              const length = annualData[date].length
-              dailyNeoCount.push({ length: length, dayOfYear: dayOfYear });
-            }
+          for (let dataDate in annualData) {
+            const dayOfYear = moment(dataDate).dayOfYear();
+            const length = annualData[dataDate].length
+            dailyNeoCount.push({ date: dataDate, month: Number(moment(dataDate).format('MM')), day: Number(moment(dataDate).format('DD')), dayOfYear: dayOfYear, value: length });
           }
 
           // Sorts array based on day of year
@@ -40,15 +42,25 @@ module.exports = {
             return 0;
           });
 
-          return dailyNeoCount;
-
+          resolve(dailyNeoCount);
         } else {
-          res.status(404).send(`Error retrieving records for ${year}`);
+          reject(err);
         }
       })
-    } catch (err) {
-      console.log('ERROR', err);
-    }
+    });
+  },
+
+  getFireballData: () => {
+    return new Promise ((resolve, reject) => {
+      fs.readFile('./json/nasa-fireball-new.json', (err, data) => {
+        if (data !== undefined) {
+          console.log('Fireball Data accessed')
+          resolve(JSON.parse(data));
+        } else {
+          reject(err);
+        }
+      });
+    });
   }
 
 }
