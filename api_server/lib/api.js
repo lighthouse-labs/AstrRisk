@@ -1,10 +1,9 @@
-const fs = require('fs');
-const moment = require('moment');
+const fs = require("fs");
+const moment = require("moment");
 
 module.exports = {
-
-  getNeoData: (date) => {
-    const year = moment(date).format('YYYY');
+  getNeoData: date => {
+    const year = moment(date).format("YYYY");
     return new Promise((resolve, reject) => {
       fs.readFile(`./json/${year}/${date}.json`, (err, data) => {
         if (data !== undefined) {
@@ -17,7 +16,8 @@ module.exports = {
     });
   },
 
-  getAnnualData: (year) => {
+  getAnnualData: rawYear => {
+    const year = moment(rawYear).format("YYYY");
     return new Promise((resolve, reject) => {
       fs.readFile(`./json/${year}/${year}.json`, (err, data) => {
         if (data !== undefined) {
@@ -28,8 +28,14 @@ module.exports = {
           let dailyNeoCount = [];
           for (let dataDate in annualData) {
             const dayOfYear = moment(dataDate).dayOfYear();
-            const length = annualData[dataDate].length
-            dailyNeoCount.push({ date: dataDate, month: Number(moment(dataDate).format('MM')), day: Number(moment(dataDate).format('DD')), dayOfYear: dayOfYear, value: length });
+            const length = annualData[dataDate].length;
+            dailyNeoCount.push({
+              date: dataDate,
+              month: Number(moment(dataDate).format("MM")),
+              day: Number(moment(dataDate).format("DD")),
+              dayOfYear: dayOfYear,
+              value: length
+            });
           }
 
           // Sorts array based on day of year
@@ -46,15 +52,15 @@ module.exports = {
         } else {
           reject(err);
         }
-      })
+      });
     });
   },
 
   getFireballData: () => {
-    return new Promise ((resolve, reject) => {
-      fs.readFile('./json/nasa-fireball-new.json', (err, data) => {
+    return new Promise((resolve, reject) => {
+      fs.readFile("./json/nasa-fireball-new.json", (err, data) => {
         if (data !== undefined) {
-          console.log('Fireball Data accessed')
+          console.log("Fireball Data accessed");
           resolve(JSON.parse(data));
         } else {
           reject(err);
@@ -62,5 +68,4 @@ module.exports = {
       });
     });
   }
-
-}
+};
