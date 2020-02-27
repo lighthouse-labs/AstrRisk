@@ -133,7 +133,6 @@ const initialState = [
 export const fireBallDataReducer = (state = initialState, action) => {
   switch (action.type) {
     case "LOADFIREBALLDATA":
-      // console.log('New Fireball Data: ', action.payload)
       return action.payload;
     default:
       return state;
@@ -210,7 +209,6 @@ export const dateReducer = (
 ) => {
   switch (action.type) {
     case "GETDATE":
-      // console.log('New NEO Data: ', action.payload)
       return action.payload;
     default:
       return state;

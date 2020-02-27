@@ -1,11 +1,10 @@
-Contributors
-=====================
- [Blake Sadoway](https://github.com/Bsadoway) |
- [Clayton Savage](https://github.com/claytonsavage) |
- [Frank Lam](https://github.com/typeF)
+# Contributors
 
-AstrRisk
-=====================
+[Blake Sadoway](https://github.com/Bsadoway) |
+[Clayton Savage](https://github.com/claytonsavage) |
+[Frank Lam](https://github.com/typeF)
+
+# AstrRisk
 
 AstrRisk is a data visualization app that allows users to view Near Earth Objects (NEOs) that are between Mars and Earth on any given day.
 
@@ -13,13 +12,7 @@ Features a custom-made browsing UI built with CSS3 and D3js. Users can browse th
 
 Radar and danger charts provide easy to digest information about individual NEOs. Heatmaps allow user to see an overview of each year's NEO density's at a glance and to quickly navigate to a particular day.
 
-Future goals
-=======================
-- Deployment of the app
-
-
-Screenshots
-=======================
+# Screenshots
 
 ![Main Page](https://github.com/typeF/AstrRisk/blob/master/docs/Main%20Screen%20SS.png?raw=true)
 
@@ -31,16 +24,33 @@ Screenshots
 
 ### Dependencies
 
-* React
-* Redux
-* D3js
-* Moment
-* Moment-range
-* React-dom
-* React-icons
-* React-motion
-* Redux-thunk
-* Uuid
-* Webpack
-* [babel-loader](https://github.com/babel/babel-loader)
-* [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+- React
+- Redux
+- D3js
+- Moment
+- Moment-range
+- React-dom
+- React-icons
+- React-motion
+- Redux-thunk
+- Uuid
+- Webpack
+- [babel-loader](https://github.com/babel/babel-loader)
+- [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
+
+# Production deployment setup
+
+- Clone repo to server
+- Install Docker + Docker Compose
+- Download [JSON data package](https://www.dropbox.com/s/lltz9sv8xtj37kn/json.zip?dl=0) to /api_server
+- Unzip json.zip to /api_server/json
+- Set the following environment variables
+  - NODE_ENV=production
+  - ASTRRISK_CLIENT_DOMAIN=YOUR_CLIENT_DOMAIN
+  - ASTRRISK_SERVER_DOMAIN=YOUR_SERVER_DOMAIN
+- Clone [nginx-proxy](https://github.com/typeF/nginx-proxy) to a separate folder and follow setup
+- Run nginx-proxy and Astrrisk docker-compose files
+
+```
+docker-compose up -d
+```
