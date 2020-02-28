@@ -1,20 +1,22 @@
 version: "3.7"
-  services:
-    client:
-      build: ./
-      ports:
-        - "3000:3000"
-      environment:
-        VIRTUAL_HOST: ${ASTRRISK_CLIENT_DOMAIN} 
-        LETSENCRYPT_HOST: ${ASTRRISK_CLIENT_DOMAIN} 
-    server:
-      build: ./api_server
-      ports:
-        - "3001:3001"
-      volumes:
-        - type: bind
-          source: ./api_server
-          target: /app
-      environment:
-        VIRTUAL_HOST: ${ASTRRISK_SERVER_DOMAIN} 
-        LETSENCRYPT_HOST: ${ASTRRISK_SEVER_DOMAIN} 
+
+services:
+  client:
+    build: ./
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      VIRTUAL_HOST: ${ASTRRISK_CLIENT_DOMAIN}
+      LETSENCRYPT_HOST: ${ASTRRISK_CLIENT_DOMAIN}
+  server:
+    build: ./api_server
+    ports:
+      - "3001:3001"
+    volumes:
+      - type: bind
+        source: ./api_server/json
+        target: /app/json
+    environment:
+      VIRTUAL_HOST: ${ASTRRISK_SERVER_DOMAIN}
+      LETSENCRYPT_HOST: ${ASTRRISK_SEVER_DOMAIN}
