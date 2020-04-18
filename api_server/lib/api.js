@@ -2,12 +2,11 @@ const fs = require("fs");
 const moment = require("moment");
 
 module.exports = {
-  getNeoData: date => {
+  getNeoData: (date) => {
     const year = moment(date).format("YYYY");
     return new Promise((resolve, reject) => {
       fs.readFile(`./json/${year}/${date}.json`, (err, data) => {
         if (data !== undefined) {
-          console.log(`Data access request for ${date}`);
           resolve(data);
         } else {
           reject(err);
@@ -16,12 +15,11 @@ module.exports = {
     });
   },
 
-  getAnnualData: rawYear => {
+  getAnnualData: (rawYear) => {
     const year = moment(rawYear).format("YYYY");
     return new Promise((resolve, reject) => {
       fs.readFile(`./json/${year}/${year}.json`, (err, data) => {
         if (data !== undefined) {
-          console.log(`Annual data access request for ${year}`);
           const annualData = JSON.parse(data);
 
           // Creates array for d3 to generate graphs from
@@ -34,7 +32,7 @@ module.exports = {
               month: Number(moment(dataDate).format("MM")),
               day: Number(moment(dataDate).format("DD")),
               dayOfYear: dayOfYear,
-              value: length
+              value: length,
             });
           }
 
@@ -60,12 +58,11 @@ module.exports = {
     return new Promise((resolve, reject) => {
       fs.readFile("./json/nasa-fireball-new.json", (err, data) => {
         if (data !== undefined) {
-          console.log("Fireball Data accessed");
           resolve(JSON.parse(data));
         } else {
           reject(err);
         }
       });
     });
-  }
+  },
 };

@@ -3,9 +3,10 @@ const app = express();
 const routes = require("./routes");
 const cors = require("cors");
 const api = require("./lib/api.js");
+const PORT = process.env.NODE_ENV === "production" ? 3000 : 3000;
 
 app.use(cors());
 
 app.use(routes(api));
 
-app.listen(3001, () => console.log("API Server listening on port 3001"));
+app.listen(PORT, () => console.log(`API Server listening on port ${PORT}`));

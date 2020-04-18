@@ -22,22 +22,6 @@ Radar and danger charts provide easy to digest information about individual NEOs
 
 ![Heat Map](https://github.com/typeF/AstrRisk/blob/master/docs/Heat%20Map%20SS.png?raw=true)
 
-### Dependencies
-
-- React
-- Redux
-- D3js
-- Moment
-- Moment-range
-- React-dom
-- React-icons
-- React-motion
-- Redux-thunk
-- Uuid
-- Webpack
-- [babel-loader](https://github.com/babel/babel-loader)
-- [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-
 # Production deployment setup
 
 - Clone repo to server

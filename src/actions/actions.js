@@ -2,7 +2,6 @@ import * as types from "./actionTypes";
 
 export const getNeoData = date => {
   return (dispatch, getState) => {
-    console.log("Attempting to retrieve data...");
     //Usage: year = '1990-02-14' for sample
     fetch(`/api/neo/${date}`)
       .then(res => res.json())
@@ -21,7 +20,6 @@ export const getNeoData = date => {
 
 export const getFireballData = () => {
   return (dispatch, getState) => {
-    // console.log('Attempting to retrieve fireball data...');
     fetch("/api/fireball")
       .then(res => res.json())
       .then(
